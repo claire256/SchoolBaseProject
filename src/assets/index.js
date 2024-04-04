@@ -38,6 +38,9 @@ import maths from "../assets/images/mathematics.png";
 import physics from "../assets/images/physics.png";
 import teachImg from "../assets/images/teachImg.png";
 import studentImg from '../assets/images/avatar-4.png'
+import colleaguesDiscussing from "../assets/images/colleaguesdiscussing.svg";
+import Arrowdown from "../assets/images/Arrowdown.svg";
+import imageicon from "../assets/images/imageicon.svg";
 
 export {
   schoolbaseLogo,
@@ -79,5 +82,8 @@ export {
   chemistry,
   geography,
   teachImg,
-  studentImg
+  studentImg,
+  colleaguesDiscussing,
+  Arrowdown,
+  imageicon
 };

@@ -1,7 +1,5 @@
+import { Arrowdown, colleaguesDiscussing, imageicon } from "../../../assets";
 import "../../../styles/studentsOnboarding/signup.css";
-// import colleaguesDiscussing from "../../../assets/images/colleaguesdiscussing.svg";
-// import Arrowdown from "../../../assets/images/Arrowdown.svg";
-// import imageicon from "../../../assets/images/imageicon.svg";
 import { Link } from "react-router-dom";
 
 const StudentsSignUp = () => {
@@ -9,7 +7,7 @@ const StudentsSignUp = () => {
     <div className="container">
       <div className="container-display">
         <div className="image">
-          {/* <img src={colleaguesDiscussing} className="colleague-image" /> */}
+          <img src={colleaguesDiscussing} className="colleague-image" />
         </div>
         <form className="form">
           <h1 className="h1">Create your account</h1>
@@ -52,7 +50,7 @@ const StudentsSignUp = () => {
               <label for="Date of Birth">Date of Birth</label>
               <br></br>
               <input id="Date of Birth" placeholder="Date of Birth" />
-              {/* <img src={Arrowdown} className="arrow" /> */}
+              <img src={Arrowdown} className="arrow" />
             </div>
           </div>
           <br></br>
@@ -61,13 +59,13 @@ const StudentsSignUp = () => {
               <label for="State">State</label>
               <br></br>
               <input id="State" placeholder="State" />
-              {/* <img src={Arrowdown} className="arrow" /> */}
+              <img src={Arrowdown} className="arrow" />
             </div>
             <div className="state">
               <label for="City">City</label>
               <br></br>
               <input id="City" placeholder="City" />
-              {/* <img src={Arrowdown} className="arrow" /> */}
+              <img src={Arrowdown} className="arrow" />
             </div>
           </div>
           <br></br>
@@ -87,7 +85,7 @@ const StudentsSignUp = () => {
             <p>Upload your recent passport photogragh, JPEG, PNG</p>
             <div className="state">
               <button className="file">select from file</button>
-              {/* <img src={imageicon} className="image-icon" /> */}
+              <img src={imageicon} className="image-icon" />
             </div>
           </div>
           <Link to={"/student/dashboard"}>          
