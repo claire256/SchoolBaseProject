@@ -1,106 +1,92 @@
-.container {
+.container{
     display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 840px;
     width: 100%;
 }
-
-.form {
-    width: 48%;
-    padding-left: 5%;
+.form{
+    width: 588px;
+    margin-left:2%;
     font-size: 14px;
 }
-
-.container-display {
+.container-display{
     display: flex;
-    width: 100%;
 }
-
-.form-display {
-    display: flex;
-    gap: 30px;
-    width: 100%;
+.form-display{
+  display: flex;
+  gap: 5%;
 }
-
-.container .form input {
-    width: 100% !important;
+.form input{
+    width: 280px !important;
     height: 38px !important;
     border-radius: 6px !important;
     border: solid 1px #DEE3F9 !important;
-    padding: 10px !important;
+    padding-left: 10px !important;
 }
-
-.container .form label {
+.form label{
     color: #4D4D4E;
     font-weight: 500;
 }
-
-.image {
+.image{
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #DEE3F9;
-    width: 48%;
+    height: 840px;
+    width: 709px;
 }
-
-.button {
+.button{
     background: #3D5EE1;
     width: 100%;
     height: 52px;
     border-radius: 16px;
     border: none;
     padding: 16px;
-    margin-top: 6%;
-    color: white;
+     margin-top: 6%; 
+     color: white;
 }
-
-.last-sec {
-    margin-top: 13%;
+.last-sec{
+    margin-top:13% ; 
     display: flex;
     gap: 5%;
     align-items: center;
     flex-wrap: wrap;
 }
-
-.login {
+.login{
     text-align: center;
     color: #4D4D4E;
     font-weight: 500;
 }
-
-.login .link {
+.login .link{
     text-decoration: underline;
-    font-size: 18px;
 }
-
-.h1 {
+.h1{
     display: block;
     font-size: 2em;
-    margin-top: 1.8em;
-    margin-bottom: 0.60em;
+     margin-top: 1.5em; 
+    margin-bottom: 0.60em; 
     margin-left: 0;
     margin-right: 0;
     font-weight: bold;
 }
-
 .arrow {
     position: absolute;
-    right: 2px;
+    right:2px;
     top: 26px;
 }
-
-.state {
+.state{
     position: relative;
 }
-
-.file {
-    width: 155px;
-    height: 32px;
+.file{
+    width:155px ;
+    height:32px ;
     border-radius: 8px;
     background: #DEE3F9;
     color: 12px;
     font-size: 12px;
 }
-
-.image-icon {
+.image-icon{
     width: 18px;
     color: gray;
     position: absolute;
@@ -108,32 +94,57 @@
     left: 10px;
 }
 
-@media (max-width: 1000px) {
-    .container body {
+@media (max-width: 800px) {
+   .image{
+     display: none;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+   .form input{
+       width: 200px !important;
+   }
+   .button{
+       width: 70%;
+   }
+   .last-sec{
+       width: 70%;
+   }
+   .form-display{
+       flex-wrap: wrap;
+   }
+}
+
+@media (max-width: 480px) {
+     body{
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 65%;
     }
-
-    .form{
+       .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 60%;
+         height: 1400px;
+     }
+    .arrow{
+        right: 9%;
     }
-
-    .button {
-        width: 70%;
+    .form{
+         padding-left: 30%; 
     }
-
-    .last-sec {
-        width: 70%;
+    .form input{
+        width: 350px !important;
     }
-
-    .form-display {
-        width: 100%;
+    .h1{
+        margin-top: -80%;
     }
-}
-
-@media (max-width: 420px) {
-    .image{
-        display: none;
+    .button{
+        width: 350px;
     }
 }
