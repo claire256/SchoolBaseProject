@@ -15,7 +15,7 @@ const GetStarted = () => {
         navigate("/get-started/applicantregistration");
         break;
       case "student":
-        navigate("/student/dashboard");
+        navigate("/get-started/student/signup");
         break;
       case "teacher":
         navigate("/get-started/teacher/signup");
@@ -35,7 +35,7 @@ const GetStarted = () => {
         </Link>
       </div>
       <div className="flex w-full h-full justify-center items-center gap-10">
-        <div className="bg-white w-[70%] mds:w-[50%] lgss:w-[40%] lgss:h-[60vh] h-[80vh] shadow-lg shadow-black/40 rounded-[16px] flex flex-col pt-8">
+        <div className="bg-white w-[70%] mds:w-[50%] lgss:w-[40%] h-[60vh] shadow-lg shadow-black/40 rounded-[16px] flex flex-col pt-8">
           <form
             onSubmit={(e) => e.preventDefault()}
             className="w-full h-full px-4 flex flex-col gap-4 items-center"

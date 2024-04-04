@@ -8,7 +8,6 @@ import Classes from './components/teachers-dashboard/Classes';
 import Attendance from './components/teachers-dashboard/Attendance';
 import Exams from './components/teachers-dashboard/Exams';
 import Settings from './components/teachers-dashboard/Settings';
-import Holder from './pages/web-site/landingpage/Holder';
 import QuizHistory from './components/teachers-dashboard/QuizHistory';
 import ApplicantReg from './pages/web-site/applicant/ApplicantReg';
 import ApplicantContact from './pages/web-site/applicant/ApplicantContact'; 
@@ -24,6 +23,7 @@ import SettingsPage from './pages/web-app/students-dashboard/Settings';
 import LandingPage from './pages/web-site/landingpage/LandingPage';
 import AssessmentPage from './pages/web-app/students-dashboard/AssessmentPage';
 import PayFees from './pages/web-app/students-dashboard/PayFees';
+import StudentsSignUp from './pages/web-site/studentsOnboarding/StudentsSignUpPage';
 
 function App() {
   return (
@@ -42,6 +42,7 @@ function App() {
         <Route path='/student/settings' element={<SettingsPage />} />
         <Route path='/get-started/teacher/signin' element={<SignInPage />} />
         <Route path='/get-started/teacher/signup' element={<SignUpPage />} />
+        <Route path='/get-started/student/signup' element={<StudentsSignUp />} />
         <Route path='/teacher/dashboard' element={<TeacherDashboard />} />
         <Route
           path='/teacher/dashboard/class-records'

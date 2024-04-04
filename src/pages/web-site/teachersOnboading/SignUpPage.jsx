@@ -132,7 +132,6 @@ const SignUpPage = () => {
               />
             </div>
           </div>
-        </div>
         <Link to={"/teacher/dashboard"}>
         <button className="signup-btn">Sign Up</button>
         </Link>
@@ -142,6 +141,7 @@ const SignUpPage = () => {
             <span>Login</span>
           </Link>
         </p>
+        </div>
       </form>
     </div>
   );
