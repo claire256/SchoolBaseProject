@@ -13,72 +13,73 @@ const StudentsSignUp = () => {
           <h1 className="h1">Create your account</h1>
           <div className="form-display">
             <div>
-              <label for="Surname">Surname</label>
+              <label for="Surname" className="label">Surname</label>
               <br></br>
-              <input id="Surname" placeholder="Surname" />
+              <input id="Surname" placeholder="Surname" className="input"/>
             </div>
             <div>
-              <label for="First Name">First Name</label>
+              <label for="First Name" className="label">First Name</label>
               <br></br>
-              <input id="First Name" placeholder="First Name" />
-            </div>
-          </div>
-          <br></br>
-          <div className="form-display">
-            <div>
-              <label for="Middle Name">Middle Name</label>
-              <br></br>
-              <input id="Middle Name" placeholder="Middle Name" />
-            </div>
-            <div>
-              <label for="Gender">Gender</label>
-              <br></br>
-              <input id="Gender" placeholder="Gender" />
+              <input id="First Name" placeholder="First Name" className="input"/>
             </div>
           </div>
           <br></br>
           <div className="form-display">
             <div>
-              <label for="Residential Address">Residential Address</label>
+              <label for="Middle Name" className="label">Middle Name</label>
+              <br></br>
+              <input id="Middle Name" placeholder="Middle Name" className="input"/>
+            </div>
+            <div>
+              <label for="Gender" className="label">Gender</label>
+              <br></br>
+              <input id="Gender" placeholder="Gender" className="input" />
+            </div>
+          </div>
+          <br></br>
+          <div className="form-display">
+            <div>
+              <label for="Residential Address" className="label">Residential Address</label>
               <br></br>
               <input
                 id="Residential Address"
                 placeholder="Residential Address"
+                className="input"
               />
             </div>
             <div className="state">
-              <label for="Date of Birth">Date of Birth</label>
+              <label for="Date of Birth" className="label">Date of Birth</label>
               <br></br>
-              <input id="Date of Birth" placeholder="Date of Birth" />
+              <input id="Date of Birth" placeholder="Date of Birth" className="input" />
               <img src={Arrowdown} className="arrow" />
             </div>
           </div>
           <br></br>
           <div className="form-display">
             <div className="state">
-              <label for="State">State</label>
+              <label for="State" className="label">State</label>
               <br></br>
-              <input id="State" placeholder="State" />
+              <input id="State" placeholder="State"  className="input"/>
               <img src={Arrowdown} className="arrow" />
             </div>
             <div className="state">
-              <label for="City">City</label>
+              <label for="City" className="label">City</label>
               <br></br>
-              <input id="City" placeholder="City" />
+              <input id="City" placeholder="City" className="input"/>
               <img src={Arrowdown} className="arrow" />
             </div>
           </div>
           <br></br>
           <div className="form-display">
             <div>
-              <label for="Password">Password</label>
+              <label for="Password" className="label">Password</label>
               <br></br>
-              <input id="Password" placeholder="Password" />
+              <input id="Password" placeholder="Password" className="input" />
             </div>
             <div>
-              <label for="Comfirm Password">Comfirm Password</label>
+              <label for="Comfirm Password" className="label">Comfirm Password</label>
               <br></br>
-              <input id="Comfirm Password" placeholder="Comfirm Password" />
+              <input id="Comfirm Password" placeholder="Comfirm Password" className="input" />
             </div>
           </div>
           <div className="last-sec">
