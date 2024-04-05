@@ -41,6 +41,7 @@ import studentImg from '../assets/images/avatar-4.png'
 import colleaguesDiscussing from "../assets/images/colleaguesdiscussing.svg";
 import Arrowdown from "../assets/images/Arrowdown.svg";
 import imageicon from "../assets/images/imageicon.svg";
+import Manlearning from '../assets/images/Manlearning.svg';
 
 export {
   schoolbaseLogo,
@@ -85,5 +86,6 @@ export {
   studentImg,
   colleaguesDiscussing,
   Arrowdown,
-  imageicon
+  imageicon,
+  Manlearning
 };
