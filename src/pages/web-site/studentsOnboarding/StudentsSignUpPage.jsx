@@ -93,7 +93,7 @@ const StudentsSignUp = () => {
           </Link>
           <p className="login">
             Already have an account?{" "}
-            <Link to="/" className="link">
+            <Link to={"/get-started/student/signin"}  className="link">
               Login
             </Link>
           </p>
