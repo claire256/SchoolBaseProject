@@ -24,6 +24,7 @@ import LandingPage from './pages/web-site/landingpage/LandingPage';
 import AssessmentPage from './pages/web-app/students-dashboard/AssessmentPage';
 import PayFees from './pages/web-app/students-dashboard/PayFees';
 import StudentsSignUp from './pages/web-site/studentsOnboarding/StudentsSignUpPage';
+import StudentsSignin from './pages/web-site/studentsOnboarding/StudentsSigninPage';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path='/get-started/teacher/signin' element={<SignInPage />} />
         <Route path='/get-started/teacher/signup' element={<SignUpPage />} />
         <Route path='/get-started/student/signup' element={<StudentsSignUp />} />
+        <Route path='/get-started/student/signin' element={<StudentsSignin/>} />
         <Route path='/teacher/dashboard' element={<TeacherDashboard />} />
         <Route
           path='/teacher/dashboard/class-records'

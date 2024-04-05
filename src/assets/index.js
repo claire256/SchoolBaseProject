@@ -41,6 +41,15 @@ import studentImg from '../assets/images/avatar-4.png'
 import colleaguesDiscussing from "../assets/images/colleaguesdiscussing.svg";
 import Arrowdown from "../assets/images/Arrowdown.svg";
 import imageicon from "../assets/images/imageicon.svg";
+import Manlearning from '../assets/images/Manlearning.svg';
+import loginImg from "../assets/images/loginImg.png";
+import Eventpix from "../assets/images/Eventpix.png";
+import Notification from "../assets/images/Notification.png";
+import bell from "../assets/images/bell.png";
+import calender from "../assets/images/calender.png";
+import mobile from "../assets/images/mobile.png";
+import search from "../assets/images/Search.png";
+
 
 export {
   schoolbaseLogo,
@@ -85,5 +94,13 @@ export {
   studentImg,
   colleaguesDiscussing,
   Arrowdown,
-  imageicon
+  imageicon,
+  Manlearning,
+  loginImg,
+  Eventpix,
+  Notification,
+  bell,
+  calender,
+  mobile,
+  search,
 };
