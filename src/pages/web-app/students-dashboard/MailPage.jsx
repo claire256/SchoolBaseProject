@@ -27,7 +27,9 @@ const MailPage = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-row justify-start items-center px-8 gap-8 w-full text-[22px] text-[#8F8F8F] font-medium  pt-10 "></div>
+          <div className="flex flex-row justify-start items-center px-8 gap-8 w-full text-[22px] text-[#8F8F8F] font-medium  pt-10 ">
+            
+          </div>
         </div>
       </div>
     </div>

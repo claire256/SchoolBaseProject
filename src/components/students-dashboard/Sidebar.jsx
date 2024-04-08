@@ -34,7 +34,7 @@ const Sidebar = ({ isOpen }) => {
   }, [location.pathname]);
   return (
     <>
-      <div className="border w-[20%] hidden lgss:flex flex-col gap-4 items-center pt-10 pb-10 justify-between font-bold text-[#7D7676] h-screen text-sm sidebar">
+      <div className="border w-[20%] hidden lgss:flex flex-col items-center pt-12 pb-10 justify-between font-bold overflow-y-hidden text-[#7D7676] text-sm sidebar">
         <div className="w-full h-[60px] text-[26px] flex flex-col gap-4 font-extrabold">
           <img src={schoolbaseLogo} alt="" className="w-full h-full bg-cover" />
           <h1 className="text-center">
