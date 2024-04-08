@@ -9,7 +9,7 @@ const SignInPage = () => {
     setIsPasswordVisible((prevState) => !prevState);
   }
   return (
-    <div className="flex bg-gray-100">
+    <div className="flex h-screen bg-gray-100">
       <div className="bg-signUpBg h-screen hidden lgss:flex lgss:w-1/2 flex-col justify-start items-start">
         <Link to={"/"} className="px-5 py-3">
           <h1 className="text-3xl sm:text-4xl font-semibold text-primary font-itim">
