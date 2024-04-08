@@ -11,14 +11,14 @@ const SignUpPage = () => {
     setIsPasswordVisible((prevState) => !prevState);
   }
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex bg-gray-100">
       <div className="bg-signUpBg lgss:w-1/2 flex flex-col justify-start items-start relative h-full">
         <Link to={"/"} className="px-5 py-3">
           <h1 className="text-3xl sm:text-4xl font-semibold text-primary font-itim">
             SchoolBase
           </h1>
         </Link>
-        <div className="flex justify-center items-center flex-grow px-8 h-full">
+        <div className="flex justify-center items-center flex-grow px-8 h-screen">
           <img
             src={signupImg}
             alt="SignUp"
