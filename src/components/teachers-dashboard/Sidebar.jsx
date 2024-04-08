@@ -33,7 +33,7 @@ const Sidebar = ({ isOpen }) => {
 
   return (
     <>
-      <div className="border w-[20%] hidden lgss:flex flex-col items-center pt-12 pb-10 h-screen justify-between font-bold overflow-y-hidden text-[#7D7676] text-sm sidebar">
+      <div className="border w-[20%] hidden lgss:flex flex-col items-center pt-12 pb-10 justify-between font-bold overflow-y-hidden text-[#7D7676] text-sm sidebar">
         <div className="w-full h-[70px] text-[26px] font-extrabold">
           <img src={schoolbaseLogo} alt="" className="w-full h-full bg-cover" />
           <h1 className="text-center pt-2">
