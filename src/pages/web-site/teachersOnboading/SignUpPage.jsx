@@ -34,8 +34,8 @@ const SignUpPage = () => {
           </h1>
         </div>
         <div className="flex flex-col w-full space-y-2">
-          <div className="flex flex-row w-[90%] space-x-8">
-            <div className="flex flex-col w-1/2">
+          <div className="flex flex-col lgss:flex-row w-[90%] lgss:space-x-8">
+            <div className="flex flex-col lgss:w-1/2">
               <label htmlFor="surname" className="text-md font-semibold">
                 Surname
               </label>
@@ -47,7 +47,7 @@ const SignUpPage = () => {
                 className="py-1 shadow-lg shadow-gray-400/70 text-sm outline-none px-2"
               />
             </div>
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col lgss:w-1/2">
               <label htmlFor="surname" className="text-md font-semibold">
                 First Name
               </label>
@@ -60,8 +60,8 @@ const SignUpPage = () => {
               />
             </div>
           </div>
-          <div className="flex flex-row w-[90%] space-x-8">
-            <div className="flex flex-col w-1/2">
+          <div className="flex flex-col lgss:flex-row w-[90%] lgss:space-x-8">
+            <div className="flex flex-col lgss:w-1/2">
               <label htmlFor="middle name" className="text-md font-semibold">
                 Middle Name
               </label>
@@ -73,7 +73,7 @@ const SignUpPage = () => {
                 className="py-1 text-sm shadow-lg shadow-gray-400/70 outline-none px-2"
               />
             </div>
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col lgss:w-1/2">
               <label htmlFor="gender" className="text-md font-semibold">
                 Gender
               </label>
@@ -96,8 +96,8 @@ const SignUpPage = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-row w-[90%] space-x-8">
-            <div className="flex flex-col w-1/2">
+          <div className="flex flex-col lgss:flex-row w-[90%] lgss:space-x-8">
+            <div className="flex flex-col lgss:w-1/2">
               <label
                 htmlFor="residential address"
                 className="text-md font-semibold"
@@ -112,7 +112,7 @@ const SignUpPage = () => {
                 className="py-1 text-sm shadow-lg shadow-gray-400/70 outline-none px-2"
               />
             </div>
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col lgss:w-1/2">
               <label htmlFor="Email Address" className="text-md font-semibold">
                 Email Address
               </label>
@@ -125,8 +125,8 @@ const SignUpPage = () => {
               />
             </div>
           </div>
-          <div className="flex flex-row w-[90%] space-x-8">
-            <div className="flex flex-col w-1/2">
+          <div className="flex flex-col lgss:flex-row w-[90%] lgss:space-x-8">
+            <div className="flex flex-col lgss:w-1/2">
               <label
                 htmlFor="residential address"
                 className="text-md font-semibold"
@@ -156,7 +156,7 @@ const SignUpPage = () => {
                 )}
               </div>
             </div>
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col lgss:w-1/2">
               <label
                 htmlFor="residential address"
                 className="text-md font-semibold"
@@ -192,7 +192,7 @@ const SignUpPage = () => {
           <label htmlFor="Class Taught" className="text-md font-semibold">
             Class Taught
           </label>
-          <div className="border-2 rounded-[16px] w-[90%] shadow-sm p-2 flex flex-wrap space-x-5">
+          <div className="border-2 rounded-[16px] w-[90%] shadow-sm p-2 flex flex-wrap lgss:space-x-5">
             <div className="space-y-3">
               <button className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[14px] gap-3 font-semibold py-1">
                 <p className="text-[14px]">JSS 1</p>
