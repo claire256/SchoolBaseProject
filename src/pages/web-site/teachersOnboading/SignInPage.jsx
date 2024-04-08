@@ -35,7 +35,7 @@ const SignInPage = () => {
           <div className="flex flex-col w-full space-y-3">
             <div className="flex flex-col w-full space-y-4">
               <div className="flex flex-col">
-                <label htmlFor="email" className="text-[18px] font-semibold">
+                <label htmlFor="email" className="text-md font-semibold">
                   Email
                 </label>
                 <input
@@ -43,17 +43,17 @@ const SignInPage = () => {
                   name="email"
                   id="email"
                   placeholder="Email"
-                  className="py-2 shadow-lg shadow-gray-400/70 outline-none px-2"
+                  className="py-2 shadow-lg text-sm shadow-gray-400/70 outline-none px-2"
                 />
               </div>
               <div className="flex flex-col">
                 <label
                   htmlFor="residential address"
-                  className="text-[18px] font-semibold"
+                  className="text-md font-semibold"
                 >
                   Password
                 </label>
-                <div className="  bg-white flex outline-none text-[16px] w-full justify-between items-center py-2 shadow-lg shadow-gray-400/70 px-2">
+                <div className="  bg-white flex outline-none text-sm w-full justify-between items-center py-2 shadow-lg shadow-gray-400/70 px-2">
                   <input
                     type={isPasswordVisible ? "text" : "password"}
                     placeholder="Password"
@@ -79,12 +79,12 @@ const SignInPage = () => {
             </div>
           </div>
           <div className="flex flex-col justify-center w-full">
-            <Link className="w-[90%]" to={"/teacher/dashboard"}>
-              <button className="bg-primary w-full py-3 mt-8 text-white font-semibold text-[18px] rounded-[16px]">
+            <Link className="" to={"/teacher/dashboard"}>
+              <button className="bg-primary w-full py-3 mt-8 text-white font-semibold text-md rounded-[4px]">
                 Log In
               </button>
             </Link>
-            <p className="text-center w-full font-semibold mt-3">
+            <p className="text-center w-full text-sm font-semibold mt-3">
               Not registered yet?
               <Link
                 to={"/get-started/teacher/signup"}
