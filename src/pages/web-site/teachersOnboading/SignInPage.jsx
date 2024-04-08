@@ -10,18 +10,18 @@ const SignInPage = () => {
   }
   return (
     <div className="flex bg-gray-100">
-      <div className="bg-signUpBg lgss:w-1/2 flex flex-col justify-start items-start relative h-full">
+      <div className="bg-signUpBg lgss:w-1/2 flex flex-col justify-start items-start relative h-screen">
         <Link to={"/"} className="px-5 py-3">
           <h1 className="text-3xl sm:text-4xl font-semibold text-primary font-itim">
             SchoolBase
           </h1>
         </Link>
-        <div className="flex justify-center flex-grow px-8 h-full">
+        <div className="flex justify-center h-full">
           <img
             src={loginImg}
             alt="Login"
-            className="max-w-[70%]"
-            style={{ objectFit: "" }}
+            className="max-w-[65%]"
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>
