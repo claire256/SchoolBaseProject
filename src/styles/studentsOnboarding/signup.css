@@ -99,11 +99,6 @@
    .image{
      display: none;
 }
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
    .form .input{
        width: 200px !important;
@@ -120,12 +115,7 @@ body{
 }
 
 @media (max-width: 480px) {
-     body{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 65%;
-    }
+
        .container{
         display: flex;
         justify-content: center;
