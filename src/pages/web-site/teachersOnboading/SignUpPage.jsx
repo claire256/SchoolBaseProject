@@ -5,7 +5,6 @@ import { FormControl, MenuItem, Select } from "@mui/material";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { CiImageOn } from "react-icons/ci";
 
-
 const SignUpPage = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   function togglePasswordVisibility() {
@@ -13,14 +12,19 @@ const SignUpPage = () => {
   }
   return (
     <div className="flex bg-gray-100">
-      <div className="bg-signUpBg h-screen hidden lgss:flex lgss:w-1/2 flex-col justify-start items-start">
-        <Link to={"/"} className="px-10 pt-4">
-          <h1 className="text-4xl font-semibold text-primary font-itim">
+      <div className="bg-signUpBg lgss:w-1/2 flex flex-col justify-start items-start relative">
+        <Link to={"/"} className="px-5 py-3">
+          <h1 className="text-3xl sm:text-4xl font-semibold text-primary font-itim">
             SchoolBase
           </h1>
         </Link>
-        <div className=" flex justify-center items-center h-full px-8">
-          <img src={signupImg} alt="SignUp" className="w-3/4" />
+        <div className="flex justify-center items-center flex-grow px-8">
+          <img
+            src={signupImg}
+            alt="SignUp"
+            className="w-full h-3/5"
+            style={{ objectFit: "cover" }}
+          />
         </div>
       </div>
       <form className="w-full lgss:w-1/2 flex flex-col justify-center items-start px-8">
@@ -255,6 +259,7 @@ const SignUpPage = () => {
           </Link>
         </p>
       </form>
+      ;
     </div>
   );
 };
