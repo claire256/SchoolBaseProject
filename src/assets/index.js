@@ -59,6 +59,9 @@ import colleaguesDiscussing from "../assets/images/colleaguesdiscussing.svg";
 import Arrowdown from "../assets/images/Arrowdown.svg";
 import imageicon from "../assets/images/imageicon.svg";
 import Manlearning from "../assets/images/Manlearning.svg";
+import rightArrow from "../assets/images/rightArrow.png";
+import ArrowRight from "../assets/images/ArrowRight.png";
+import plus from "../assets/images/plus.png";
 
 export {
   schoolbaseLogo,
@@ -122,4 +125,7 @@ export {
   Arrowdown,
   imageicon,
   Manlearning,
+  ArrowRight,
+  rightArrow,
+  plus,
 };
