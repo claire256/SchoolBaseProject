@@ -22,7 +22,7 @@ const StudentsSignin = () => {
           <input type="checkbox" className="check"/>
           <label>Remember me</label>
          </div>
-        <Link>Forgot Password?</Link>
+        <Link to={"/forgot-password"}>Forgot Password?</Link>
       </div>
       <button className="butn" >Sign In</button>
       <p className="signup">

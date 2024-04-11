@@ -27,6 +27,12 @@ import StudentsSignUp from './pages/web-site/studentsOnboarding/StudentsSignUpPa
 import StudentsSignin from './pages/web-site/studentsOnboarding/StudentsSigninPage';
 import Timetable from './pages/web-app/students-dashboard/Calender';
 import TimetableTeacher from './pages/web-app/teachers-dashboard/Calender';
+import ResetPassword from './pages/web-site/applicant/ResetPassword';
+import ResetPasswordVerification from './pages/web-site/applicant/ResetPasswordVerification';
+import PasswordResetSuccessful from './pages/web-site/applicant/PasswordResetSuccessful';
+import CreatePassword from './pages/web-site/applicant/CreatePassword';
+import EmailVerification from './pages/web-site/EmailVerification';
+import ConfirmEmail from './pages/web-site/ConfirmEmail';
 
 function App() {
   return (
@@ -34,6 +40,10 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/get-started" element={<GetStarted />} />
+        <Route path="/forgot-password" element={<ResetPassword />} />
+        <Route path="/reset-password-email" element={<ResetPasswordVerification />} />
+        <Route path="/new-password" element={<CreatePassword />} />
+        <Route path="/reset-password-success" element={<PasswordResetSuccessful />} />
 
         <Route path="/student/dashboard" element={<HomePage />} />
         <Route path="/student/calender" element={<Timetable />} />
@@ -54,8 +64,10 @@ function App() {
           path="/get-started/student/signin"
           element={<StudentsSignin />}
         />
-        <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
 
+        <Route path="/teacher/verify-email" element={<EmailVerification />} />
+        <Route path="/teacher/confirm-email" element={<ConfirmEmail />} />
+        <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
         <Route path="/teacher/calender" element={<TimetableTeacher />} />
         <Route
           path="/teacher/dashboard/class-records"
