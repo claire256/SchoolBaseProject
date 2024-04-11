@@ -103,7 +103,7 @@ const TeacherDashboard = () => {
                   className="flex flex-col md:flex-row gap-2 md:w-[unset] m-auto md:m-[unset] items-center"
                   style={{ fontFamily: "" }}
                 >
-                  <Link to="/calender">
+                  <Link to="/teacher/calender">
                     <div className="love flex flex-col justify-center items-center md:w-[184px] h-[300px] md:h-[184px] gap-2 w-[295px] m-auto">
                       <img src={calender} alt="" />
                       <p>Timetable</p>
