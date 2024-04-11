@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, rightArrow, search } from "../../../assets";
-import Sidebar from "../../../components/students-dashboard/Sidebar";
+import Sidebar from "../../../components/teachers-dashboard/Sidebar";
 import DateSwitcher from "../../../components/teachers-dashboard/DateSwitcher";
 import App from "../students-dashboard/Addsubject";
 // import { message } from "antd";
