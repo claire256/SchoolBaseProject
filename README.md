@@ -13,6 +13,7 @@
 ## CONTRIBUTORS
 Kindly add your name and github link.
 Oreoluwa [https://github.com/oreoluwa212]
+Cynthia Amaji [https://github.com/CyntTech]
 
 
 **Note**: README would be update periodically during the entire project life cycle.
