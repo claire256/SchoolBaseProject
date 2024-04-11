@@ -26,6 +26,7 @@ import PayFees from './pages/web-app/students-dashboard/PayFees';
 import StudentsSignUp from './pages/web-site/studentsOnboarding/StudentsSignUpPage';
 import StudentsSignin from './pages/web-site/studentsOnboarding/StudentsSigninPage';
 import Timetable from './pages/web-app/students-dashboard/Calender';
+import TimetableTeacher from './pages/web-app/teachers-dashboard/Calender';
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
         <Route path="/get-started" element={<GetStarted />} />
 
         <Route path="/student/dashboard" element={<HomePage />} />
-        <Route path="/calender" element={<Timetable />} />
+        <Route path="/student/calender" element={<Timetable />} />
         <Route path="/student/student-life" element={<StudentsPage />} />
         <Route path="/student/classes" element={<ClassesPage />} />
         <Route path="/student/payments" element={<PaymentsPage />} />
@@ -54,6 +55,8 @@ function App() {
           element={<StudentsSignin />}
         />
         <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
+
+        <Route path="/teacher/calender" element={<TimetableTeacher />} />
         <Route
           path="/teacher/dashboard/class-records"
           element={<ClassRecords />}
