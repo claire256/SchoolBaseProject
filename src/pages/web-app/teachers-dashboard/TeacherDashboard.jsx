@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import Sidebar from '../../../components/teachers-dashboard/Sidebar';
+import React, { useState } from "react";
+import Sidebar from "../../../components/teachers-dashboard/Sidebar";
 import "../../../styles/studentdashboard/HomePage.css";
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes } from "react-icons/fa";
 import {
   Eventpix,
   bell,
@@ -10,8 +10,8 @@ import {
   quizImg,
   teacherdashboardImg,
 } from "../../../assets";
-import Header from '../../../components/teachers-dashboard/Header';
-import { Link, useLocation } from 'react-router-dom';
+import Header from "../../../components/teachers-dashboard/Header";
+import { Link, useLocation } from "react-router-dom";
 
 const TeacherDashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,20 +64,18 @@ const TeacherDashboard = () => {
       <Sidebar isOpen={isOpen} />
       <div className="lgss:w-4/5 w-full lgss:overflow-auto h-full">
         <div className="flex flex-col justify-end w-full">
-          <div className="lgss:hidden pt-5 px-[5%] w-full">
-            <div className="flex w-full justify-end">
-              {isOpen ? (
-                <FaTimes
-                  onClick={() => setIsOpen(false)}
-                  className=" cursor-pointer text-secondary text-xl"
-                />
-              ) : (
-                <FaBars
-                  onClick={() => setIsOpen(true)}
-                  className=" cursor-pointer text-secondary text-xl"
-                />
-              )}
-            </div>
+          <div className="lgss:hidden pt-5 px-[5%]">
+            {isOpen ? (
+              <FaTimes
+                onClick={() => setIsOpen(false)}
+                className=" cursor-pointer text-secondary text-xl"
+              />
+            ) : (
+              <FaBars
+                onClick={() => setIsOpen(true)}
+                className=" cursor-pointer text-secondary text-xl"
+              />
+            )}
           </div>
           <Header />
           <div className="flex flex-col justify-start gap-6 text-neutral pt-10 pb-5 px-[5%]">

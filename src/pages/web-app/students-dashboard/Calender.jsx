@@ -43,8 +43,8 @@ class Timetable extends React.Component {
         <div className="lgss:w-4/5 w-full lgss:overflow-auto">
           <div className="lgss:w-full lgss:h-full lgss:flex-1 lgss:overflow flex flex-col pt-5">
             <div className="flex items-center justify-between w-[80%] m-auto gap-2">
-              <div className="w-[40%] flex ">
-                <div className="w-full flex justify-center items-center">
+              <div className=" flex w-[50%]">
+                <div className="w-full flex">
                   <DateSwitcher />
                 </div>
               </div>

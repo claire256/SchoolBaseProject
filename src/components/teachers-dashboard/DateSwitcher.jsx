@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   MdKeyboardArrowLeft,
   MdKeyboardArrowRight,
   MdOutlineCalendarMonth,
-} from 'react-icons/md';
-import months from '../../utils/date';
+} from "react-icons/md";
+import months from "../../utils/date";
 
 const DateSwitcher = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -27,17 +27,17 @@ const DateSwitcher = () => {
   const month = Object.keys(months)[monthIndex];
 
   return (
-    <div className='w-full flex justify-between items-center text-lg text-black gap-3'>
+    <div className="w-full flex justify-between items-center text-lg text-black">
       <MdKeyboardArrowLeft
         size={20}
-        className='cursor-pointer text-black/60'
+        className="cursor-pointer text-black/60"
         onClick={handlePrevDate}
       />
-      <MdOutlineCalendarMonth size={20} className='text-black' />
-      <p className='font-bold text-black'>{`Today ${date} ${month} ${year}`}</p>
+      <MdOutlineCalendarMonth size={20} className="text-black" />
+      <p className="font-bold text-black">{`Today ${date} ${month} ${year}`}</p>
       <MdKeyboardArrowRight
         size={20}
-        className='cursor-pointer text-black/60'
+        className="cursor-pointer text-black/60"
         onClick={handleNextDate}
       />
     </div>

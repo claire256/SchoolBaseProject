@@ -42,13 +42,13 @@ class TimetableTeacher extends React.Component {
         <Sidebar />
         <div className="lgss:w-4/5 w-full lgss:overflow-auto">
           <div className="lgss:w-full lgss:h-full lgss:flex-1 lgss:overflow flex flex-col pt-5">
-            <div className="flex items-center justify-between w-[80%] m-auto gap-2">
-              <div className="w-[40%] flex ">
+            <div className="flex flex-col lgss:flex-row lgss:items-center justify-between w-[80%] m-auto gap-2">
+              <div className="lgss:w-[40%] flex ">
                 <div className="w-full flex justify-center items-center">
                   <DateSwitcher />
                 </div>
               </div>
-              <div className="flex items-center gap-3 w-[20%]">
+              <div className="flex items-center gap-3 lgss:w-[20%]">
                 <p className="font-medium text-[16px] py-[6px] px-[12px] border-[1px] border-gray-400 flex justify-center items-center rounded-lg h-[4%]">
                   Today
                 </p>
@@ -65,7 +65,7 @@ class TimetableTeacher extends React.Component {
                   />
                 </div>
               </div>
-              <div className="flex items-center border-[1px] border-gray-400 rounded-2xl w-[40%]">
+              <div className="flex items-center border-[1px] border-gray-400 rounded-2xl lgss:w-[40%]">
                 <button className="flex items-center p-1 border-none">
                   <img src={search} alt="" />
                 </button>
