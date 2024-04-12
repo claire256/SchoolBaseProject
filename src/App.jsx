@@ -5,7 +5,6 @@ import GetStarted from './pages/web-site/GetStarted';
 import TeacherDashboard from './pages/web-app/teachers-dashboard/TeacherDashboard';
 import ClassRecords from './components/teachers-dashboard/ClassRecords';
 import Classes from './components/teachers-dashboard/Classes';
-import Attendance from './components/teachers-dashboard/Attendance';
 import Exams from './components/teachers-dashboard/Exams';
 import Settings from './components/teachers-dashboard/Settings';
 import QuizHistory from './components/teachers-dashboard/QuizHistory';
@@ -25,6 +24,8 @@ import AssessmentPage from './pages/web-app/students-dashboard/AssessmentPage';
 import PayFees from './pages/web-app/students-dashboard/PayFees';
 import StudentsSignUp from './pages/web-site/studentsOnboarding/StudentsSignUpPage';
 import StudentsSignin from './pages/web-site/studentsOnboarding/StudentsSigninPage';
+import ClassRegister from './components/teachers-dashboard/Attendance/ClassRegister';
+import ClassList from './components/teachers-dashboard/Attendance/ClassList';
 
 function App() {
   return (
@@ -51,7 +52,8 @@ function App() {
           element={<ClassRecords />}
         />
         <Route path='/teacher/dashboard/classes' element={<Classes />} />
-        <Route path='/teacher/dashboard/attendance' element={<Attendance />} />
+        <Route path='/teacher/dashboard/attendance' element={<ClassRegister />} />
+        <Route path='/teacher/dashboard/attendance/classlist' element={<ClassList />} />        
         <Route path='/teacher/dashboard/exams' element={<Exams />} />
         <Route path='/teacher/dashboard/settings' element={<Settings />} />
         <Route

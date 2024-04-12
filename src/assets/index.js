@@ -49,6 +49,10 @@ import bell from "../assets/images/bell.png";
 import calender from "../assets/images/calender.png";
 import mobile from "../assets/images/mobile.png";
 import search from "../assets/images/Search.png";
+import vector from "../assets/images/TeacherAttendance/Vector.svg";
+import man from "../assets/images/TeacherAttendance/man.svg";
+import chevleft from "../assets/images/TeacherAttendance/chevleft.svg";
+// import pyramid from "../assets/images/TeacherAttendance/pyramid.svg";
 
 
 export {
@@ -103,4 +107,7 @@ export {
   calender,
   mobile,
   search,
+  vector,
+  man,
+  chevleft,
 };
