@@ -60,6 +60,11 @@ import Arrowdown from "../assets/images/Arrowdown.svg";
 import imageicon from "../assets/images/imageicon.svg";
 import Manlearning from "../assets/images/Manlearning.svg";
 import vectorImage from "../assets/images/vectorImage.svg";
+import rightArrow from "../assets/images/rightArrow.png";
+import ArrowRight from "../assets/images/ArrowRight.png";
+import plus from "../assets/images/plus.png";
+import quizImg from "../assets/images/quizImg.png";
+import teacherdashboardImg from "../assets/images/Teacher and student.png";
 
 export {
   schoolbaseLogo,
@@ -124,4 +129,9 @@ export {
   imageicon,
   Manlearning,
   vectorImage,
+  ArrowRight,
+  rightArrow,
+  plus,
+  quizImg,
+  teacherdashboardImg,
 };
