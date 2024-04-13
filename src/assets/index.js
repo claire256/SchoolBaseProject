@@ -3,6 +3,7 @@ import signupImg from "../assets/images/signupImg.png";
 import Man from "../assets/images/M.png";
 import smilingboy from "../assets/images/smilingboy.png";
 import smilingGirl from "../assets/images/smilingGirl.png";
+import smallGirl from "../assets/images/smallGirl.png";
 import Ellipse from "../assets/images/Ellipse.png";
 import email from "../assets/images/email.png";
 import cycle from "../assets/images/cycle.png";
@@ -65,6 +66,13 @@ import ArrowRight from "../assets/images/ArrowRight.png";
 import plus from "../assets/images/plus.png";
 import quizImg from "../assets/images/quizImg.png";
 import teacherdashboardImg from "../assets/images/Teacher and student.png";
+import rightArrowStroke from "../assets/images/Stroke.png";
+import facebkIcon from "../assets/images/facebk.png";
+import xhandleIcon from "../assets/images/xhandle.png";
+import linkedinIcon from "../assets/images/linkedin.png";
+import instagramIcon from "../assets/images/instagram.png";
+import utubeIcon from "../assets/images/youtube.png";
+
 
 export {
   schoolbaseLogo,
@@ -134,4 +142,11 @@ export {
   plus,
   quizImg,
   teacherdashboardImg,
+  rightArrowStroke,
+  smallGirl,
+  facebkIcon,
+  xhandleIcon,
+  linkedinIcon,
+  utubeIcon,
+  instagramIcon,
 };
