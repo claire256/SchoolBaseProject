@@ -59,6 +59,12 @@ import dotts from "../assets/images/dotts.png";
 import colleaguesDiscussing from "../assets/images/colleaguesdiscussing.svg";
 import Arrowdown from "../assets/images/Arrowdown.svg";
 import imageicon from "../assets/images/imageicon.svg";
+import Notification from "../assets/images/Notification.png";
+import calender from "../assets/images/calender.png";
+import vector from "../assets/images/TeacherAttendance/Vector.svg";
+import man from "../assets/images/TeacherAttendance/man.svg";
+import chevleft from "../assets/images/TeacherAttendance/chevleft.svg";
+// import pyramid from "../assets/images/TeacherAttendance/pyramid.svg";
 import Manlearning from "../assets/images/Manlearning.svg";
 import vectorImage from "../assets/images/vectorImage.svg";
 import rightArrow from "../assets/images/rightArrow.png";
@@ -136,6 +142,11 @@ export {
   Arrowdown,
   imageicon,
   Manlearning,
+  Notification,
+  bell,
+  vector,
+  man,
+  chevleft,
   vectorImage,
   ArrowRight,
   rightArrow,
