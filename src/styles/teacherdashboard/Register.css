@@ -1,0 +1,25 @@
+.section-display{
+    display: flex;
+    width: 1090px;
+    height: 60px;
+    border-radius: 10px;
+    border: solid 1px #DBDBDB;
+    /* justify-content: space-between; */
+    gap: 22%;
+    padding-left: 2%;
+    margin-left: 3%;
+    margin-top: 20px;
+}
+.display{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 480px) {
+    .section-display{
+        width: 380px;
+        gap: 8%;
+        font-size: 16px;
+    }
+}
