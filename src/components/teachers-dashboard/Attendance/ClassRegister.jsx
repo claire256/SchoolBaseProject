@@ -4,7 +4,7 @@ import Header from '../Header';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import Select from '../Select';
 import "../../../styles/teacherdashboard/ClassRegister.css";
-import Register from '../ Register'
+import Register from './ Register'
 import { Link } from 'react-router-dom';
 
 const ClassRegister = () => {

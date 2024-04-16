@@ -1,5 +1,5 @@
-import { man, vector } from "../../assets";
-import "../../styles/teacherdashboard/Register.css";
+import { man, vector } from "../../../assets";
+import "../../../styles/teacherdashboard/Register.css";
 
 const Register = ()=>{
     return(

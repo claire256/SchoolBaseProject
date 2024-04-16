@@ -4,7 +4,6 @@
     height: 60px;
     border-radius: 10px;
     border: solid 1px #DBDBDB;
-    /* justify-content: space-between; */
     gap: 22%;
     padding-left: 2%;
     margin-left: 3%;
@@ -18,8 +17,10 @@
 
 @media (max-width: 480px) {
     .section-display{
-        width: 380px;
+        width: 350px;
         gap: 8%;
         font-size: 16px;
+        padding-right: 2%;
+        font-size: 14px;
     }
 }

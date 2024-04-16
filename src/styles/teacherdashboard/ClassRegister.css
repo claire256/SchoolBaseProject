@@ -1,5 +1,5 @@
 .attendance-section{
-    margin-left: 6%;
+    margin-left: 4%;
 }
 .select-display{
     display: flex;
@@ -121,12 +121,14 @@
 
 @media (max-width: 480px) {
     .select-display{
-        width: 390px; 
+        width: 350px; 
         align-items: center;
         margin-top: 20px;
     }
     .attendance-container{
-        margin-left: 70px;
+        display: flex;
+    justify-content: center;
+    align-items: center;
 
     }
     .attendance-display{
@@ -137,11 +139,11 @@
         align-items: center;
     }
     .section-div{
-        width: 410px;
+        width: 370px;
         height: 700px;  
     }
     .title-display{
-        width: 390px;
+        width: 320px;
         font-size: 14px;
     }
     .attendance-header{
@@ -152,12 +154,20 @@
         margin-top: 2%;
     }
     .export-div{
-        width: 140px;
+        width: 120px;
+        font-size: 14px;
+        height: 35px;
     }
     .in{
        padding-left: 32%;
     }
     .attendance-section{
         margin-left: 10%;
+    }
+    .third-display{
+        width: 350px;
+    }
+    .register{
+        font-size: 1.1em;
     }
 }
