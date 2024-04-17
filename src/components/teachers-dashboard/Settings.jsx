@@ -3,6 +3,8 @@ import Sidebar from './Sidebar';
 import Header from './Header';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { nigerianWoman } from "../../assets";
+import { vectorImage } from "../../assets";
+import { Edit } from "../../assets";
 import Dashboard from './Dashboard';
 
 
@@ -48,7 +50,7 @@ const Settings = () => {
                 </div>
                 <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { setNamesEditable(true); }}>
                   Edit
-                  <img className='ml-2' src="edit.png" />
+                  <img className='ml-2' img src={Edit} alt="edit image" />
                 </div>
               </div>
 
@@ -58,7 +60,7 @@ const Settings = () => {
                   <label className="text-xs font-bold">First name</label>
                   <div className='flex flex-row items-center justify-start'>
                     <input type="text" className="mt-0.5 w-full border border-slate-500 text-sm p-1.5 rounded-lg" />
-                    <img className="ml-4 w-4 h-4 cursor-pointer" src="Vector.png" />
+                    <img className="ml-4 w-4 h-4 cursor-pointer" img src={vectorImage} alt="Vector Image" />
                   </div>
                 </div>
 
@@ -66,7 +68,7 @@ const Settings = () => {
                   <label className="text-xs font-bold">Last name</label>
                   <div className='flex flex-row items-center justify-start'>
                     <input type="text" className="mt-0.5 w-full border border-slate-500 text-sm p-1.5 rounded-lg" />
-                    <img className="ml-4 w-4 h-4 cursor-pointer" src="Vector.png" />
+                    <img className="ml-4 w-4 h-4 cursor-pointer" img src={vectorImage} alt="Vector Image" />
                   </div>
                 </div>
               </div>
@@ -83,7 +85,7 @@ const Settings = () => {
                 </div>
                 <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { setContactEditable(true); }}>
                   Edit
-                  <img className='ml-2' src="edit.png" />
+                  <img className='ml-2' img src={Edit} alt="edit image" />
                 </div>
               </div>
 
@@ -93,7 +95,7 @@ const Settings = () => {
                   <label className="text-xs font-bold">Email address</label>
                   <div className='flex flex-row items-center justify-start'>
                     <input type="email" className="mt-0.5 w-full border border-slate-500 text-sm p-1.5 rounded-lg" />
-                    <img className="ml-4 w-4 h-4 cursor-pointer" src="Vector.png" />
+                    <img className="ml-4 w-4 h-4 cursor-pointer" img src={vectorImage} alt="Vector Image" />
                   </div>
                 </div>
 
@@ -101,7 +103,7 @@ const Settings = () => {
                   <label className="text-xs font-bold">Phone</label>
                   <div className='flex flex-row items-center justify-start'>
                     <input type="phone" className="mt-0.5 w-full border border-slate-500 text-sm p-1.5 rounded-lg" />
-                    <img className="ml-4 w-4 h-4 cursor-pointer" src="Vector.png" />
+                    <img className="ml-4 w-4 h-4 cursor-pointer" img src={vectorImage} alt="Vector Image" />
                   </div>
                 </div>
               </div>
@@ -119,7 +121,7 @@ const Settings = () => {
                 </div>
                 <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { setAddressEditable(true); }}>
                   Edit
-                  <img className='ml-2' src="edit.png" />
+                  <img className='ml-2' img src={Edit} alt="edit image" />
                 </div>
               </div>
 
@@ -129,7 +131,7 @@ const Settings = () => {
                   <label className="text-xs font-bold">Country</label>
                   <div className='flex flex-row items-center justify-start'>
                     <input type="email" className="mt-0.5 w-full border border-slate-500 text-sm p-1.5 rounded-lg" />
-                    <img className="ml-4 w-4 h-4 cursor-pointer" src="Vector.png" />
+                    <img className="ml-4 w-4 h-4 cursor-pointer" img src={vectorImage} alt="Vector Image" />
                   </div>
                 </div>
 
@@ -137,7 +139,7 @@ const Settings = () => {
                   <label className="text-xs font-bold">City/State</label>
                   <div className='flex flex-row items-center justify-start'>
                     <input type="phone" className="mt-0.5 w-full border border-slate-500 text-sm p-1.5 rounded-lg" />
-                    <img className="ml-4 w-4 h-4 cursor-pointer" src="Vector.png" />
+                    <img className="ml-4 w-4 h-4 cursor-pointer" img src={vectorImage} alt="Vector Image" />
                   </div>
                 </div>
               </div>
@@ -150,7 +152,7 @@ const Settings = () => {
                 </textarea>
                 <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm ml-6" style={{ backgroundColor: '#007BFF' }}>
                   Edit
-                  <img className='ml-2' src="edit.png" />
+                  <img className='ml-2' img src={Edit} alt="edit image" />
                 </div>
               </div>
 
