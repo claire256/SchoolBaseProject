@@ -71,7 +71,7 @@
     margin-right: 0;
     font-weight: bold;
 }
-.arrow {
+.arrowdown {
     position: absolute;
     right:2px;
     top: 26px;
@@ -94,7 +94,6 @@
     bottom: 7px;
     left: 10px;
 }
-
 
 @media (max-width: 480px) {
     .image{

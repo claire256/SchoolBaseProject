@@ -51,7 +51,7 @@ const StudentsSignUp = () => {
               <label for="Date of Birth" className="label">Date of Birth</label>
               <br></br>
               <input id="Date of Birth" placeholder="Date of Birth" className="input" />
-              <img src={Arrowdown} className="arrow" />
+              <img src={Arrowdown} className="arrowdown" />
             </div>
           </div>
           <br></br>
@@ -60,13 +60,13 @@ const StudentsSignUp = () => {
               <label for="State" className="label">State</label>
               <br></br>
               <input id="State" placeholder="State"  className="input"/>
-              <img src={Arrowdown} className="arrow" />
+              <img src={Arrowdown} className="arrowdown" />
             </div>
             <div className="state">
               <label for="City" className="label">City</label>
               <br></br>
               <input id="City" placeholder="City" className="input"/>
-              <img src={Arrowdown} className="arrow" />
+              <img src={Arrowdown} className="arrowdown" />
             </div>
           </div>
           <br></br>

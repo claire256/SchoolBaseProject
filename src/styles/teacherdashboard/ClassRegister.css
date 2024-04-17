@@ -1,0 +1,173 @@
+.attendance-section{
+    margin-left: 4%;
+}
+.select-display{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1100px;
+}
+.attendance-btn{
+    background-color: #3A00E5;
+    color: white;
+    width: 195px;
+    height: 44px;
+    border-radius: 12px;
+}
+.attendance-header{
+    display: block;
+    font-size: 2em;
+    margin-bottom: 0.60em; 
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+.attendance-div{
+    width: 257px;
+    height: 80px;
+    border-radius: 10px;
+    border: solid 1px #DBDBDB;
+    box-shadow: 1px 5px 5px #DBDBDB
+}
+.attendance-div .paragraph{
+    padding-left: 20px;
+    padding-top: 15px;
+}
+.attendance-display{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    width: 1000px;
+}
+.section-div{
+    width: 1150px;
+    height: 520px;
+    border: solid 1px #DBDBDB;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 1px 5px 5px #DBDBDB
+
+}
+.second-display{
+    display: flex;
+    gap: 10%;
+    padding-top: 60px;
+}
+.third-display{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 3%;
+    margin-right: 1.5%;
+    padding-top: 2%;
+}
+.register{
+    display: block;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.export-div{
+        width: 170px;
+        height: 40px;
+        border-radius: 5px;
+        background-color:#20744A;
+        color: white;
+        position: relative;
+}
+.export{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 9px;
+}
+.all{
+ color: #3D70F5;
+ text-decoration: underline;
+}
+.present{
+  color: #707070;
+}
+.title-display{
+    display: flex;
+    width:924px ;
+    font-weight: 600;
+    padding-top: 5%;
+}
+.name{
+    padding-left: 18%;
+}
+.in{
+  padding-left: 30%;
+}
+.out{
+  padding-left: 25%;
+}
+.more{
+    text-decoration: underline;
+    position: absolute;
+    right: 0;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+.total{
+   color: #5FE33E;
+}
+.inside{
+   color: #5DD9D4;
+}
+.leave{
+   color: #FF05C8;
+}
+
+@media (max-width: 480px) {
+    .select-display{
+        width: 350px; 
+        align-items: center;
+        margin-top: 20px;
+    }
+    .attendance-container{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+
+    }
+    .attendance-display{
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .section-div{
+        width: 370px;
+        height: 700px;  
+    }
+    .title-display{
+        width: 320px;
+        font-size: 14px;
+    }
+    .attendance-header{
+        font-size: 1.5em;
+    }
+    .attendance-btn{
+        margin-left: 21%;
+        margin-top: 2%;
+    }
+    .export-div{
+        width: 120px;
+        font-size: 14px;
+        height: 35px;
+    }
+    .in{
+       padding-left: 32%;
+    }
+    .attendance-section{
+        margin-left: 10%;
+    }
+    .third-display{
+        width: 350px;
+    }
+    .register{
+        font-size: 1.1em;
+    }
+}
