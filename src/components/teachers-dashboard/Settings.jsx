@@ -4,11 +4,171 @@ import Header from './Header';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import Dashboard from './Dashboard';
 
+
 const Settings = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [namesEditable, setNamesEditable] = useState(false);
+  const [contactEditable, setContactEditable] = useState(false);
+  const [addressEditable, setAddressEditable] = useState(false);
+
+  const save = () => {
+    setNamesEditable(false); setContactEditable(false); setAddressEditable(false);
+  }
 
   return (
-    <div className="flex">
+    <div className="flex h-full overflow-y-hidden border-black border">
+      <Sidebar isOpen={isOpen} />
+
+      <div className="lgss:w-4/5 w-full h-[100%] lgss:overflow-auto overflow-y-scroll pb-10">
+        <Dashboard />
+        <div className="mt-6 w-full flex flex-row items-start justify-center">
+          <div className="w-[95%] mt-0 flex flex-col items-start justify-start">
+            <div className="flex flex-row items-center justify-start">
+              <img className="h-14 w-14 rounded-full" src="nigerianWoman.jpg" />
+              <div className="ml-2 flex flex-col justify-start items-start">
+                <div className="text-sm font-bold">Doose Atumeyi</div>
+                <div className="text-sm">General Teacher</div>
+                <div className="text-sm mt-1">Lagos, Nigeria</div>
+              </div>
+            </div>
+
+            <div>
+              <div className='mt-6 text-sm font-bold'>Personal Information</div>
+
+              {/* Names with Edit button */}
+              <div className="mt-4 w-[800px] flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE', display: namesEditable ? 'none' : 'flex' }}>
+                <div className="flex flex-col items-start justify-start w-[40%]">
+                  <div className='text-sm'>First name</div>
+                  <div className='text-sm font-bold'>Doose</div>
+                </div>
+                <div className="flex flex-col items-start justify-start w-[40%]">
+                  <div className='text-sm'>Last name</div>
+                  <div className='text-sm font-bold'>Atumeyi</div>
+                </div>
+                <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { setNamesEditable(true); }}>
+                  Edit
+                  <img className='ml-2' src="edit.png" />
+                </div>
+              </div>
+
+              {/* Names with Input */}
+              <div className="w-[800px] flex-col items-start justify-start" style={{ display: namesEditable ? 'flex' : 'none' }}>
+                <div className="w-[60%] mt-2">
+                  <label className="text-xs font-bold">First name</label>
+                  <div className='flex flex-row items-center justify-start'>
+                    <input type="text" className="mt-0.5 w-full border border-slate-500 text-sm p-1.5 rounded-lg" />
+                    <img className="ml-4 w-4 h-4 cursor-pointer" src="Vector.png" />
+                  </div>
+                </div>
+
+                <div className="w-[60%] mt-4 mb-4">
+                  <label className="text-xs font-bold">Last name</label>
+                  <div className='flex flex-row items-center justify-start'>
+                    <input type="text" className="mt-0.5 w-full border border-slate-500 text-sm p-1.5 rounded-lg" />
+                    <img className="ml-4 w-4 h-4 cursor-pointer" src="Vector.png" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact with Edit button */}
+              <div className="mt-4 w-[800px] flex flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE', display: contactEditable ? 'none' : 'flex' }}>
+                <div className="flex flex-col items-start justify-start w-[40%]">
+                  <div className='text-sm'>Email address</div>
+                  <div className='text-sm font-bold'>dooseatumeyi@gmail.com</div>
+                </div>
+                <div className="flex flex-col items-start justify-start w-[40%]">
+                  <div className='text-sm'>Phone</div>
+                  <div className='text-sm font-bold'>+234 8109675622</div>
+                </div>
+                <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { setContactEditable(true); }}>
+                  Edit
+                  <img className='ml-2' src="edit.png" />
+                </div>
+              </div>
+
+              {/**Contact with Input */}
+              <div className="w-[800px] flex flex-col items-start justify-start" style={{ display: contactEditable ? 'flex' : 'none' }}>
+                <div className="w-[60%] mt-2">
+                  <label className="text-xs font-bold">Email address</label>
+                  <div className='flex flex-row items-center justify-start'>
+                    <input type="email" className="mt-0.5 w-full border border-slate-500 text-sm p-1.5 rounded-lg" />
+                    <img className="ml-4 w-4 h-4 cursor-pointer" src="Vector.png" />
+                  </div>
+                </div>
+
+                <div className="w-[60%] mt-4 mb-4">
+                  <label className="text-xs font-bold">Phone</label>
+                  <div className='flex flex-row items-center justify-start'>
+                    <input type="phone" className="mt-0.5 w-full border border-slate-500 text-sm p-1.5 rounded-lg" />
+                    <img className="ml-4 w-4 h-4 cursor-pointer" src="Vector.png" />
+                  </div>
+                </div>
+              </div>
+
+              {/**Address with Edit button */}
+              <div className='mt-8 text-sm font-bold'>Address</div>
+              <div className="mt-4 w-[800px] flex flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE', display: addressEditable ? 'none' : 'flex' }}>
+                <div className="flex flex-col items-start justify-start w-[40%]">
+                  <div className='text-sm'>Country</div>
+                  <div className='text-sm font-bold'>Nigeria</div>
+                </div>
+                <div className="flex flex-col items-start justify-start w-[40%]">
+                  <div className='text-sm'>City/State</div>
+                  <div className='text-sm font-bold'>Festac, Lagos</div>
+                </div>
+                <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { setAddressEditable(true); }}>
+                  Edit
+                  <img className='ml-2' src="edit.png" />
+                </div>
+              </div>
+
+              {/**Address with Input */}
+              <div className="w-[800px] flex flex-col items-start justify-start" style={{ display: addressEditable ? 'flex' : 'none' }}>
+                <div className="w-[60%] mt-2">
+                  <label className="text-xs font-bold">Country</label>
+                  <div className='flex flex-row items-center justify-start'>
+                    <input type="email" className="mt-0.5 w-full border border-slate-500 text-sm p-1.5 rounded-lg" />
+                    <img className="ml-4 w-4 h-4 cursor-pointer" src="Vector.png" />
+                  </div>
+                </div>
+
+                <div className="w-[60%] mt-4 mb-4">
+                  <label className="text-xs font-bold">City/State</label>
+                  <div className='flex flex-row items-center justify-start'>
+                    <input type="phone" className="mt-0.5 w-full border border-slate-500 text-sm p-1.5 rounded-lg" />
+                    <img className="ml-4 w-4 h-4 cursor-pointer" src="Vector.png" />
+                  </div>
+                </div>
+              </div>
+
+
+              <div className='mt-8 text-sm font-bold'>Bio</div>
+              <div className="mt-4 w-[800px] flex flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE' }}>
+                <textarea className="w-[590px] h-[100px] border border-slate-400 rounded-lg text-sm p-2" contentEditable={false}>
+
+                </textarea>
+                <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm ml-6" style={{ backgroundColor: '#007BFF' }}>
+                  Edit
+                  <img className='ml-2' src="edit.png" />
+                </div>
+              </div>
+
+              <div className="mt-20 flex flex-row items-center justify-between w-full">
+                <div className="w-[170px] h-[40px] border flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ borderColor: "#3D5EE1", color: "#3D5EE1" }} onClick={() => { save(); }}>Back</div>
+                <div className="w-[170px] h-[40px] text-white flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ backgroundColor: "#3D5EE1" }}>Save and Finish</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Settings;
+
+{/*<div className="flex">
       <Sidebar isOpen={isOpen} />
       <div className="lgss:w-4/5 w-full lgss:overflow-auto">
         <div className="lgss:hidden flex justify-end w-full pt-5">
@@ -30,4 +190,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default Settings;*/}
