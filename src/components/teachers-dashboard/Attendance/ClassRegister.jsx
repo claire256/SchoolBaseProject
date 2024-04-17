@@ -38,7 +38,9 @@ const ClassRegister = () => {
         </div>
         <button className="attendance-btn">Take Attendance</button>
         <div className="attendance-display">
-          <div className="attendance-div"><p className="paragraph">Total Students<br></br><span className="total">5,546</span></p></div>
+          <div className="attendance-div">
+            <p className="paragraph">Total Students<br></br><span className="total">5,546</span></p>
+            </div>
           <div className="attendance-div"><p className="paragraph">Inside School<br></br><span className="inside">4852</span></p></div>
           <div className="attendance-div"><p className="paragraph">On Leave<br></br><span className="leave">105</span></p></div>
         </div>
@@ -51,11 +53,6 @@ const ClassRegister = () => {
         <div className="third-display">
           <h4 className="register">Class Register</h4>
           <div className="export-div"><p className="export">Export Data</p></div>
-        </div>
-        <div className="title-display">
-          <p className="name">Names</p>
-          <p className="in">Time in</p>
-          <p className="out">Time out</p>
         </div>
         <Register/>
         <Register/>

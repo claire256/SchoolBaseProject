@@ -19,7 +19,7 @@ const Header = () => {
         </div>
       </div>
       <div className="flex w-full justify-end items-end">
-        <div className="justify-end flex mt-3 xl:mt-0 w-1/3">
+        <div className="justify-end flex mt-3 xl:mt-0">
           <DateSwitcher />
         </div>
       </div>
