@@ -77,9 +77,9 @@ const StudentsSignUp = () => {
               <input id="Password" placeholder="Password" className="input" />
             </div>
             <div>
-              <label for="Comfirm Password" className="label">Comfirm Password</label>
+              <label for="password" className="label">Comfirm Password</label>
               <br></br>
-              <input id="Comfirm Password" placeholder="Comfirm Password" className="input" />
+              <input id="password" placeholder="Comfirm Password" className="input" />
             </div>
           </div>
           <div className="last-sec">
