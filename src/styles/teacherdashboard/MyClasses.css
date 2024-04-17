@@ -1,0 +1,65 @@
+.chevimg-div{
+    display: flex;
+    gap: 7%;
+    align-items: center;
+    width: 200px; 
+}
+   .chevimg{
+    width: 25px;
+    height: 25px;
+    align-items: center;
+    background-color:#3D5EE1 ;
+    border-radius: 70%;
+}
+.myheader{
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.class-btn{
+    width:212px ;
+    height: 65px;
+    color: white;
+    background-color: blue;
+}
+.first-sec{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding-left: 5%;
+    padding-right: 5.5%;
+    padding-top: 3%;
+}
+.second-sec{
+    padding-left: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10%;
+    padding-top: 4%;
+}
+.third-sec{
+    padding-left: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10%;
+    padding-top: 4%;
+}
+.backcomp-div{
+    position: relative;
+}
+.back-comp{
+    position: absolute;
+}
+
+@media (max-width: 480px) {
+    .second-sec{
+        margin-left: 12%;
+        gap: 10px;
+    }
+    .third-sec{
+        padding-top: -5%;
+        margin-left: 12%;
+        gap: 10px;
+        height: 500px;
+    }
+}

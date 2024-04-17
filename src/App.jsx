@@ -34,6 +34,7 @@ import PasswordResetSuccessful from './pages/web-site/applicant/PasswordResetSuc
 import CreatePassword from './pages/web-site/applicant/CreatePassword';
 import EmailVerification from './pages/web-site/EmailVerification';
 import ConfirmEmail from './pages/web-site/ConfirmEmail';
+import MyClasses from './components/teachers-dashboard/Classes/MyClasses';
 
 function App() {
   return (
@@ -75,6 +76,7 @@ function App() {
           element={<ClassRecords />}
         />
         <Route path='/teacher/dashboard/classes' element={<Classes />} />
+        <Route path='/teacher/dashboard/classes/myclasses' element={<MyClasses/>}/>
         <Route path='/teacher/dashboard/attendance' element={<ClassRegister />} />
         <Route path='/teacher/dashboard/attendance/classlist' element={<ClassList />} />        
         <Route path='/teacher/dashboard/exams' element={<Exams />} />

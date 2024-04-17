@@ -1,0 +1,19 @@
+.card-div{
+    width: 270px;
+    height: 194px;
+    border-radius: 12px;
+    box-shadow: 1px 7px 10px #bdbcbc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.enter-btn{
+    width:170px ;
+    height:40px ;
+    background: blue;
+    color: white;
+    border-radius: 8px;
+}
+.jss{
+    text-align: center;
+}
