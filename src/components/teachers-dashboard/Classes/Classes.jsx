@@ -8,6 +8,8 @@ import ClassesCard from "./ClassesCard";
 import UpcomingClass from "./UpcomingClass";
 import "../../../styles/teacherdashboard/Classes.css"
 import ContinueCourse from "./ContinueCourse";
+import { slimArrow } from "../../../assets";
+import { Link } from "react-router-dom";
 
 
 const Classes = () => {
@@ -32,8 +34,13 @@ const Classes = () => {
         <div className="flex flex-col justify-between w-full">
           <Header />
           <div className="px-[5%]">
-            <div className="flex text-[1.6em] font-bold">
+            <div className="flex lgss:flex-row flex-col justify-between text-[1.6em] font-bold">
               <h1>Classes</h1>
+              <Link to="/teacher/dashboard/classes/myclasses">
+              <div className="back">
+                <p className="text-[0.4em] text-grey font-light pl-2"><img src={slimArrow} className="slim"/>back</p>
+                </div>
+              </Link>
             </div>
             <div className="flex lgss:flex-row flex-col gap-9 text-white mt-9">
               <ClassesCard title="My Subjects" number={4} icon={HiBookOpen} />
