@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GetStarted from './pages/web-site/GetStarted';
 import TeacherDashboard from './pages/web-app/teachers-dashboard/TeacherDashboard';
 import ClassRecords from './components/teachers-dashboard/ClassRecords';
-import Classes from './components/teachers-dashboard/Classes';
+import Classes from './components/teachers-dashboard/Classes/Classes';
 import Exams from './components/teachers-dashboard/Exams';
 import Settings from './components/teachers-dashboard/Settings';
 import QuizHistory from './components/teachers-dashboard/QuizHistory';

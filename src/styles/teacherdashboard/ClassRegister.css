@@ -1,17 +1,17 @@
 .attendance-section{
-    margin-left: 4%;
+    padding: 20px 5%;
 }
 .select-display{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1100px;
+    width: 100%;
+    /* width: 1100px; */
 }
 .attendance-btn{
     background-color: #3A00E5;
     color: white;
-    width: 195px;
-    height: 44px;
+    padding: 10px 15px;
     border-radius: 12px;
 }
 .attendance-header{
@@ -23,7 +23,7 @@
     font-weight: bold;
 }
 .attendance-div{
-    width: 257px;
+    width: 30%;
     height: 80px;
     border-radius: 10px;
     border: solid 1px #DBDBDB;
@@ -37,29 +37,27 @@
     display: flex;
     justify-content: space-between;
     padding-top: 30px;
-    width: 1000px;
+    width: 100%;
 }
 .section-div{
-    width: 1150px;
-    height: 520px;
+    height: 450px;
+    width: 100%;
+    padding: 0px 5%;
     border: solid 1px #DBDBDB;
     border-radius: 10px;
     position: relative;
-    margin-bottom: 30px;
     box-shadow: 1px 5px 5px #DBDBDB
 
 }
 .second-display{
     display: flex;
     gap: 10%;
-    padding-top: 60px;
+    padding-top: 40px;
 }
 .third-display{
     display: flex;
     justify-content: space-between;
-    margin-left: 3%;
-    margin-right: 1.5%;
-    padding-top: 2%;
+    padding-top: 20px;
 }
 .register{
     display: block;
@@ -89,18 +87,11 @@
 }
 .title-display{
     display: flex;
-    width:924px ;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
     font-weight: 600;
-    padding-top: 5%;
-}
-.name{
-    padding-left: 18%;
-}
-.in{
-  padding-left: 30%;
-}
-.out{
-  padding-left: 25%;
 }
 .more{
     text-decoration: underline;
@@ -117,6 +108,13 @@
 }
 .leave{
    color: #FF05C8;
+}
+
+@media (max-width: 480px) {
+    .attendance-div{
+        width: 100%;
+    }
+
 }
 
 @media (max-width: 480px) {

@@ -1,12 +1,12 @@
 .section-display{
     display: flex;
-    width: 1090px;
+    justify-content: space-between;
+    padding: 0px 10%;
+    width: 100%;
     height: 60px;
     border-radius: 10px;
     border: solid 1px #DBDBDB;
-    gap: 22%;
-    padding-left: 2%;
-    margin-left: 3%;
+    padding-left: 20px;
     margin-top: 20px;
 }
 .display{
