@@ -1,0 +1,42 @@
+
+.wrap-div{
+    width: 440px;
+    height: 194px;
+    border-radius: 14px;
+    box-shadow:3px 10px 5px #abb4b9;
+    padding: 40px 16px 40px 16px;
+}
+.para-display{
+    display: flex;
+    justify-content: space-between;
+}
+.progress-bar{
+    width: 400px;
+    border-radius: 14px;
+    height: 15px;
+    background-color: #DAE7EE;
+    margin-top: 7%;
+}
+.blue-bar{
+    background-color: blue;
+    border-radius: 14px;
+    width: 350px;
+    height: 15px;
+}
+.click{
+    color: blue;
+    text-align: end;
+    padding-top: 10px;
+}
+
+@media (max-width: 480px) {
+    .wrap-div{
+        width: 380px;
+    }
+    .progress-bar{
+        width: 350px;
+    }
+    .blue-bar{
+        width: 300px;
+    }
+}

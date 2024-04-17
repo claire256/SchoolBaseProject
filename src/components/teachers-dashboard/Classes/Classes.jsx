@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import Sidebar from "./Sidebar";
-import Header from "./Header";
+import Sidebar from "../Sidebar";
+import Header from "../Header";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { HiBookOpen } from "react-icons/hi2";
 import { IoVideocam } from "react-icons/io5";
 import ClassesCard from "./ClassesCard";
-
+import UpcomingClass from "./UpcomingClass";
+import "../../../styles/teacherdashboard/Classes.css"
+import ContinueCourse from "./ContinueCourse";
 
 
 const Classes = () => {
@@ -38,6 +40,20 @@ const Classes = () => {
               <ClassesCard title="My Classes" number={6} icon={IoVideocam} />
             </div>
           </div>
+        </div>
+        <div className="upcoming-div">
+        <h3>Upcoming Classes</h3>
+        <div className="upcoming">
+          <UpcomingClass/>
+          <UpcomingClass/>
+        </div>
+        </div>
+        <div className="continue-div">
+        <h3>Continue Course</h3>
+        <div className="upcoming">
+          <ContinueCourse/>
+          <ContinueCourse/>
+        </div>
         </div>
       </div>
     </div>
