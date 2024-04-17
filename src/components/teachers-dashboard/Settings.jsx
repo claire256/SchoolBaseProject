@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { nigerianWoman } from "../../assets";
 import Dashboard from './Dashboard';
 
 
@@ -24,7 +25,7 @@ const Settings = () => {
         <div className="mt-6 w-full flex flex-row items-start justify-center">
           <div className="w-[95%] mt-0 flex flex-col items-start justify-start">
             <div className="flex flex-row items-center justify-start">
-              <img className="h-14 w-14 rounded-full" src="nigerianWoman.jpg" />
+              <img className="h-14 w-14 rounded-full" img src={nigerianWoman} alt="Nigeria Woman Image" />
               <div className="ml-2 flex flex-col justify-start items-start">
                 <div className="text-sm font-bold">Doose Atumeyi</div>
                 <div className="text-sm">General Teacher</div>
