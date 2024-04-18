@@ -6,6 +6,7 @@ import "../../../styles/teacherdashboard/MyClasses.css";
 import { chevleft } from "../../../assets";
 import MyClassesCard from "./MyClassesCard";
 import Back from "./Back";
+import { Link } from "react-router-dom";
 
 const MyClasses = ()=>{
     const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +47,9 @@ const MyClasses = ()=>{
            <MyClassesCard/>
            <MyClassesCard/>
        </div>
+       <Link to="/teacher/dashboard/classes/myclasses/addsubject">
        <div className="backcomp-div"><Back className="back-comp"/></div>
+       </Link>
        </div>
        </div>
    )
