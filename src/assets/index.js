@@ -76,6 +76,7 @@ import linkedinIcon from "../assets/images/linkedin.png";
 import instagramIcon from "../assets/images/instagram.png";
 import utubeIcon from "../assets/images/youtube.png";
 import slimArrow from "../assets/images/slimArrow.svg";
+import book from "../assets/images/book.svg";
 
 
 export {
@@ -157,4 +158,5 @@ export {
   utubeIcon,
   instagramIcon,
   slimArrow,
+  book,
 };
