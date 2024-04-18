@@ -3,12 +3,11 @@ import Sidebar from "../Sidebar";
 import Header from "../Header";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { chevleft } from "../../../assets";
-import "../../../styles/teacherdashboard/AddSubject.css";
-import Subject from "./Subject";
+import "../../../styles/teacherdashboard/UploadFile.css"
+import { Form } from "react-router-dom";
 import Back from "./Back";
-import { Link } from "react-router-dom";
 
-const AddSubject = ()=>{
+const UploadFile = ()=>{
     const [isOpen, setIsOpen] = useState(false);
     return(
         <div className="flex flex-row h-screen">
@@ -30,28 +29,27 @@ const AddSubject = ()=>{
         )}
       </div>
     </div>
-    <div className="sub-sec">
-           <div className="chevimg-sub">
-             <img src={chevleft} className="chevsub"/>
-             <h2 className="subheader">My Classes</h2>
-             <p className="subheader">| JSS1 |</p>
-             <p className="subheader">Subjects</p>
+    <div className="upload-sec">
+           <div className="chevimg-upload">
+             <img src={chevleft} className="chevupload"/>
+             <h2 className="uploadheader">My Classes</h2>
+             <p className="uploadheader">| JSS1</p>
             </div>
-            <button className="sub-btn">+ Add Subject</button>
        </div>
-       <div className="subject-display">
-       <Subject/>
-       <Subject/>
+    <form className="upload-form">
+        <label>Title</label><br></br>
+        <input className="upload-input" placeholder="Title of the file"/><br></br><br></br>
+        <label>Description</label><br></br>
+        <input className="upload-input" placeholder="Description"/>
+        <div className="file-upload"><p>Drag File in here OR <span className="span">Upload file</span></p> </div>
+        <div className="upload-div">
+            <Back/>
+            <button className="file-btn">upload and Finish</button>
+        </div>
+    </form>
        </div>
-       <div className="subject-display">
-       <Subject/>
-       <Subject/>
        </div>
-       <Link to="/teacher/dashboard/classes/myclasses/addsubject/uploadfile">
-       <Back className="sub-back"/>
-       </Link>
-    </div>
-    </div>
     )
 }
-export default AddSubject;
+
+export default UploadFile;

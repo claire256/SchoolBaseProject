@@ -14,3 +14,10 @@
     align-items: center;
     cursor: pointer;
 }
+
+@media (max-width: 480px) {
+    .back-div{
+    width: 70px;
+    height: 30px;
+    }
+}
