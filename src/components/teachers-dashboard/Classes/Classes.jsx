@@ -38,7 +38,8 @@ const Classes = () => {
               <h1>Classes</h1>
               <Link to="/teacher/dashboard/classes/myclasses">
               <div className="back">
-                <p className="text-[0.4em] text-grey font-light pl-2"><img src={slimArrow} className="slim"/>back</p>
+                <p className="text-[0.4em] text-grey font-light pl-2">
+                  <img src={slimArrow} className="slim"/>back</p>
                 </div>
               </Link>
             </div>
