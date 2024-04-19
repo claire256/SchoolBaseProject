@@ -46,6 +46,8 @@
 }
 .backcomp-div{
     position: relative;
+    margin-left: 5%;
+    margin-top: 20px;
 }
 .back-comp{
     position: absolute;

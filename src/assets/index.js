@@ -77,6 +77,10 @@ import instagramIcon from "../assets/images/instagram.png";
 import utubeIcon from "../assets/images/youtube.png";
 import slimArrow from "../assets/images/slimArrow.svg";
 import book from "../assets/images/book.svg";
+import subimg from "../assets/images/subimg.png";
+import circle from "../assets/images/circle.svg";
+import redirect from "../assets/images/redirect.svg";
+import ArrowLeft from "../assets/images/ArrowLeft.svg";
 
 
 export {
@@ -159,4 +163,8 @@ export {
   instagramIcon,
   slimArrow,
   book,
+  circle,
+  subimg,
+  redirect,
+  ArrowLeft,
 };
