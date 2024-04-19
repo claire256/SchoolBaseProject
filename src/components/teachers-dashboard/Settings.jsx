@@ -14,11 +14,13 @@ const Settings = () => {
   const [contactEmailEditableValue, setContactEmailEditableValue] = useState('');
   const [contactPhoneEditableValue, setContactPhoneEditableValue] = useState('');
   const [cityEditableValue, setCityEditableValue] = useState('');
-  const [bioEditableValue, setBioEditableValue] = useState('');
   const [addressEditableValue, setAddressEditableValue] = useState('');
   const [namesEditable, setNamesEditable] = useState(false);
   const [contactEditable, setContactEditable] = useState(false);
   const [addressEditable, setAddressEditable] = useState(false);
+  const [bioEditable, setBioEditable] = useState(false);
+  const [bioContent, setBioContent] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
+
 
 
   {/* function to cancle and delete values of invalid profile edit*/ }
@@ -36,18 +38,20 @@ const Settings = () => {
     } else if (fieldName === 'city && state') {
       setCityEditableValue('');
     } else if (fieldName === 'bio') {
-      setBioEditableValue('');
+      setBioEditable('');
     }
 
     setNamesEditable(false); // Revert to initial state
     setContactEditable(false); // Revert to initial state
     setAddressEditable(false); // Revert to initial state
+    setBioEditable(false); // Revert to initial state
   };
 
   const save = () => {
     setNamesEditable(false);
     setContactEditable(false);
     setAddressEditable(false);
+    setBioEditable(false)
   }
 
   return (
@@ -177,19 +181,29 @@ const Settings = () => {
                 </div>
               </div>
 
-
+              {/* Bio with Edit button */}
               <div className='mt-8 text-sm font-bold'>Bio</div>
-              <div className="mt-4 w-[800px] flex flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE' }}>
-                <textarea className="w-[590px] h-[100px] border border-slate-400 rounded-lg text-sm p-2">
-                </textarea>
-                <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm ml-6" style={{ backgroundColor: '#007BFF' }}>
+              <div className="mt-4 w-[800px] flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE', display: bioEditable ? 'none' : 'flex' }}>
+                <div className="flex flex-col items-start justify-start w-[80%]">
+                  <textarea className="w-[590px] h-[100px] border border-slate-400 rounded-lg text-sm p-2">{bioContent}</textarea>
+                </div>
+                <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { setBioEditable(true); }}>
                   Edit
                   <img className='ml-2' src={Edit} alt="edit image" />
-
                 </div>
-
               </div>
 
+              {/* Bio with Textarea */}
+              <div className="mt-4 w-[800px] flex flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE', display: bioEditable ? 'flex' : 'none' }}>
+                <textarea
+                  className="w-[590px] h-[100px] border border-slate-400 rounded-lg text-sm p-2"
+                  value={bioContent} onChange={(e) => setBioContent(e.target.value)}></textarea>
+                <img
+                  className="ml-4 w-4 h-4 cursor-pointer"
+                  src={closeVectorImage} alt="Close Vector Image" onClick={() => cancelEdit('bio')} />
+              </div>
+
+              {/* save section*/}
               <div className="mt-20 flex flex-row items-center justify-between w-full">
                 <div className="w-[170px] h-[40px] border flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ borderColor: "#3D5EE1", color: "#3D5EE1" }} onClick={() => { save(); }}>Back</div>
                 <div className="w-[170px] h-[40px] text-white flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ backgroundColor: "#3D5EE1" }}>Save and Finish</div>
