@@ -11,7 +11,7 @@ const Content = ({title, image})=>{
         </div>
         <div className="line-content">
             <div className="line-cont"></div>
-            <img src={ArrowLeft} className="a-left"/>
+            <img src={image} className="a-left"/>
         </div>
     </div>
     )

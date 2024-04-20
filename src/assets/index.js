@@ -81,6 +81,7 @@ import subimg from "../assets/images/subimg.png";
 import circle from "../assets/images/circle.svg";
 import redirect from "../assets/images/redirect.svg";
 import ArrowLeft from "../assets/images/ArrowLeft.svg";
+import clockIcon from "../assets/images/clockIcon.svg";
 
 
 export {
@@ -167,4 +168,5 @@ export {
   subimg,
   redirect,
   ArrowLeft,
+  clockIcon,
 };
