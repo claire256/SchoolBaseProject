@@ -1,0 +1,35 @@
+.main-display{
+    display: flex;
+    gap: 24.3%;
+    /* margin-left: 29.5%; */
+}
+.min-display{
+   display: flex;
+   gap: 20px;
+   width: 400px;
+   height: 25px;
+}
+.line-cont{
+    border-left: solid 1px;
+    height: 40px; 
+}
+.a-left{
+    width: 20px;
+}
+.line-content{
+    display: flex;
+   width: 300px;
+   gap: 20%;
+}
+@media (max-width: 480px) {
+    .main-display{
+        font-size: 14px;
+    }
+    .circular{
+        width: 20px;
+    }
+    .subimage{
+        width: 20px;
+        height: 20px;
+    }
+}

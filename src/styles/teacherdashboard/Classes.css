@@ -11,6 +11,16 @@
     padding-left: 5%;
     padding-top: 3%;
 }
+.back{
+    border: solid 1px blue;
+     width:92px ; 
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+}
+.slim{
+    width: 20px;
+}
 
 @media (max-width: 480px) {
     .continue-div{

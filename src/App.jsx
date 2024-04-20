@@ -37,6 +37,11 @@ import ConfirmEmail from './pages/web-site/ConfirmEmail';
 import QuestionPage from './pages/web-app/teachers-dashboard/exams/QuestionPage';
 import AddQuestions from './pages/web-app/teachers-dashboard/exams/AddQuestions';
 import QuestionGeneral from './pages/web-app/teachers-dashboard/exams/QuestionsGeneral';
+import MyClasses from './components/teachers-dashboard/Classes/MyClasses';
+import AddSubject from './components/teachers-dashboard/Classes/AddSubject';
+import UploadFile from './components/teachers-dashboard/Classes/UploadFile';
+import SubjectContent from './components/teachers-dashboard/Classes/SubjectContent';
+import ViewSyllabus from './components/teachers-dashboard/Classes/ViewSyllabus';
 
 function App() {
   return (
@@ -103,6 +108,16 @@ function App() {
           element={<QuestionGeneral />}
         />
         <Route path="/teacher/dashboard/settings" element={<Settings />} />
+        <Route path='/teacher/dashboard/classes' element={<Classes />} />
+        <Route path='/teacher/dashboard/classes/myclasses' element={<MyClasses/>}/>
+        <Route path='/teacher/dashboard/classes/myclasses/addsubject' element={<AddSubject/>}/>
+        <Route path='/teacher/dashboard/classes/myclasses/addsubject/uploadfile' element={<UploadFile/>}/>
+        <Route path='/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent' element={<SubjectContent/>}/>
+        <Route path='/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent/viewsyllabus' element={<ViewSyllabus/>}/>
+        <Route path='/teacher/dashboard/attendance' element={<ClassRegister />} />
+        <Route path='/teacher/dashboard/attendance/classlist' element={<ClassList />} />        
+        <Route path='/teacher/dashboard/exams' element={<Exams />} />
+        <Route path='/teacher/dashboard/settings' element={<Settings />} />
         <Route
           path="/teacher/dashboard/exams/history"
           element={<QuizHistory />}

@@ -1,0 +1,40 @@
+.sub-card{
+    display: flex;
+    width: 440px;
+    height: 194px;
+    border-radius: 12px;
+    box-shadow: 1px 7px 10px #bdbcbc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.blue-btn{
+    width:170px ;
+    height:40px ;
+    background: blue;
+    color: white;
+    border-radius: 8px;
+}
+.sub-image{
+    width: 60px;
+}
+.btn-display{
+    display: flex;
+    gap : 20px;
+    flex-direction: column;
+}
+
+@media (max-width: 480px) {
+    .sub-card{
+        width: 350px;
+        font-size: 14px;
+        height: 180px;
+    }
+    .blue-btn{
+        width: 140px;
+    }
+    .sub-image{
+        width: 50px;
+    }
+}

@@ -1,0 +1,23 @@
+.slim-image{
+   width: 20px;
+}
+.back-div{
+    border: solid 1px blue;
+     width:92px ; 
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    /* margin-top: 20px; */
+    /* margin-left: 5%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .back-div{
+    width: 70px;
+    height: 30px;
+    }
+}
