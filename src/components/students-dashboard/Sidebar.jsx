@@ -2,15 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGraduationCap, FaHome } from "react-icons/fa";
 import { RiBookOpenFill } from "react-icons/ri";
-import {
-  BsPeopleFill,
-  BsFillCreditCardFill,
-} from "react-icons/bs";
+import { BsPeopleFill, BsFillCreditCardFill } from "react-icons/bs";
 import { HiOutlineLogout } from "react-icons/hi";
 import { schoolbaseLogo } from "../../assets";
 import { FaUserPen } from "react-icons/fa6";
-import '../../styles/studentsOnboarding/studentdashboard.css'
-
+import "../../styles/studentsOnboarding/studentdashboard.css";
 
 const Sidebar = ({ isOpen }) => {
   const location = useLocation();
@@ -19,22 +15,19 @@ const Sidebar = ({ isOpen }) => {
   useEffect(() => {
     if (location.pathname === "/student/dashboard") setActiveButton(1);
     else if (location.pathname === "/student/student-life") setActiveButton(2);
-    else if (
-      location.pathname === "/student/classes"
-    )
-      setActiveButton(3);
+    else if (location.pathname === "/student/classes") setActiveButton(3);
     else if (
       location.pathname === "/student/payments" ||
       location.pathname === "/student/payments/pay" ||
-      location.pathname === "/student/assessment" 
-    
-    ) setActiveButton(4);
+      location.pathname === "/student/assessment"
+    )
+      setActiveButton(4);
     else if (location.pathname === "/student/mail") setActiveButton(5);
     else if (location.pathname === "/student/settings") setActiveButton(6);
   }, [location.pathname]);
   return (
     <>
-      <div className="border w-[20%] hidden lgss:flex flex-col items-center pt-12 pb-10 justify-between font-bold overflow-y-hidden text-[#7D7676] text-sm sidebar">
+      <div className="border w-[20%] hidden lgss:flex flex-col items-center pt-12 pb-10 font-bold overflow-y-hidden text-[#7D7676] text-sm sidebar">
         <div className="w-full h-[60px] text-[26px] flex flex-col gap-4 font-extrabold">
           <img src={schoolbaseLogo} alt="" className="w-full h-full bg-cover" />
           <h1 className="text-center">
@@ -43,7 +36,7 @@ const Sidebar = ({ isOpen }) => {
         </div>
         <div className="mt-16 w-full flex flex-col gap-2 justify-start items-center font-manrope">
           <Link
-            to="/student/dashboard"
+            to="/student"
             className={
               activebutton === 1
                 ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
@@ -109,20 +102,19 @@ const Sidebar = ({ isOpen }) => {
             <RiBookOpenFill />
             <h4 className="">Settings</h4>
           </Link>
-
-          <button
-            onClick={() => navigate("/get-started")}
-            className="flex gap-5 text-[18px] mt-4 text-[#B82323] items-center  font-medium pl-16 h-[40%] w-full border-t-2 "
-          >
-            Sign Out
-            <HiOutlineLogout />
-          </button>
         </div>
+        <button
+          onClick={() => navigate("/get-started")}
+          className="flex gap-5 text-[18px] mt-4 text-[#B82323] items-center  font-medium pl-16 h-[40%] w-full border-t-2 "
+        >
+          Sign Out
+          <HiOutlineLogout />
+        </button>
       </div>
 
       {isOpen && (
         <div
-          className={`absolute  top-0 left-0  h-screen bg-[#F0EDE7] w-[70%] mds:w-1/3 lgss:hidden flex flex-col py-4 pt-10   transform transition-transform duration-300 ${
+          className={`absolute  top-0 left-0  h-screen bg-[#F0EDE7] w-[70%] mds:w-1/3 lgss:hidden flex  flex-col py-4 pt-10   transform transition-transform duration-300 ${
             isOpen ? "translate-x-0 " : "-translate-x-full"
           }`}
         >

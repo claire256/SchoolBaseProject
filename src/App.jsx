@@ -36,6 +36,7 @@ import EmailVerification from './pages/web-site/EmailVerification';
 import ConfirmEmail from './pages/web-site/ConfirmEmail';
 import QuestionPage from './pages/web-app/teachers-dashboard/exams/QuestionPage';
 import AddQuestions from './pages/web-app/teachers-dashboard/exams/AddQuestions';
+import QuestionGeneral from './pages/web-app/teachers-dashboard/exams/QuestionsGeneral';
 
 function App() {
   return (
@@ -96,6 +97,10 @@ function App() {
         <Route
           path="/teacher/dashboard/exams/add-question"
           element={<QuestionPage />}
+        />
+        <Route
+          path="/teacher/dashboard/exams/complete-quiz"
+          element={<QuestionGeneral />}
         />
         <Route path="/teacher/dashboard/settings" element={<Settings />} />
         <Route
