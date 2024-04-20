@@ -34,6 +34,9 @@ import PasswordResetSuccessful from './pages/web-site/applicant/PasswordResetSuc
 import CreatePassword from './pages/web-site/applicant/CreatePassword';
 import EmailVerification from './pages/web-site/EmailVerification';
 import ConfirmEmail from './pages/web-site/ConfirmEmail';
+import QuestionPage from './pages/web-app/teachers-dashboard/exams/QuestionPage';
+import AddQuestions from './pages/web-app/teachers-dashboard/exams/AddQuestions';
+import QuestionGeneral from './pages/web-app/teachers-dashboard/exams/QuestionsGeneral';
 import MyClasses from './components/teachers-dashboard/Classes/MyClasses';
 import AddSubject from './components/teachers-dashboard/Classes/AddSubject';
 import UploadFile from './components/teachers-dashboard/Classes/UploadFile';
@@ -47,9 +50,15 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/get-started" element={<GetStarted />} />
         <Route path="/forgot-password" element={<ResetPassword />} />
-        <Route path="/reset-password-email" element={<ResetPasswordVerification />} />
+        <Route
+          path="/reset-password-email"
+          element={<ResetPasswordVerification />}
+        />
         <Route path="/new-password" element={<CreatePassword />} />
-        <Route path="/reset-password-success" element={<PasswordResetSuccessful />} />
+        <Route
+          path="/reset-password-success"
+          element={<PasswordResetSuccessful />}
+        />
 
         <Route path="/student/dashboard" element={<HomePage />} />
         <Route path="/student/calender" element={<Timetable />} />
@@ -79,6 +88,26 @@ function App() {
           path="/teacher/dashboard/class-records"
           element={<ClassRecords />}
         />
+        <Route path="/teacher/dashboard/classes" element={<Classes />} />
+        <Route
+          path="/teacher/dashboard/attendance"
+          element={<ClassRegister />}
+        />
+        <Route
+          path="/teacher/dashboard/attendance/classlist"
+          element={<ClassList />}
+        />
+        <Route path="/teacher/dashboard/exams" element={<Exams />} />
+        <Route path="/teacher/dashboard/exams/add" element={<AddQuestions />} />
+        <Route
+          path="/teacher/dashboard/exams/add-question"
+          element={<QuestionPage />}
+        />
+        <Route
+          path="/teacher/dashboard/exams/complete-quiz"
+          element={<QuestionGeneral />}
+        />
+        <Route path="/teacher/dashboard/settings" element={<Settings />} />
         <Route path='/teacher/dashboard/classes' element={<Classes />} />
         <Route path='/teacher/dashboard/classes/myclasses' element={<MyClasses/>}/>
         <Route path='/teacher/dashboard/classes/myclasses/addsubject' element={<AddSubject/>}/>
@@ -89,7 +118,6 @@ function App() {
         <Route path='/teacher/dashboard/attendance/classlist' element={<ClassList />} />        
         <Route path='/teacher/dashboard/exams' element={<Exams />} />
         <Route path='/teacher/dashboard/settings' element={<Settings />} />
-
         <Route
           path="/teacher/dashboard/exams/history"
           element={<QuizHistory />}

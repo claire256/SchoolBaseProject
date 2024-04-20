@@ -8,32 +8,35 @@ import { FaUserPen } from "react-icons/fa6";
 import { FaGraduationCap, FaHome } from "react-icons/fa";
 
 const Sidebar = ({ isOpen }) => {
-    const handleLogout = () => {
-      localStorage.clear();
-    };
+  const handleLogout = () => {
+    localStorage.clear();
+  };
   const navigate = useNavigate();
 
   const [activebutton, setActiveButton] = useState(1);
-    useEffect(() => {
-      if (location.pathname === "/teacher/dashboard") setActiveButton(1);
-      else if (location.pathname === "/teacher/dashboard/class-records") setActiveButton(2);
-      else if (
-        location.pathname === "/teacher/dashboard/classes"
-      )
-        setActiveButton(3);
-      else if (location.pathname === "/teacher/dashboard/attendance") setActiveButton(4);
-      else if (
-        location.pathname === "/teacher/dashboard/exams" ||
-        location.pathname === "/teacher/dashboard/exams/history"
-      )
-        setActiveButton(5);
-      else if (location.pathname === "/teacher/dashboard/settings")
-        setActiveButton(6);
-    }, [location.pathname]);
+  useEffect(() => {
+    if (location.pathname === "/teacher/dashboard") setActiveButton(1);
+    else if (location.pathname === "/teacher/dashboard/class-records")
+      setActiveButton(2);
+    else if (location.pathname === "/teacher/dashboard/classes")
+      setActiveButton(3);
+    else if (location.pathname === "/teacher/dashboard/attendance")
+      setActiveButton(4);
+    else if (
+      location.pathname === "/teacher/dashboard/exams" ||
+      location.pathname === "/teacher/dashboard/exams/history" ||
+      location.pathname === "/teacher/dashboard/exams/add" ||
+      location.pathname === "/teacher/dashboard/exams/add-question" ||
+      location.pathname === "/teacher/dashboard/exams/complete-quiz"
+    )
+      setActiveButton(5);
+    else if (location.pathname === "/teacher/dashboard/settings")
+      setActiveButton(6);
+  }, [location.pathname]);
 
   return (
     <>
-      <div className="border w-[20%] hidden lgss:flex flex-col items-center pt-12 pb-10 justify-between font-bold overflow-y-hidden text-[#7D7676] text-sm sidebar">
+      <div className="border w-[20%] hidden lgss:flex flex-col items-center pt-12 pb-10 font-bold overflow-y-hidden text-[#7D7676] text-sm sidebar">
         <div className="w-full h-[70px] text-[26px] font-extrabold">
           <img src={schoolbaseLogo} alt="" className="w-full h-full bg-cover" />
           <h1 className="text-center pt-2">
@@ -45,8 +48,8 @@ const Sidebar = ({ isOpen }) => {
             to={"/teacher/dashboard"}
             className={
               activebutton === 1
-                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
-                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[60px]"
+                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[50px]"
+                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[50px]"
             }
           >
             <FaHome />
@@ -56,8 +59,8 @@ const Sidebar = ({ isOpen }) => {
             to="/teacher/dashboard/class-records"
             className={
               activebutton === 2
-                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
-                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[60px]"
+                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[50px]"
+                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[50px]"
             }
           >
             <FaGraduationCap />
@@ -67,8 +70,8 @@ const Sidebar = ({ isOpen }) => {
             to="/teacher/dashboard/classes"
             className={
               activebutton === 3
-                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
-                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[60px]"
+                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[50px]"
+                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[50px]"
             }
           >
             <BsPeopleFill />
@@ -78,8 +81,8 @@ const Sidebar = ({ isOpen }) => {
             to="/teacher/dashboard/attendance"
             className={
               activebutton === 4
-                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
-                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[60px]"
+                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[50px]"
+                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[50px]"
             }
           >
             <FaUserPen />
@@ -89,8 +92,8 @@ const Sidebar = ({ isOpen }) => {
             to="/teacher/dashboard/exams"
             className={
               activebutton === 5
-                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
-                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[60px]"
+                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[50px]"
+                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[50px]"
             }
           >
             <BsFillCreditCardFill />
@@ -101,22 +104,22 @@ const Sidebar = ({ isOpen }) => {
             to="/teacher/dashboard/settings"
             className={
               activebutton === 6
-                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
-                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[60px]"
+                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[50px]"
+                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[50px]"
             }
           >
             <RiBookOpenFill />
             <h4 className="">Settings</h4>
           </Link>
-
-          <button
-            onClick={() => navigate("/get-started")}
-            className="flex gap-5 text-[18px] mt-4 text-[#B82323] items-center  font-medium pl-16 h-[40%] w-full border-t-2 "
-          >
-            Sign Out
-            <HiOutlineLogout />
-          </button>
         </div>
+
+        <button
+          onClick={() => navigate("/get-started")}
+          className="flex gap-5 text-[18px] mt-4 text-[#B82323] items-center  font-medium pl-16 pt-6 h-[40%] w-full border-t-2 "
+        >
+          Sign Out
+          <HiOutlineLogout />
+        </button>
       </div>
 
       {isOpen && (

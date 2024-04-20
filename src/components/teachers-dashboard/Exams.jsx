@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import Sidebar from './Sidebar';
-import Header from './Header';
-import TestResultChart from './TestResultChart';
-import { quiz, history } from '../../assets/index.js';
-import CreateQuizModal from './CreateQuizModal';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import Sidebar from "./Sidebar";
+import Header from "./Header";
+import TestResultChart from "./TestResultChart";
+import { quiz, history } from "../../assets/index.js";
+import CreateQuizModal from "./CreateQuizModal";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Exams = () => {
   const [quizModal, setQuizModal] = useState(false);

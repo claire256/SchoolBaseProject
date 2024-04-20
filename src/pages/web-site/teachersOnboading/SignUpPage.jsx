@@ -238,7 +238,7 @@ const SignUpPage = () => {
           <input type="checkbox" className="w-3" />
           <p>I confirm that the information given on this form is correct</p>
         </div>
-        <Link className="w-[90%]" to={"/teacher/verify-email"}>
+        <Link className="w-[90%]" to={"/teacher/dashboard"}>
           <button className="bg-primary w-full py-2 mt-3 text-white font-semibold text-md rounded-[4px]">
             Sign Up
           </button>
