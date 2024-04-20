@@ -9,23 +9,23 @@ const SignInPage = () => {
     setIsPasswordVisible((prevState) => !prevState);
   }
   return (
-    <div className="flex h-screen bg-gray-100">
-      <div className="bg-signUpBg h-screen hidden lgss:flex lgss:w-1/2 flex-col justify-start items-start">
+    <div className="flex bg-gray-100">
+      <div className="bg-signUpBg hidden lgss:flex lgss:w-1/2 flex-col justify-start items-start">
         <Link to={"/"} className="px-5 py-3">
           <h1 className="text-3xl sm:text-4xl font-semibold text-primary font-itim">
             SchoolBase
           </h1>
         </Link>
-        <div className="flex justify-center h-full">
+        <div className="flex justify-center items-center flex-grow px-8">
           <img
             src={loginImg}
             alt="Login"
-            className="max-w-[65%]"
+            className="w-full "
             style={{ objectFit: "cover" }}
           />
         </div>
       </div>
-      <form className="w-full lgss:w-1/2 flex flex-col justify-start mt-[5%] items-start px-8">
+      <form className="w-full lgss:w-1/2 flex flex-col justify-center h-2/3 mt-[5%] items-start px-8">
         <div className="py-4">
           <h1 className="text-[26px] font-extrabold cursor-pointer">
             Login to your account
