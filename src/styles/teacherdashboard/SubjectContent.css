@@ -65,6 +65,9 @@
     color: #BDBDBD;
     padding-bottom: 12px;
 }
+.left-div{
+    margin-left: 29.5%;
+}
 @media (max-width: 480px) {
     .division-display{
         font-size: 14px;

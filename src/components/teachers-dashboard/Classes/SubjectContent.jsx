@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import Sidebar from "../Sidebar";
 import Header from "../Header";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Arrowdown, chevleft, circle, subimg } from "../../../assets";
+import { Arrowdown, ArrowLeft, chevleft, circle, redirect, subimg } from "../../../assets";
 import "../../../styles/teacherdashboard/SubjectContent.css";
 import Back from "./Back";
 import Content from "./Content";
+import { Link } from "react-router-dom";
 
 const SubjectContent = ()=>{
     const [isOpen, setIsOpen] = useState(false);
@@ -36,11 +37,12 @@ const SubjectContent = ()=>{
              <p className="content-header">| JSS1 |</p>
              <p className="content-header">English Lang</p>
             </div>
-            {/* <button className="sub-btn">+ Add Subject</button> */}
        </div>
        <div className="sub-display">
            <p className="content-header">Subject Content</p>
+           <Link to="/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent/viewsyllabus">
            <Back/>
+           </Link>
        </div>
        <div className="division-display">
          <div className="circle-display">
@@ -53,9 +55,9 @@ const SubjectContent = ()=>{
           <img src={Arrowdown}/>
          </div>
        </div>
-       <div><br></br>
-           <Content title="Subject Information"/><br></br><br></br>
-           <Content title="Groups"/><br></br>
+       <div className="left-div"><br></br>
+           <Content title="Subject Information" image={ArrowLeft}/><br></br><br></br>
+           <Content title="Groups" image={ArrowLeft}/><br></br>
          </div>
          <hr className="horizontal"/>
          <div className="division-display">
@@ -69,11 +71,11 @@ const SubjectContent = ()=>{
           <img src={Arrowdown}/>
          </div>
        </div>
-       <div><br></br>
-       <Content title="Week 1"/><br></br><br></br>
-       <Content title="Week 2"/><br></br><br></br>
-       <Content title="Week 3"/><br></br><br></br>
-       <Content title="Week 4"/><br></br>
+       <div className="left-div"><br></br>
+       <Content title="Week 1" image={ArrowLeft}/><br></br><br></br>
+       <Content title="Week 2" image={ArrowLeft}/><br></br><br></br>
+       <Content title="Week 3" image={ArrowLeft}/><br></br><br></br>
+       <Content title="Week 4" image={ArrowLeft}/><br></br>
         </div>
         <hr className="horizontal"/> 
         <div className="division-display">
@@ -87,10 +89,10 @@ const SubjectContent = ()=>{
           <img src={Arrowdown}/>
          </div>
          </div>
-         <div><br></br>
-         <Content title="Assessment Information"/><br></br><br></br>
-         <Content title="Submission Link"/><br></br><br></br>
-         <Content title="Take Quiz"/><br></br>
+         <div className="left-div"><br></br>
+         <Content title="Assessment Information" image={ArrowLeft}/><br></br><br></br>
+         <Content title="Submission Link" image={redirect}/><br></br><br></br>
+         <Content title="Take Quiz" image={redirect}/><br></br>
         </div> 
         <hr className="horizontal"/> 
     </div>
