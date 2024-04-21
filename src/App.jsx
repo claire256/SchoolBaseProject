@@ -10,7 +10,7 @@ import Exams from './components/teachers-dashboard/Exams';
 import Settings from './components/teachers-dashboard/Settings';
 import QuizHistory from './components/teachers-dashboard/QuizHistory';
 import ApplicantReg from './pages/web-site/applicant/ApplicantReg';
-import ApplicantContact from './pages/web-site/applicant/ApplicantContact'; 
+import ApplicantContact from './pages/web-site/applicant/ApplicantContact';
 import ApplicantAcademiaInfo from './pages/web-site/applicant/ApplicantAcademiaInfo';
 import SignInPage from './pages/web-site/teachersOnboading/SignInPage';
 import SignUpPage from './pages/web-site/teachersOnboading/SignUpPage';
@@ -33,6 +33,7 @@ import PasswordResetSuccessful from './pages/web-site/applicant/PasswordResetSuc
 import CreatePassword from './pages/web-site/applicant/CreatePassword';
 import EmailVerification from './pages/web-site/EmailVerification';
 import ConfirmEmail from './pages/web-site/ConfirmEmail';
+
 
 function App() {
   return (
@@ -95,6 +96,8 @@ function App() {
         />
       </Routes>
     </Router>
+
+
   );
 }
 

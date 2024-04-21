@@ -7,6 +7,7 @@ import { closeVectorImage, Edit } from "../../assets";
 import Dashboard from './Dashboard';
 
 
+//useState functions
 const Settings = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [firstNameEditableValue, setFirstNameEditableValue] = useState('');
@@ -15,15 +16,14 @@ const Settings = () => {
   const [contactPhoneEditableValue, setContactPhoneEditableValue] = useState('');
   const [cityEditableValue, setCityEditableValue] = useState('');
   const [addressEditableValue, setAddressEditableValue] = useState('');
+  const [bioContentEditableValue, setBioContentEditableValue] = useState('');
   const [namesEditable, setNamesEditable] = useState(false);
   const [contactEditable, setContactEditable] = useState(false);
   const [addressEditable, setAddressEditable] = useState(false);
   const [bioEditable, setBioEditable] = useState(false);
-  const [bioContent, setBioContent] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
 
 
-
-  {/* function to cancle and delete values of invalid profile edit*/ }
+  {/* Conditional statements to cancle and delete values of invalid profile edit*/ }
   const cancelEdit = (fieldName) => {
     if (fieldName === 'firstName') {
       setFirstNameEditableValue('');
@@ -38,7 +38,7 @@ const Settings = () => {
     } else if (fieldName === 'city && state') {
       setCityEditableValue('');
     } else if (fieldName === 'bio') {
-      setBioEditable('');
+      setBioContentEditableValue('');
     }
 
     setNamesEditable(false); // Revert to initial state
@@ -47,12 +47,16 @@ const Settings = () => {
     setBioEditable(false); // Revert to initial state
   };
 
-  const save = () => {
+  const saveAndFinish = () => {
     setNamesEditable(false);
     setContactEditable(false);
     setAddressEditable(false);
-    setBioEditable(false)
-  }
+    setBioEditable(false);
+
+    // Confirmation display to the user
+    alert("Changes saved successfully!");
+
+  };
 
   return (
     <div className="flex h-full overflow-y-hidden border-black border">
@@ -185,7 +189,7 @@ const Settings = () => {
               <div className='mt-8 text-sm font-bold'>Bio</div>
               <div className="mt-4 w-[800px] flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE', display: bioEditable ? 'none' : 'flex' }}>
                 <div className="flex flex-col items-start justify-start w-[80%]">
-                  <textarea className="w-[590px] h-[100px] border border-slate-400 rounded-lg text-sm p-2">{bioContent}</textarea>
+                  <textarea className="w-[590px] h-[100px] border border-slate-400 rounded-lg text-sm p-2">{bioContentEditableValue}</textarea>
                 </div>
                 <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { setBioEditable(true); }}>
                   Edit
@@ -197,16 +201,17 @@ const Settings = () => {
               <div className="mt-4 w-[800px] flex flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE', display: bioEditable ? 'flex' : 'none' }}>
                 <textarea
                   className="w-[590px] h-[100px] border border-slate-400 rounded-lg text-sm p-2"
-                  value={bioContent} onChange={(e) => setBioContent(e.target.value)}></textarea>
+                  value={bioContentEditableValue} onChange={(e) => setBioContentEditableValue(e.target.value)}></textarea>
                 <img
                   className="ml-4 w-4 h-4 cursor-pointer"
                   src={closeVectorImage} alt="Close Vector Image" onClick={() => cancelEdit('bio')} />
               </div>
 
-              {/* save section*/}
+              {/* save button section*/}
               <div className="mt-20 flex flex-row items-center justify-between w-full">
                 <div className="w-[170px] h-[40px] border flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ borderColor: "#3D5EE1", color: "#3D5EE1" }} onClick={() => { save(); }}>Back</div>
-                <div className="w-[170px] h-[40px] text-white flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ backgroundColor: "#3D5EE1" }}>Save and Finish</div>
+                <div className="w-[170px] h-[40px] text-white flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ backgroundColor: "#3D5EE1" }} onClick={() => { saveAndFinish(); }}>Save and Finish</div>
+
               </div>
 
             </div>
