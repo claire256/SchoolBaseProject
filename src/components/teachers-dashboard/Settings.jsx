@@ -23,6 +23,7 @@ const Settings = () => {
   const [bioEditable, setBioEditable] = useState(false);
 
 
+
   {/* Conditional statements to cancle and delete values of invalid profile edit*/ }
   const cancelEdit = (fieldName) => {
     if (fieldName === 'firstName') {
@@ -46,6 +47,13 @@ const Settings = () => {
     setAddressEditable(false); // Revert to initial state
     setBioEditable(false); // Revert to initial state
   };
+
+  const backButton = () => {
+    setNamesEditable(false);
+    setContactEditable(false);
+    setAddressEditable(false);
+    setBioEditable(false);
+  }
 
   const saveAndFinish = () => {
     setNamesEditable(false);
@@ -209,7 +217,7 @@ const Settings = () => {
 
               {/* save button section*/}
               <div className="mt-20 flex flex-row items-center justify-between w-full">
-                <div className="w-[170px] h-[40px] border flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ borderColor: "#3D5EE1", color: "#3D5EE1" }} onClick={() => { save(); }}>Back</div>
+                <div className="w-[170px] h-[40px] border flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ borderColor: "#3D5EE1", color: "#3D5EE1" }} onClick={() => { backButton(); }}>Back</div>
                 <div className="w-[170px] h-[40px] text-white flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ backgroundColor: "#3D5EE1" }} onClick={() => { saveAndFinish(); }}>Save and Finish</div>
 
               </div>

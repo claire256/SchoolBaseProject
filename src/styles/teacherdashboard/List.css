@@ -1,0 +1,37 @@
+.list-display{
+    display: flex;
+    gap: 18%;
+}
+.surname-display{
+    display: flex;
+    gap: 6%;
+    width: 150px;
+}
+.surname-input{
+    background-color: #54BAB9;
+    width: 24px;
+    height: 22px;
+    border-radius: 5px;
+}
+.firstname-input{
+    border: solid 1px black;
+    width: 24px;
+    height: 22px;
+    border-radius: 5px;
+}
+
+@media (max-width: 480px) {
+    .surname-input{
+        width: 20px;
+        height: 18px;
+    }
+    .firstname-input{
+        width: 20px;
+        height: 18px;
+    }
+    .list-display{
+        font-size: 14px;
+        padding-right: 4%;
+    }
+    
+}
