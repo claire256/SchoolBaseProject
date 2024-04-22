@@ -65,6 +65,8 @@ import ArrowRight from "../assets/images/ArrowRight.png";
 import plus from "../assets/images/plus.png";
 import quizImg from "../assets/images/quizImg.png";
 import teacherdashboardImg from "../assets/images/Teacher and student.png";
+import closeVectorImage from "../assets/images/closeVectorImage.png";
+import Edit from "../assets/images/Edit.png";
 
 export {
   schoolbaseLogo,
@@ -134,4 +136,6 @@ export {
   plus,
   quizImg,
   teacherdashboardImg,
+  closeVectorImage,
+  Edit,
 };
