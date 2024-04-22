@@ -6,6 +6,7 @@ import {  Arrowdown, chevleft, circle, clockIcon, vector  } from "../../../asset
 import "../../../styles/teacherdashboard/ViewSyllabus.css";
 import Content from "./Content";
 import Back from "./Back";
+import { Link } from "react-router-dom";
 
 const ViewSyllabus = ()=>{
     const [isOpen, setIsOpen] = useState(false);
@@ -96,9 +97,11 @@ const ViewSyllabus = ()=>{
            <div className="cont-sec"><Content title="Week 1" image={vector}/></div>
            <div className="cont-sec"><Content title="Week 1" image={vector}/></div>
        </div>
+       <Link to="/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent/viewsyllabus/form">
        <div className="back-link">
        <Back/>
        </div>
+       </Link>
     </div>
     </div>
     )

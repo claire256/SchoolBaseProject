@@ -241,7 +241,7 @@ const Settings = () => {
 
               {/* save button section*/}
               <div className="mt-20 flex flex-row items-center justify-between w-full">
-                <div className="w-[170px] h-[40px] border flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ borderColor: "#3D5EE1", color: "#3D5EE1" }} onClick={() => { backButton(); }}>Back</div>
+                <div className="w-[170px] h-[40px] border flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer hover:bg-blue-300" style={{ borderColor: "#3D5EE1", color: "#3D5EE1" }} onClick={() => { backButton(); }}>Back</div>
 
                 <div className="w-[170px] h-[40px] text-white flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ backgroundColor: "#3D5EE1" }} onClick={() => { saveAndFinish(); }}>Save and Finish</div>
 
@@ -256,9 +256,3 @@ const Settings = () => {
 };
 
 export default Settings;
-
-
-/**
- * 
-                <div className="w-[170px] h-[40px] border flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ borderColor: "#3D5EE1", color: "#3D5EE1" }} onClick={() => { save(); }}>Back</div>
- */
