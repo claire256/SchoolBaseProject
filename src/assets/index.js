@@ -77,6 +77,8 @@ import instagramIcon from "../assets/images/instagram.png";
 import utubeIcon from "../assets/images/youtube.png";
 import slimArrow from "../assets/images/slimArrow.svg";
 import book from "../assets/images/book.svg";
+import closeVectorImage from "../assets/images/closeVectorImage.png";
+import Edit from "../assets/images/Edit.png";
 
 
 export {
@@ -159,4 +161,6 @@ export {
   instagramIcon,
   slimArrow,
   book,
+  closeVectorImage,
+  Edit,
 };

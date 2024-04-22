@@ -40,6 +40,8 @@
 }
 .sub-back{
     cursor: pointer;
+    margin-left: 5%;
+    padding-top: 20px;
 }
 
 @media (max-width: 480px) {

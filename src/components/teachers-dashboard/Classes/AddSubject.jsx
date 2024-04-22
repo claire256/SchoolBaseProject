@@ -47,9 +47,11 @@ const AddSubject = ()=>{
        <Subject/>
        <Subject/>
        </div>
+       <div className="sub-back">
        <Link to="/teacher/dashboard/classes/myclasses/addsubject/uploadfile">
-       <Back className="sub-back"/>
+       <Back />
        </Link>
+       </div>
     </div>
     </div>
     )

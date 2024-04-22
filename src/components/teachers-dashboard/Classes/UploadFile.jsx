@@ -4,7 +4,7 @@ import Header from "../Header";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { chevleft } from "../../../assets";
 import "../../../styles/teacherdashboard/UploadFile.css"
-import { Form } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
 import Back from "./Back";
 
 const UploadFile = ()=>{
@@ -43,7 +43,9 @@ const UploadFile = ()=>{
         <input className="upload-input" placeholder="Description"/>
         <div className="file-upload"><p>Drag File in here OR <span className="span">Upload file</span></p> </div>
         <div className="upload-div">
+            <Link to="/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent">
             <Back/>
+            </Link>
             <button className="file-btn">upload and Finish</button>
         </div>
     </form>

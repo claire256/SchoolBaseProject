@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { closeVectorImage } from "../../assets";
 
 export default function Modal({ page, visible, close, addClass, editClass, prevVal, prevSub, addSubject, editSubject }) {
-    const [warning, setWarning] = useState(''); //user must input a value in the class field
-    const [subjectwarning, setSubjectWarning] = useState(''); //user must input a value in the subject field
-    const [contentwarning, setContentWarning] = useState(''); //user must input a value in the subject content field
+    const [warning, setWarning] = useState('');
+    const [subjectwarning, setSubjectWarning] = useState('');
+    const [contentwarning, setContentWarning] = useState('');
 
     const classInputChecker = () => {
         if (page === 'class') {
@@ -59,8 +60,7 @@ export default function Modal({ page, visible, close, addClass, editClass, prevV
     }
 
     return (
-        <div className="absolute w-full h-full flex-row items-center justify-center"
-            style={{ display: visible ? 'flex' : 'none', backgroundColor: 'rgba(20, 20, 20, 0.3)' }}>
+        <div className="absolute w-full h-full flex-row items-center justify-center" style={{ display: visible ? 'flex' : 'none', backgroundColor: 'rgba(20, 20, 20, 0.3)' }}>
             {
                 page === 'class' &&
                 <div className="bg-white w-[500px] h-[400px] flex flex-col items-center justify-start shadow-xl">
@@ -68,7 +68,7 @@ export default function Modal({ page, visible, close, addClass, editClass, prevV
                         <div className="w-[40%] border-0 border-b-4 pb-4 font-bold" style={{ borderColor: '#0066FF' }}>
                             {prevVal === '' ? 'Add a New Class' : 'Edit Class'}
                         </div>
-                        <img className="w-3 h-3 cursor-pointer" src="close.png" onClick={() => { close(); }} />
+                        <img className="w-3 h-3 cursor-pointer" src={closeVectorImage} alt="Close Vector Image" onClick={() => { close(); }} />
                     </div>
                     <div className="w-[85%] mt-2 px-8 flex flex-col items-start justify-start">
                         <label className="text-sm font-bold">Name of Class</label>
@@ -92,7 +92,7 @@ export default function Modal({ page, visible, close, addClass, editClass, prevV
                         <div className="w-[40%] border-0 border-b-4 pb-4 font-bold" style={{ borderColor: '#0066FF' }}>
                             Add Subject
                         </div>
-                        <img className="w-3 h-3 cursor-pointer" src="close.png" onClick={() => { close(); }} />
+                        <img className="w-3 h-3 cursor-pointer" src={closeVectorImage} alt="Close Vector Image" onClick={() => { close(); }} />
                     </div>
                     <div className="w-[85%] mt-2 px-8 flex flex-col items-start justify-start">
                         <label className="text-sm font-bold">Name of Subject</label>
@@ -107,7 +107,7 @@ export default function Modal({ page, visible, close, addClass, editClass, prevV
                         <div className='text-red-700 text-xs mt-0.5'>{contentwarning}</div>
 
 
-                        <button className="mt-10 py-2 rounded-lg w-full bg-buttonPrimary text-white" onClick={() => { classInputChecker(); }}>
+                        <button className="mt-10 py-2 rounded-lg w-full bg-[#3D5EE1] text-white" onClick={() => { classInputChecker(); }}>
                             Proceed
                         </button>
                     </div>
