@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import Header from './Header';
-import { FaBars, FaTimes } from 'react-icons/fa';
+//import { FaBars, FaTimes } from 'react-icons';
 import { nigerianWoman } from "../../assets";
 import { closeVectorImage, Edit } from "../../assets";
 import Dashboard from './Dashboard';
@@ -16,12 +16,12 @@ const Settings = () => {
   const [contactPhoneEditableValue, setContactPhoneEditableValue] = useState('');
   const [cityEditableValue, setCityEditableValue] = useState('');
   const [addressEditableValue, setAddressEditableValue] = useState('');
-  const [bioContentEditableValue, setBioContentEditableValue] = useState('');
+  const [bioContentEditableValue, setBioContentEditableValue] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
   const [namesEditable, setNamesEditable] = useState(false);
   const [contactEditable, setContactEditable] = useState(false);
   const [addressEditable, setAddressEditable] = useState(false);
   const [bioEditable, setBioEditable] = useState(false);
-
+  const [countries, setCountries] = useState([]);
 
 
   {/* Conditional statements to cancle and delete values of invalid profile edit*/ }
@@ -56,7 +56,14 @@ const Settings = () => {
   }
 
   const saveAndFinish = () => {
-    setNamesEditable(false);
+    // save logic for all editable fields
+    // Save edited values
+    if (namesEditable) {
+      setNamesEditable(false);
+      // Update state with edited values for names
+      console.log(setFirstNameEditableValue(firstNameEditableValue));
+      console.log(setLastNameEditableValue(lastNameEditableValue));
+    }
     setContactEditable(false);
     setAddressEditable(false);
     setBioEditable(false);
@@ -65,6 +72,15 @@ const Settings = () => {
     alert("Changes saved successfully!");
 
   };
+
+  const loadCountries = () => {
+    fetch('/countries.json').then(response => {
+      return response.json();
+    }).then(response => {
+      let values = Object.values(response);
+      setCountries(values);
+    });
+  }
 
   return (
     <div className="flex h-full overflow-y-hidden border-black border">
@@ -90,11 +106,11 @@ const Settings = () => {
               <div className="mt-4 w-[800px] flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE', display: namesEditable ? 'none' : 'flex' }}>
                 <div className="flex flex-col items-start justify-start w-[40%]">
                   <div className='text-sm'>First name</div>
-                  <div className='text-sm font-bold'>Doose</div>
+                  <div className='text-sm font-bold'>{firstNameEditableValue === '' ? 'Doose' : firstNameEditableValue}</div>
                 </div>
                 <div className="flex flex-col items-start justify-start w-[40%]">
                   <div className='text-sm'>Last name</div>
-                  <div className='text-sm font-bold'>Atumeyi</div>
+                  <div className='text-sm font-bold'>{lastNameEditableValue === '' ? 'Atumeyi' : lastNameEditableValue}</div>
                 </div>
                 <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { setNamesEditable(true); }}>
                   Edit
@@ -126,11 +142,11 @@ const Settings = () => {
               < div className="mt-4 w-[800px] flex flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE', display: contactEditable ? 'none' : 'flex' }}>
                 <div className="flex flex-col items-start justify-start w-[40%]">
                   <div className='text-sm'>Email address</div>
-                  <div className='text-sm font-bold'>dooseatumeyi@gmail.com</div>
+                  <div className='text-sm font-bold'>{contactEmailEditableValue === '' ? 'dooseatumeyi@gmail.com' : contactEmailEditableValue}</div>
                 </div>
                 <div className="flex flex-col items-start justify-start w-[40%]">
                   <div className='text-sm'>Phone</div>
-                  <div className='text-sm font-bold'>+234 8109675622</div>
+                  <div className='text-sm font-bold'>{contactPhoneEditableValue === '' ? '+234 8109675622' : contactPhoneEditableValue}</div>
                 </div>
                 <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { setContactEditable(true); }}>
                   Edit
@@ -162,13 +178,13 @@ const Settings = () => {
               <div className="mt-4 w-[800px] flex flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE', display: addressEditable ? 'none' : 'flex' }}>
                 <div className="flex flex-col items-start justify-start w-[40%]">
                   <div className='text-sm'>Country</div>
-                  <div className='text-sm font-bold'>Nigeria</div>
+                  <div className='text-sm font-bold'>{addressEditableValue === '' ? 'Nigeria' : addressEditableValue}</div>
                 </div>
                 <div className="flex flex-col items-start justify-start w-[40%]">
                   <div className='text-sm'>City/State</div>
-                  <div className='text-sm font-bold'>Festac, Lagos</div>
+                  <div className='text-sm font-bold'>{cityEditableValue === '' ? 'Festac, Lagos' : cityEditableValue}</div>
                 </div>
-                <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { setAddressEditable(true); }}>
+                <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { loadCountries(); setAddressEditable(true); }}>
                   Edit
                   <img className='ml-2' src={Edit} alt="edit image" />
                 </div>
@@ -179,7 +195,15 @@ const Settings = () => {
                 <div className="w-[60%] mt-2">
                   <label className="text-xs font-bold">Country</label>
                   <div className='flex flex-row items-center justify-start'>
-                    <input type="email" className="mt-0.5 w-full border border-slate-500 text-sm p-1.5 rounded-lg" value={addressEditableValue} onChange={(e) => setAddressEditableValue(e.target.value)} />
+                    <select onChange={(e) => { setAddressEditableValue(e.target.value); }}>
+                      {
+                        countries.map((country, index) => {
+                          return (
+                            <option key={'country' + index}>{country}</option>
+                          );
+                        })
+                      }
+                    </select>
                     <img className="ml-4 w-4 h-4 cursor-pointer" src={closeVectorImage} alt="Close Vector Image" onClick={() => cancelEdit('address')} />
                   </div>
                 </div>
@@ -197,7 +221,7 @@ const Settings = () => {
               <div className='mt-8 text-sm font-bold'>Bio</div>
               <div className="mt-4 w-[800px] flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE', display: bioEditable ? 'none' : 'flex' }}>
                 <div className="flex flex-col items-start justify-start w-[80%]">
-                  <textarea className="w-[590px] h-[100px] border border-slate-400 rounded-lg text-sm p-2">{bioContentEditableValue}</textarea>
+                  <textarea className="w-[590px] h-[100px] border border-slate-400 rounded-lg text-sm p-2" value={bioContentEditableValue} readOnly></textarea>
                 </div>
                 <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { setBioEditable(true); }}>
                   Edit
@@ -218,6 +242,7 @@ const Settings = () => {
               {/* save button section*/}
               <div className="mt-20 flex flex-row items-center justify-between w-full">
                 <div className="w-[170px] h-[40px] border flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ borderColor: "#3D5EE1", color: "#3D5EE1" }} onClick={() => { backButton(); }}>Back</div>
+
                 <div className="w-[170px] h-[40px] text-white flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ backgroundColor: "#3D5EE1" }} onClick={() => { saveAndFinish(); }}>Save and Finish</div>
 
               </div>
@@ -231,3 +256,9 @@ const Settings = () => {
 };
 
 export default Settings;
+
+
+/**
+ * 
+                <div className="w-[170px] h-[40px] border flex flex-row items-center justify-center rounded-lg font-semibold text-sm cursor-pointer" style={{ borderColor: "#3D5EE1", color: "#3D5EE1" }} onClick={() => { save(); }}>Back</div>
+ */
