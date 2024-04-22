@@ -1,0 +1,92 @@
+.uploadheader{
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.upload-input{
+    width:857px ;
+    height: 48px;
+    border-radius: 2px;
+    box-shadow: 3px 7px 10px #F1F1F1;
+    font-size: 16px;
+    border: solid 1px #F1F1F1;
+}
+.upload-sec{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding-left: 5%;
+    padding-right: 5.5%;
+    padding-top: 3%;
+    flex-wrap: wrap;
+}
+.chevimg-upload{
+    display: flex;
+    gap: 7%;
+    align-items: center;
+    width: 500px;  
+}
+   .chevupload{
+    width: 25px;
+    height: 25px;
+    align-items: center;
+    background-color:#3D5EE1 ;
+    border-radius: 70%;
+}
+.upload-form{
+    width: 857px;
+    padding-left: 5%;
+}
+.file-upload{
+    width: 857px;
+    height: 350px;
+    border-radius: 24px;
+    border: dashed 1px #777575;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6E6868;
+    font-size: 14px;
+    margin-top: 20px; 
+}
+.file-upload .span{
+     background: #DADADA;
+}
+.file-btn{
+    width:170px ;
+    height:40px ;
+    background: blue;
+    color: white;
+    border-radius: 8px;
+}
+.upload-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    width: 857px;
+}
+
+@media (max-width: 480px) {
+    .upload-form{
+        width: 450px;
+        font-size: 14px;
+    }
+    .file-upload{
+        width: 420px;
+        height: 250px;
+        font-size: 12px;
+    }
+    .upload-input{
+        width: 420px;
+        font-size: 12px;
+   }
+    .upload-div{
+        align-items: center;
+        width: 420px;
+    }
+    .file-btn{
+        width:130px ;
+        height:35px ;
+    }
+}

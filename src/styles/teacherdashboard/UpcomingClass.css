@@ -1,0 +1,23 @@
+.cont-div{
+    width: 440px;
+    height: 128px;
+    box-shadow: 10px 20px 20px #e9e7e7;
+    border-radius: 12px;
+    display: flex;
+    gap: 15px;
+    padding: 40px 16px 40px 16px;
+}
+.cont-div .para{
+    color: #6B7276;
+    font-weight: 400;
+    font-size: 14px;
+}
+.cont-div .sp{
+    color:#3B3F42;
+    font-weight: 400;
+    font-size: 16px;
+}
+.day{
+    border-right: solid 3px blue;
+    padding-right: 10px;
+}

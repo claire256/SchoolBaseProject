@@ -145,6 +145,7 @@ const ClassRecords = () => {
         }
 
       </div>
+
       <Modal
         page={page}
         visible={showmodal}
@@ -152,6 +153,7 @@ const ClassRecords = () => {
         addClass={(classname) => { updateClass(classname); }}
         editClass={(classname) => { editClass(classname); }}
         addSubject={(subject, content) => { addSubject(subject, content); }}
+        contentavailable={true}
         editSubject={(subject, content) => { editSubject(subject, content); }}
         prevVal={prevName}
         prevSub={prevSub}
