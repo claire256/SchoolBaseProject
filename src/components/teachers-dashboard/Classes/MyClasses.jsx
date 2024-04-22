@@ -39,6 +39,7 @@ const MyClasses = () => {
     // Add new class to studentData
     const updatedStudentData = [...studentData, { Classes: classname }];
     setStudentData(updatedStudentData);
+    console.log(studentData);
     setShowModal(false); // Close the modal after adding class
   };
 
@@ -89,7 +90,7 @@ const MyClasses = () => {
         <div className="second-sec">
           {studentData.length > 0 ? (
             studentData.map((className, index) => (
-              <MyClassesCard key={index} className={className.studentData} />
+              <MyClassesCard key={index} nameOfClass={className.Classes} />
             ))
           ) : (
             <div className="w-[85%] mx-auto text-center border-2 border-slate-300 rounded-lg mt-8 px-12 py-4 box-border pb-4">
