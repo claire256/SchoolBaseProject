@@ -9,7 +9,7 @@ import Exams from './components/teachers-dashboard/Exams';
 import Settings from './components/teachers-dashboard/Settings';
 import QuizHistory from './components/teachers-dashboard/QuizHistory';
 import ApplicantReg from './pages/web-site/applicant/ApplicantReg';
-import ApplicantContact from './pages/web-site/applicant/ApplicantContact'; 
+import ApplicantContact from './pages/web-site/applicant/ApplicantContact';
 import ApplicantAcademiaInfo from './pages/web-site/applicant/ApplicantAcademiaInfo';
 import SignInPage from './pages/web-site/teachersOnboading/SignInPage';
 import SignUpPage from './pages/web-site/teachersOnboading/SignUpPage';
@@ -78,11 +78,11 @@ function App() {
           element={<ClassRecords />}
         />
         <Route path='/teacher/dashboard/classes' element={<Classes />} />
-        <Route path='/teacher/dashboard/classes/myclasses' element={<MyClasses/>}/>
-        <Route path='/teacher/dashboard/classes/myclasses/addsubject' element={<AddSubject/>}/>
-        <Route path='/teacher/dashboard/classes/myclasses/addsubject/uploadfile' element={<UploadFile/>}/>
+        <Route path='/teacher/dashboard/classes/myclasses' element={<MyClasses />} />
+        <Route path='/teacher/dashboard/classes/myclasses/addsubject' element={<AddSubject />} />
+        <Route path='/teacher/dashboard/classes/myclasses/addsubject/uploadfile' element={<UploadFile />} />
         <Route path='/teacher/dashboard/attendance' element={<ClassRegister />} />
-        <Route path='/teacher/dashboard/attendance/classlist' element={<ClassList />} />        
+        <Route path='/teacher/dashboard/attendance/classlist' element={<ClassList />} />
         <Route path='/teacher/dashboard/exams' element={<Exams />} />
         <Route path='/teacher/dashboard/settings' element={<Settings />} />
 
