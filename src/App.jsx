@@ -42,6 +42,7 @@ import AddSubject from './components/teachers-dashboard/Classes/AddSubject';
 import UploadFile from './components/teachers-dashboard/Classes/UploadFile';
 import SubjectContent from './components/teachers-dashboard/Classes/SubjectContent';
 import ViewSyllabus from './components/teachers-dashboard/Classes/ViewSyllabus';
+import ClassesForm from './components/teachers-dashboard/Classes/ClassesForm';
 
 function App() {
   return (
@@ -113,7 +114,10 @@ function App() {
         <Route path='/teacher/dashboard/classes/myclasses/addsubject' element={<AddSubject/>}/>
         <Route path='/teacher/dashboard/classes/myclasses/addsubject/uploadfile' element={<UploadFile/>}/>
         <Route path='/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent' element={<SubjectContent/>}/>
-        <Route path='/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent/viewsyllabus' element={<ViewSyllabus/>}/>
+        <Route path='/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent/viewsyllabus'
+         element={<ViewSyllabus/>}/>
+        <Route path='/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent/viewsyllabus/form'
+         element={<ClassesForm/>}/>
         <Route path='/teacher/dashboard/attendance' element={<ClassRegister />} />
         <Route path='/teacher/dashboard/attendance/classlist' element={<ClassList />} />        
         <Route path='/teacher/dashboard/exams' element={<Exams />} />

@@ -7,7 +7,7 @@ import "../../../styles/teacherdashboard/UploadFile.css"
 import { Link } from "react-router-dom";
 import Back from "./Back";
 
-const UploadFile = ()=>{
+const ClassesForm = ()=>{
     const [isOpen, setIsOpen] = useState(false);
     return(
         <div className="flex flex-row h-screen">
@@ -37,8 +37,13 @@ const UploadFile = ()=>{
             </div>
        </div>
     <form className="upload-form">
-        <label>Title</label><br></br>
-        <input className="upload-input" placeholder="Title of the file"/><br></br><br></br>
+        <label>Subject</label><br></br>
+        <input className="upload-input" placeholder="Subject"/><br></br><br></br>
+        <label>Content Title</label><br></br>
+        <input className="upload-input" placeholder="Content Title"/>
+        <label>Content</label><br></br>
+        <input className="upload-input" placeholder="Content"/><br></br><br></br>
+        <div className="plus-div">+</div><br></br>
         <label>Description</label><br></br>
         <input className="upload-input" placeholder="Description"/>
         <div className="file-upload"><p>Drag File in here OR <span className="span">Upload file</span></p> </div>
@@ -54,4 +59,4 @@ const UploadFile = ()=>{
     )
 }
 
-export default UploadFile;
+export default ClassesForm;
