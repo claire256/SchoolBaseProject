@@ -1,8 +1,8 @@
 import "../../../styles/teacherdashboard/MyClassesCard.css";
 import React, { useState } from "react";
 
-//const MyClassesCard = () =>{
-const MyClassesCard = () => {
+
+const MyClassesCard = ({ nameOfClass }) => {
     const [className, setClassName] = useState("");
     const [newClassName, setNewClassName] = useState("");
 
@@ -14,9 +14,9 @@ const MyClassesCard = () => {
         setClassName(newClassName);
     };
     return (
-        <div className="card-div">
+        <div className="card-div mb-16">
             <div>
-                <p className="jss">{className}</p><br></br>
+                <p className="jss">{nameOfClass}</p><br></br>
                 <button className="enter-btn hover:bg-blue-300" >Enter Class</button>
             </div>
         </div>
