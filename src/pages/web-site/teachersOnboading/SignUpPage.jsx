@@ -355,42 +355,42 @@ const SignUpPage = () => {
           </label>
           <div className="border-2 rounded-[16px] w-[90%] shadow-sm p-2 flex flex-wrap lgss:space-x-5">
             <div className="space-y-3">
-              <button className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[20px] gap-3 font-semibold py-1">
+              <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[20px] gap-3 font-semibold py-1">
                 <p className="text-[14px]">JSS 1</p>
                 <input type="checkbox" className="w-4" name="jss1" id="jss1" />
-              </button>
-              <button className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[20px] gap-3 font-semibold py-1">
+              </div>
+              <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[20px] gap-3 font-semibold py-1">
                 <p className="text-[14px]">JSS 2</p>
                 <input type="checkbox" name="jss2" id="jss2" />
-              </button>
+              </div>
             </div>
             <div className="space-y-3">
-              <button className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[14px] gap-3 font-semibold py-1">
+              <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[14px] gap-3 font-semibold py-1">
                 <p className="text-[14px]">JSS 3</p>
                 <input type="checkbox" className="w-4" name="jss3" id="jss3" />
-              </button>
-              <button className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[14px] gap-3 font-semibold py-1">
+              </div>
+              <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[14px] gap-3 font-semibold py-1">
                 <p className="text-[14px]">SS 1</p>
                 <input type="checkbox" className="w-4" name="ss1" id="ss1" />
-              </button>
+              </div>
             </div>
             <div className="space-y-3">
-              <button className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[20px] gap-3 font-semibold py-1">
+              <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[20px] gap-3 font-semibold py-1">
                 <p className="text-[14px]">SS 2</p>
                 <input type="checkbox" className="w-4" name="ss2" id="ss2" />
-              </button>
-              <button className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[20px] gap-3 font-semibold py-1">
+              </div>
+              <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[20px] gap-3 font-semibold py-1">
                 <p className="text-[14px]">SS 3</p>
                 <input type="checkbox" name="ss3" id="ss3" />
-              </button>
+              </div>
             </div>
           </div>
         </div>
         <div className="flex space-x-6 w-[90%] items-end">
-          <button className="border-[1px] border-secondary mt-2 rounded-[16px] px-4 py-4 shadow-sm flex justify-center items-center text-[24px]">
+          <div className="border-[1px] border-secondary mt-2 rounded-[16px] px-4 py-4 shadow-sm flex justify-center items-center text-[24px]">
             <CiImageOn />
-          </button>
-          <button className="">
+          </div>
+          <div className="">
             <CiImageOn />
             <input
               type="file"
@@ -398,7 +398,7 @@ const SignUpPage = () => {
               accept="image/*"
               onChange={handleImageChange}
             />
-          </button>
+          </div>
         </div>
         <div className="flex space-x-3 pt-1 text-[14px] font-semibold">
           <input type="checkbox" className="w-3" required />
