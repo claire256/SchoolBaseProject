@@ -68,7 +68,7 @@ const Settings = () => {
 
   const loadCountries = () => {
     fetch('/countries.json').then(response => {
-        return response.json();
+      return response.json();
     }).then(response => {
       let values = Object.values(response);
       setCountries(values);
@@ -99,11 +99,11 @@ const Settings = () => {
               <div className="mt-4 w-[800px] flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE', display: namesEditable ? 'none' : 'flex' }}>
                 <div className="flex flex-col items-start justify-start w-[40%]">
                   <div className='text-sm'>First name</div>
-                  <div className='text-sm font-bold'>{firstNameEditableValue===''?'Doose':firstNameEditableValue}</div>
+                  <div className='text-sm font-bold'>{firstNameEditableValue === '' ? 'Doose' : firstNameEditableValue}</div>
                 </div>
                 <div className="flex flex-col items-start justify-start w-[40%]">
                   <div className='text-sm'>Last name</div>
-                  <div className='text-sm font-bold'>{lastNameEditableValue===''?'Atumeyi':lastNameEditableValue}</div>
+                  <div className='text-sm font-bold'>{lastNameEditableValue === '' ? 'Atumeyi' : lastNameEditableValue}</div>
                 </div>
                 <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { setNamesEditable(true); }}>
                   Edit
@@ -135,11 +135,11 @@ const Settings = () => {
               < div className="mt-4 w-[800px] flex flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE', display: contactEditable ? 'none' : 'flex' }}>
                 <div className="flex flex-col items-start justify-start w-[40%]">
                   <div className='text-sm'>Email address</div>
-                  <div className='text-sm font-bold'>{contactEmailEditableValue===''?'dooseatumeyi@gmail.com':contactEmailEditableValue}</div>
+                  <div className='text-sm font-bold'>{contactEmailEditableValue === '' ? 'dooseatumeyi@gmail.com' : contactEmailEditableValue}</div>
                 </div>
                 <div className="flex flex-col items-start justify-start w-[40%]">
                   <div className='text-sm'>Phone</div>
-                  <div className='text-sm font-bold'>{contactPhoneEditableValue===''?'+234 8109675622':contactPhoneEditableValue}</div>
+                  <div className='text-sm font-bold'>{contactPhoneEditableValue === '' ? '+234 8109675622' : contactPhoneEditableValue}</div>
                 </div>
                 <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { setContactEditable(true); }}>
                   Edit
@@ -171,11 +171,11 @@ const Settings = () => {
               <div className="mt-4 w-[800px] flex flex-row items-center justify-start py-2 px-4 rounded-lg" style={{ backgroundColor: '#EFF6FE', display: addressEditable ? 'none' : 'flex' }}>
                 <div className="flex flex-col items-start justify-start w-[40%]">
                   <div className='text-sm'>Country</div>
-                  <div className='text-sm font-bold'>{addressEditableValue===''?'Nigeria':addressEditableValue}</div>
+                  <div className='text-sm font-bold'>{addressEditableValue === '' ? 'Nigeria' : addressEditableValue}</div>
                 </div>
                 <div className="flex flex-col items-start justify-start w-[40%]">
                   <div className='text-sm'>City/State</div>
-                  <div className='text-sm font-bold'>{cityEditableValue===''?'Festac, Lagos':cityEditableValue}</div>
+                  <div className='text-sm font-bold'>{cityEditableValue === '' ? 'Festac, Lagos' : cityEditableValue}</div>
                 </div>
                 <div className="w-[85px] h-[35px] flex flex-row items-center justify-center rounded-lg text-white text-sm cursor-pointer" style={{ backgroundColor: '#007BFF' }} onClick={() => { loadCountries(); setAddressEditable(true); }}>
                   Edit
@@ -188,11 +188,11 @@ const Settings = () => {
                 <div className="w-[60%] mt-2">
                   <label className="text-xs font-bold">Country</label>
                   <div className='flex flex-row items-center justify-start'>
-                    <select onChange={(e)=>{ setAddressEditableValue(e.target.value); }}>
+                    <select onChange={(e) => { setAddressEditableValue(e.target.value); }}>
                       {
                         countries.map((country, index) => {
-                          return(
-                            <option key={'country'+index}>{country}</option>
+                          return (
+                            <option key={'country' + index}>{country}</option>
                           );
                         })
                       }
