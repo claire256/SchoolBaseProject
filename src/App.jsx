@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GetStarted from './pages/web-site/GetStarted';
 import TeacherDashboard from './pages/web-app/teachers-dashboard/TeacherDashboard';
 import ClassRecords from './components/teachers-dashboard/ClassRecords';
-import Classes from './components/teachers-dashboard/Classes';
-import Attendance from './components/teachers-dashboard/Attendance';
+import Classes from './components/teachers-dashboard/Classes/Classes';
 import Exams from './components/teachers-dashboard/Exams';
 import Settings from './components/teachers-dashboard/Settings';
 import QuizHistory from './components/teachers-dashboard/QuizHistory';
@@ -25,6 +24,8 @@ import AssessmentPage from './pages/web-app/students-dashboard/AssessmentPage';
 import PayFees from './pages/web-app/students-dashboard/PayFees';
 import StudentsSignUp from './pages/web-site/studentsOnboarding/StudentsSignUpPage';
 import StudentsSignin from './pages/web-site/studentsOnboarding/StudentsSigninPage';
+import ClassRegister from './components/teachers-dashboard/Attendance/ClassRegister';
+import ClassList from './components/teachers-dashboard/Attendance/ClassList';
 import Timetable from './pages/web-app/students-dashboard/Calender';
 import TimetableTeacher from './pages/web-app/teachers-dashboard/Calender';
 import ResetPassword from './pages/web-site/applicant/ResetPassword';
@@ -33,6 +34,15 @@ import PasswordResetSuccessful from './pages/web-site/applicant/PasswordResetSuc
 import CreatePassword from './pages/web-site/applicant/CreatePassword';
 import EmailVerification from './pages/web-site/EmailVerification';
 import ConfirmEmail from './pages/web-site/ConfirmEmail';
+import QuestionPage from './pages/web-app/teachers-dashboard/exams/QuestionPage';
+import AddQuestions from './pages/web-app/teachers-dashboard/exams/AddQuestions';
+import QuestionGeneral from './pages/web-app/teachers-dashboard/exams/QuestionsGeneral';
+import MyClasses from './components/teachers-dashboard/Classes/MyClasses';
+import AddSubject from './components/teachers-dashboard/Classes/AddSubject';
+import UploadFile from './components/teachers-dashboard/Classes/UploadFile';
+import SubjectContent from './components/teachers-dashboard/Classes/SubjectContent';
+import ViewSyllabus from './components/teachers-dashboard/Classes/ViewSyllabus';
+import ClassesForm from './components/teachers-dashboard/Classes/ClassesForm';
 
 
 function App() {
@@ -42,9 +52,15 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/get-started" element={<GetStarted />} />
         <Route path="/forgot-password" element={<ResetPassword />} />
-        <Route path="/reset-password-email" element={<ResetPasswordVerification />} />
+        <Route
+          path="/reset-password-email"
+          element={<ResetPasswordVerification />}
+        />
         <Route path="/new-password" element={<CreatePassword />} />
-        <Route path="/reset-password-success" element={<PasswordResetSuccessful />} />
+        <Route
+          path="/reset-password-success"
+          element={<PasswordResetSuccessful />}
+        />
 
         <Route path="/student/dashboard" element={<HomePage />} />
         <Route path="/student/calender" element={<Timetable />} />
@@ -75,9 +91,38 @@ function App() {
           element={<ClassRecords />}
         />
         <Route path="/teacher/dashboard/classes" element={<Classes />} />
-        <Route path="/teacher/dashboard/attendance" element={<Attendance />} />
+        <Route
+          path="/teacher/dashboard/attendance"
+          element={<ClassRegister />}
+        />
+        <Route
+          path="/teacher/dashboard/attendance/classlist"
+          element={<ClassList />}
+        />
         <Route path="/teacher/dashboard/exams" element={<Exams />} />
+        <Route path="/teacher/dashboard/exams/add" element={<AddQuestions />} />
+        <Route
+          path="/teacher/dashboard/exams/add-question"
+          element={<QuestionPage />}
+        />
+        <Route
+          path="/teacher/dashboard/exams/complete-quiz"
+          element={<QuestionGeneral />}
+        />
         <Route path="/teacher/dashboard/settings" element={<Settings />} />
+        <Route path='/teacher/dashboard/classes' element={<Classes />} />
+        <Route path='/teacher/dashboard/classes/myclasses' element={<MyClasses/>}/>
+        <Route path='/teacher/dashboard/classes/myclasses/addsubject' element={<AddSubject/>}/>
+        <Route path='/teacher/dashboard/classes/myclasses/addsubject/uploadfile' element={<UploadFile/>}/>
+        <Route path='/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent' element={<SubjectContent/>}/>
+        <Route path='/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent/viewsyllabus'
+         element={<ViewSyllabus/>}/>
+        <Route path='/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent/viewsyllabus/form'
+         element={<ClassesForm/>}/>
+        <Route path='/teacher/dashboard/attendance' element={<ClassRegister />} />
+        <Route path='/teacher/dashboard/attendance/classlist' element={<ClassList />} />        
+        <Route path='/teacher/dashboard/exams' element={<Exams />} />
+        <Route path='/teacher/dashboard/settings' element={<Settings />} />
         <Route
           path="/teacher/dashboard/exams/history"
           element={<QuizHistory />}

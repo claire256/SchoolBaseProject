@@ -3,6 +3,7 @@ import signupImg from "../assets/images/signupImg.png";
 import Man from "../assets/images/M.png";
 import smilingboy from "../assets/images/smilingboy.png";
 import smilingGirl from "../assets/images/smilingGirl.png";
+import smallGirl from "../assets/images/smallGirl.png";
 import Ellipse from "../assets/images/Ellipse.png";
 import email from "../assets/images/email.png";
 import cycle from "../assets/images/cycle.png";
@@ -58,6 +59,9 @@ import dotts from "../assets/images/dotts.png";
 import colleaguesDiscussing from "../assets/images/colleaguesdiscussing.svg";
 import Arrowdown from "../assets/images/Arrowdown.svg";
 import imageicon from "../assets/images/imageicon.svg";
+import vector from "../assets/images/TeacherAttendance/Vector.svg";
+import man from "../assets/images/TeacherAttendance/man.svg";
+import chevleft from "../assets/images/TeacherAttendance/chevleft.svg";
 import Manlearning from "../assets/images/Manlearning.svg";
 import vectorImage from "../assets/images/vectorImage.svg";
 import rightArrow from "../assets/images/rightArrow.png";
@@ -67,6 +71,20 @@ import quizImg from "../assets/images/quizImg.png";
 import teacherdashboardImg from "../assets/images/Teacher and student.png";
 import Edit from "../assets/images/Edit.png";
 import closeVectorImage from "../assets/images/closeVectorImage.png";
+import rightArrowStroke from "../assets/images/Stroke.png";
+import facebkIcon from "../assets/images/facebk.png";
+import xhandleIcon from "../assets/images/xhandle.png";
+import linkedinIcon from "../assets/images/linkedin.png";
+import instagramIcon from "../assets/images/instagram.png";
+import utubeIcon from "../assets/images/youtube.png";
+import slimArrow from "../assets/images/slimArrow.svg";
+import book from "../assets/images/book.svg";
+import subimg from "../assets/images/subimg.png";
+import circle from "../assets/images/circle.svg";
+import redirect from "../assets/images/redirect.svg";
+import ArrowLeft from "../assets/images/ArrowLeft.svg";
+import clockIcon from "../assets/images/clockIcon.svg";
+
 
 export {
   schoolbaseLogo,
@@ -130,6 +148,9 @@ export {
   Arrowdown,
   imageicon,
   Manlearning,
+  vector,
+  man,
+  chevleft,
   vectorImage,
   ArrowRight,
   rightArrow,
@@ -138,4 +159,18 @@ export {
   teacherdashboardImg,
   Edit,
   closeVectorImage,
+  rightArrowStroke,
+  smallGirl,
+  facebkIcon,
+  xhandleIcon,
+  linkedinIcon,
+  utubeIcon,
+  instagramIcon,
+  slimArrow,
+  book,
+  circle,
+  subimg,
+  redirect,
+  ArrowLeft,
+  clockIcon,
 };

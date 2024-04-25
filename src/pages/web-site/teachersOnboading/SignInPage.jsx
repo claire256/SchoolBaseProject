@@ -1,31 +1,76 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginImg } from "../../../assets";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { BiErrorCircle } from "react-icons/bi";
 
 const SignInPage = () => {
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  function togglePasswordVisibility() {
-    setIsPasswordVisible((prevState) => !prevState);
-  }
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const [viewPassword, setViewPassword] = useState(false);
+  const validateEmail = (email, password) => {
+    // check if email is empty
+    if (!email) {
+      setError("Kindly tell us your mail");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+      return false;
+    }
+    // check if email is in the correct format using a regular expression
+    const emailRegex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    if (!emailRegex.test(email)) {
+      setError("Your email is not in the correct format");
+      setTimeout(() => {
+        setError("");
+      }, 6000);
+      return false;
+    }
+    // check if password is empty
+    if (!password) {
+      setError("We need your password to proceed");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+      return false;
+    }
+
+    setError("");
+    return true;
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (!validateEmail(email, password)) {
+      return;
+    }
+    navigate("/student");
+  };
   return (
-    <div className="flex h-screen bg-gray-100">
-      <div className="bg-signUpBg h-screen hidden lgss:flex lgss:w-1/2 flex-col justify-start items-start">
+    <div className="flex bg-gray-100">
+      <div className="bg-signUpBg hidden lgss:flex lgss:w-1/2 flex-col justify-start items-start">
         <Link to={"/"} className="px-5 py-3">
           <h1 className="text-3xl sm:text-4xl font-semibold text-primary font-itim">
             SchoolBase
           </h1>
         </Link>
-        <div className="flex justify-center h-full">
+        <div className="flex justify-center items-center flex-grow px-8">
           <img
             src={loginImg}
             alt="Login"
-            className="max-w-[65%]"
+            className="w-full "
             style={{ objectFit: "cover" }}
           />
         </div>
       </div>
-      <form className="w-full lgss:w-1/2 flex flex-col justify-start mt-[5%] items-start px-8">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full lgss:w-1/2 flex flex-col justify-center h-2/3 mt-[5%] items-start px-8"
+      >
         <div className="py-4">
           <h1 className="text-[26px] font-extrabold cursor-pointer">
             Login to your account
@@ -42,8 +87,10 @@ const SignInPage = () => {
                   type="text"
                   name="email"
                   id="email"
+                  value={email}
                   placeholder="Email"
                   className="py-2 shadow-lg text-sm shadow-gray-400/70 outline-none px-2"
+                  onChange={(e) => setEmail(e.target.value.toLowerCase())}
                 />
               </div>
               <div className="flex flex-col">
@@ -55,7 +102,8 @@ const SignInPage = () => {
                 </label>
                 <div className="  bg-white flex outline-none text-sm w-full justify-between items-center py-2 shadow-lg shadow-gray-400/70 px-2">
                   <input
-                    type={isPasswordVisible ? "text" : "password"}
+                    type={viewPassword ? "text" : "password"}
+                    value={password}
                     placeholder="Password"
                     className="outline-none w-full"
                     onChange={(e) => {
@@ -63,14 +111,14 @@ const SignInPage = () => {
                     }}
                   />
 
-                  {isPasswordVisible ? (
+                  {viewPassword ? (
                     <IoMdEye
-                      onClick={togglePasswordVisibility}
+                      onClick={() => setViewPassword((prev) => !prev)}
                       className="cursor-pointer text-xl relative"
                     />
                   ) : (
                     <IoMdEyeOff
-                      onClick={togglePasswordVisibility}
+                      onClick={() => setViewPassword((prev) => !prev)}
                       className="cursor-pointer text-xl relative "
                     />
                   )}
@@ -79,11 +127,21 @@ const SignInPage = () => {
             </div>
           </div>
           <div className="flex flex-col justify-center w-full">
-            <Link className="" to={"/teacher/dashboard"}>
-              <button className="bg-primary w-full py-3 mt-8 text-white font-semibold text-md rounded-[4px]">
-                Log In
-              </button>
-            </Link>
+            <h2
+              onClick={() => navigate("/")}
+              className=" mt-4 cursor-pointer text-right font-bold font-manrope text-primary"
+            >
+              Forgot password?
+            </h2>
+            {error && (
+              <div className="bg-red-600 w-full  text-white text-[14px] rounded-xl justify-start items-center gap-2 flex h-[48px] px-2 font-bold mt-4">
+                <BiErrorCircle className="text-xl" />
+                {error}
+              </div>
+            )}
+            <button className="bg-primary w-full py-3 mt-8 text-white font-semibold text-md rounded-[4px]">
+              Log In
+            </button>
             <p className="text-center w-full text-sm font-semibold mt-3">
               Not registered yet?
               <Link
