@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { signupImg } from "../../../assets";
 import { FormControl, MenuItem, Select } from "@mui/material";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { CiImageOn } from "react-icons/ci";
 import { BiErrorCircle } from "react-icons/bi";
+import axios from "axios";
+import { API_URL } from "../../../constants";
+import { ClipLoader } from "react-spinners";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { role } = location.state || {};
   const [email, setEmail] = useState("");
   const [residence, setResidence] = useState("");
   const [gender, setGender] = useState("");
@@ -19,7 +24,7 @@ const SignUpPage = () => {
   const [viewPassword, setViewPassword] = useState(false);
   const [viewConfirmPassword, setViewConfirmPassword] = useState(false);
   const [avatar, setAvatar] = useState("");
-
+  const [loader, setLoader] = useState(false);
   const [error, setError] = useState("");
   const validateEmail = (
     surname,
@@ -129,14 +134,13 @@ const SignUpPage = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file.size > 1000000) {
-      MySwal.fire("image must not exceed 1MB'");
-
-      setAvatar("");
+      // Handle file size exceeded error
+      return;
     } else {
       setAvatar(file);
     }
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (
@@ -153,7 +157,57 @@ const SignUpPage = () => {
     ) {
       return;
     }
-    navigate("/teacher/dashboard");
+
+    const classesTaught = [];
+    const checkboxes = document.querySelectorAll(
+      '.classes-taught input[type="checkbox"]'
+    );
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        classesTaught.push(checkbox.name);
+      }
+    });
+
+    const formData = new FormData();
+    formData.append("surName", surname);
+    formData.append("firstName", firstName);
+    formData.append("middleName", middleName);
+    formData.append("gender", gender);
+    formData.append("address", residence);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("role", role);
+    classesTaught.forEach((classTaught) => {
+      formData.append("classTaught[]", classTaught);
+    });
+    formData.append("avatar", avatar);
+
+    if (!loader) {
+      setLoader(true);
+      axios
+        .post(`${API_URL}/user/signup`, formData)
+        .then((r) => {
+          setLoader(false);
+          navigate("/teacher/dashboard");
+          console.log(r);
+        })
+        .catch((error) => {
+          setLoader(false);
+          if (error.response) {
+            if (error.response.status === 400) {
+              setError(
+                "This email address is already in use. Please use a different email."
+              );
+            } else {
+              console.log("Error:", error.response.data);
+              setError("An error occured");
+            }
+          } else {
+            console.log("Request setup error:", error.message);
+            setError("Account already exists, proceed to login");
+          }
+        });
+    }
   };
   return (
     <div className="flex bg-gray-100">
@@ -354,7 +408,7 @@ const SignUpPage = () => {
             Class Taught
           </label>
           <div className="border-2 rounded-[16px] w-[90%] shadow-sm p-2 flex flex-wrap lgss:space-x-5">
-            <div className="space-y-3">
+            <div className="classes-taught space-y-3">
               <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[20px] gap-3 font-semibold py-1">
                 <p className="text-[14px]">JSS 1</p>
                 <input type="checkbox" className="w-4" name="jss1" id="jss1" />
@@ -364,7 +418,7 @@ const SignUpPage = () => {
                 <input type="checkbox" name="jss2" id="jss2" />
               </div>
             </div>
-            <div className="space-y-3">
+            <div className="classes-taught space-y-3">
               <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[14px] gap-3 font-semibold py-1">
                 <p className="text-[14px]">JSS 3</p>
                 <input type="checkbox" className="w-4" name="jss3" id="jss3" />
@@ -374,7 +428,7 @@ const SignUpPage = () => {
                 <input type="checkbox" className="w-4" name="ss1" id="ss1" />
               </div>
             </div>
-            <div className="space-y-3">
+            <div className="classes-taught space-y-3">
               <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[20px] gap-3 font-semibold py-1">
                 <p className="text-[14px]">SS 2</p>
                 <input type="checkbox" className="w-4" name="ss2" id="ss2" />
@@ -414,16 +468,18 @@ const SignUpPage = () => {
           type="submit"
           className="bg-primary py-2 mt-3 w-[90%] text-white font-semibold text-md rounded-[4px]"
         >
-          Sign Up
+          {loader ? <ClipLoader color="#ffffff" /> : "Sign Up"}
         </button>
         <p className="text-center w-full font-semibold mt-2 text-[14px]">
           Already have an account?{" "}
-          <Link
-            to={"/get-started/teacher/signin"}
-            className="text-red-300 underline px-2 font-medium"
+          <span
+            onClick={() => {
+              navigate("/get-started/teacher/signin");
+            }}
+            className="text-red-300 underline px-2 cursor-pointer font-medium"
           >
             Sign In
-          </Link>
+          </span>
         </p>
       </form>
       ;

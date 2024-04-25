@@ -10,19 +10,22 @@ const GetStarted = () => {
   };
 
   const handleProceedClick = () => {
+    let role;
     switch (activeButton) {
       case "applicant":
-        navigate("/get-started/applicantregistration");
+        role = "applicant";
         break;
       case "student":
-        navigate("/get-started/student/signup");
+        role = "student";
         break;
       case "teacher":
-        navigate("/get-started/teacher/signup");
+        role = "teacher";
         break;
       default:
         break;
     }
+
+    navigate(`/get-started/${role}/signup`, { state: { role } });
   };
 
   return (

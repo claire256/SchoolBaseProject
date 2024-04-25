@@ -2,7 +2,7 @@ import { useState } from "react";
 import Sidebar from "../../../components/students-dashboard/Sidebar";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { teachImg } from "../../../assets";
-import Faqs from "../../../components/students-dashboard/Faqs";
+import SubjectContent from "../../../components/students-dashboard/SubjectContent";
 
 const SubjectPage = ({}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,8 +53,8 @@ const SubjectPage = ({}) => {
             </div>
             <div className="px-[5%] lgss:px-0 pt-5">
               <p>Subject Content</p>
-              <Faqs />
             </div>
+            <SubjectContent />
           </div>
         </div>
       </div>

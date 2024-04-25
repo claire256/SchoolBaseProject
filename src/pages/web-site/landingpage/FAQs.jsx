@@ -6,6 +6,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
+import "../../../styles/landing.css";
 
 const events = [
   {
@@ -60,7 +61,7 @@ const FAQs = () => {
   }, []);
   return (
     <>
-      <div className="flex justify-center items-center my-20">
+      <div className="flex items-center justify-center pt-10">
         <div className="flex flex-col gap-10 font-manrope">
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-2">
@@ -107,7 +108,6 @@ const FAQs = () => {
               </div>
             </div>
 
-            {/* <div> */}
               <div className="flex flex-col gap-5">
                 {eventR.map(({ ids, tittle, discription }) => (
                   <div key={ids} className=" shadow-lg">
@@ -137,7 +137,6 @@ const FAQs = () => {
                   </div>
                 ))}
               </div>
-            {/* </div> */}
           </div>
         </div>
       </div>

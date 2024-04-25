@@ -34,11 +34,3 @@ body {
 .read-the-docs {
   color: #888;
 }
-
-body,
-#root {
-  overflow-x: hidden;
-  border: '1px red solid';
-  width: 100vw;
-  height: 100vh;
-}
