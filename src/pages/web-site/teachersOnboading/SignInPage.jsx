@@ -48,7 +48,7 @@ const SignInPage = () => {
     if (!validateEmail(email, password)) {
       return;
     }
-    navigate("/student");
+    navigate("/student/dashboard");
   };
   return (
     <div className="flex bg-gray-100">

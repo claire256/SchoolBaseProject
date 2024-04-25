@@ -22,11 +22,6 @@ const TeacherDashboard = () => {
   }
 
   const programmes = [
-    // {
-    //   id: 1,
-    //   image: calender,
-    //   name: "Timtable",
-    // },
     {
       id: 2,
       image: mobile,
