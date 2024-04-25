@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import { SlideImgFour, SlideImgOne, SlideImgThree, SlideImgTwo, Star } from "../../assets";
+import {
+  SlideImgFour,
+  SlideImgOne,
+  SlideImgThree,
+  SlideImgTwo,
+  Star,
+} from "../../assets";
 
 const slides = [
   <div key={1} className="flex flex-col">
     <div className="flex justify-between">
       <div className="  ">
-        <img src={SlideImgOne} alt="slide" className="relative"/>
-        <div className="relative px-5 py-3 rounded-lg left-12 bottom-[130px]  bg-white w-[348px] " 
-        style={{boxShadow: ' 1px 1px 52px 5px rgba(192,192,253,0.75);'}} >
+        <img src={SlideImgOne} alt="slide" className="relative" />
+        <div
+          className="relative px-5 py-3 rounded-lg left-12 bottom-[130px]  bg-white w-[348px] "
+          style={{ boxShadow: " 1px 1px 52px 5px rgba(192,192,253,0.75);" }}
+        >
           <p className=" text-xs ">
             Thank you so much for your help. It's exactly what I've been looking
             for. You won't regret it. It really saves me time and effort.
@@ -22,9 +30,12 @@ const slides = [
           </div>
         </div>
       </div>
-      <div >
+      <div>
         <img src={SlideImgTwo} alt="slide" />
-        <div className="relative px-5 py-3 rounded-lg left-12 bottom-[130px]  bg-white w-[348px] " style={{boxShadow: ' 1px 1px 52px 5px rgba(192,192,253,0.75);'}}>
+        <div
+          className="relative px-5 py-3 rounded-lg left-12 bottom-[130px]  bg-white w-[348px] "
+          style={{ boxShadow: " 1px 1px 52px 5px rgba(192,192,253,0.75);" }}
+        >
           <p className=" text-xs ">
             Thank you so much for your help. It's exactly what I've been looking
             for. You won't regret it. It really saves me time and effort.
@@ -41,9 +52,9 @@ const slides = [
       </div>
     </div>
     <div className="flex justify-between">
-<div>
-<img src={SlideImgThree} alt="Avatar"/>
-<div className="relative px-5 py-3 rounded-lg left-12 bottom-[130px]  bg-white w-[348px] " >
+      <div>
+        <img src={SlideImgThree} alt="Avatar" />
+        <div className="relative px-5 py-3 rounded-lg left-12 bottom-[130px]  bg-white w-[348px] ">
           <p className=" text-xs ">
             Thank you so much for your help. It's exactly what I've been looking
             for. You won't regret it. It really saves me time and effort.
@@ -57,10 +68,16 @@ const slides = [
             </div>
           </div>
         </div>
-</div>
-<div >
-<img src={SlideImgFour} alt="Avatar"/>
-<div className="relative px-5 py-3 rounded-lg left-12 bottom-[100px]  bg-white w-[348px] shadow-lg " s style={{boxShadow: 'box-shadow: 1px 1px 52px 5px rgba(192,192,253,0.75);'}}>
+      </div>
+      <div>
+        <img src={SlideImgFour} alt="Avatar" />
+        <div
+          className="relative px-5 py-3 rounded-lg left-12 bottom-[100px]  bg-white w-[348px] shadow-lg "
+          s
+          style={{
+            boxShadow: "box-shadow: 1px 1px 52px 5px rgba(192,192,253,0.75);",
+          }}
+        >
           <p className=" text-xs ">
             Thank you so much for your help. It's exactly what I've been looking
             for. You won't regret it. It really saves me time and effort.
@@ -74,7 +91,7 @@ const slides = [
             </div>
           </div>
         </div>
-</div>
+      </div>
     </div>
   </div>,
   <div key={2}>Slide 2</div>,
@@ -93,15 +110,8 @@ const Slider = () => {
   };
 
   return (
-    <div className="hidden lgss:flex items-center justify-between w-full mt-10 border-2 border-red-600">
-      
-      <button onClick={goToPrevSlide} className="w-1/6 border-2 border-red-600">Previous</button>
-    <div className="w-4/5 border-2 border-red-600" >
-    {slides[currentSlide] }
-    </div>
-     <div className="w-1/6 border-2 border-red-600 flex items-end" >
-     <button  onClick={goToNextSlide} >Next</button>
-     </div>
+    <div className="hidden lgss:flex items-center justify-center w-full mt-10">
+      <div className="w-4/5">{slides[currentSlide]}</div>
     </div>
   );
 };
