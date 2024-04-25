@@ -11,9 +11,10 @@ import {
   teachImg,
 } from "../../../assets";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ClassesPage = () => {
-  const [ isOpen, setIsOpen ] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="flex flex-row h-screen">
@@ -38,35 +39,43 @@ const ClassesPage = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-wrap justify-start items-center gap-3 w-[95%] text-[22px] text-[#8F8F8F] font-medium  pt-10 ">
-            <CourseCard
-              title="Physics"
-              image={physics}
-              teachImg={teachImg}
-              teacher="Mr Sam"
-              percentage="80%"
-            />
-            <CourseCard
-              title="Geography"
-              image={geography}
-              teachImg={teachImg}
-              teacher="Mrs Ola"
-              percentage="80%"
-            />
-            <CourseCard
-              title="Biology"
-              image={biology}
-              teachImg={teachImg}
-              teacher="Miss Bello"
-              percentage="80%"
-            />
-            <CourseCard
-              title="Arts"
-              image={arts}
-              teachImg={teachImg}
-              teacher="Miss Taojud"
-              percentage="80%"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 lgss:grid-cols-3 w-full justify-start items-center gap-3 text-[22px] text-[#8F8F8F] font-medium  pt-10 ">
+            <Link to="/student/subject">
+              <CourseCard
+                title="Physics"
+                image={physics}
+                teachImg={teachImg}
+                teacher="Mr Sam"
+                percentage="80%"
+              />
+            </Link>
+            <Link to="/student/subject">
+              <CourseCard
+                title="Geography"
+                image={geography}
+                teachImg={teachImg}
+                teacher="Mrs Ola"
+                percentage="80%"
+              />
+            </Link>
+            <Link to="/student/subject">
+              <CourseCard
+                title="Biology"
+                image={biology}
+                teachImg={teachImg}
+                teacher="Miss Bello"
+                percentage="80%"
+              />
+            </Link>
+            <Link to="/student/subject">
+              <CourseCard
+                title="Arts"
+                image={arts}
+                teachImg={teachImg}
+                teacher="Miss Taojud"
+                percentage="80%"
+              />
+            </Link>
             <CourseCard
               title="Chemistry"
               image={chemistry}

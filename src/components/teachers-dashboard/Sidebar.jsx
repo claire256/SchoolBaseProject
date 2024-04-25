@@ -18,7 +18,15 @@ const Sidebar = ({ isOpen }) => {
     if (location.pathname === "/teacher/dashboard") setActiveButton(1);
     else if (location.pathname === "/teacher/dashboard/class-records")
       setActiveButton(2);
-    else if (location.pathname === "/teacher/dashboard/classes")
+    else if (
+      location.pathname === "/teacher/dashboard/classes" ||
+      location.pathname === "/teacher/dashboard/classes/myclasses" ||
+      location.pathname === "/teacher/dashboard/classes/myclasses/addsubject" ||
+      location.pathname ===
+        "/teacher/dashboard/classes/myclasses/addsubject/uploadfile" ||
+      location.pathname ===
+        "/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent"
+    )
       setActiveButton(3);
     else if (location.pathname === "/teacher/dashboard/attendance")
       setActiveButton(4);
