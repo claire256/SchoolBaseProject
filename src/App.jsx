@@ -19,7 +19,6 @@ import ClassesPage from './pages/web-app/students-dashboard/ClassesPage';
 import SubjectPage from "./pages/web-app/students-dashboard/SubjectPage";
 import Quiz from "./pages/web-app/students-dashboard/Quiz";
 import PaymentsPage from './pages/web-app/students-dashboard/PaymentsPage';
-import MailPage from './pages/web-app/students-dashboard/MailPage';
 import SettingsPage from './pages/web-app/students-dashboard/Settings';
 import LandingPage from './pages/web-site/landingpage/LandingPage';
 import AssessmentPage from './pages/web-app/students-dashboard/AssessmentPage';
@@ -95,25 +94,6 @@ function App() {
         />
         <Route path="/teacher/dashboard/classes" element={<Classes />} />
         <Route
-          path="/teacher/dashboard/attendance"
-          element={<ClassRegister />}
-        />
-        <Route path="/teacher/dashboard/exams" element={<Exams />} />
-        <Route path="/teacher/dashboard/exams/add" element={<AddQuestions />} />
-        <Route
-          path="/teacher/dashboard/exams/add-question"
-          element={<QuestionPage />}
-        />
-        <Route
-          path="/teacher/dashboard/exams/complete-quiz"
-          element={<QuestionGeneral />}
-        />
-        <Route
-          path="/teacher/dashboard/attendance/classlist"
-          element={<ClassList />}
-        />
-        <Route path="/teacher/dashboard/settings" element={<Settings />} />
-        <Route
           path="/teacher/dashboard/classes/myclasses"
           element={<MyClasses />}
         />
@@ -137,6 +117,25 @@ function App() {
           path="/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent/viewsyllabus/form"
           element={<ClassesForm />}
         />
+        <Route
+          path="/teacher/dashboard/attendance"
+          element={<ClassRegister />}
+        />
+        <Route path="/teacher/dashboard/exams" element={<Exams />} />
+        <Route path="/teacher/dashboard/exams/add" element={<AddQuestions />} />
+        <Route
+          path="/teacher/dashboard/exams/add-question"
+          element={<QuestionPage />}
+        />
+        <Route
+          path="/teacher/dashboard/exams/complete-quiz"
+          element={<QuestionGeneral />}
+        />
+        <Route
+          path="/teacher/dashboard/attendance/classlist"
+          element={<ClassList />}
+        />
+        <Route path="/teacher/dashboard/settings" element={<Settings />} />
         <Route
           path="/teacher/dashboard/attendance"
           element={<ClassRegister />}
