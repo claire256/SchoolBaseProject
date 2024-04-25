@@ -84,7 +84,8 @@ import circle from "../assets/images/circle.svg";
 import redirect from "../assets/images/redirect.svg";
 import ArrowLeft from "../assets/images/ArrowLeft.svg";
 import clockIcon from "../assets/images/clockIcon.svg";
-
+import Arrow from "../assets/images/arrow.png";
+import ThumbsUp from "../assets/images/thumbs up icon.png";
 
 export {
   schoolbaseLogo,
@@ -173,4 +174,6 @@ export {
   redirect,
   ArrowLeft,
   clockIcon,
+  Arrow,
+  ThumbsUp,
 };

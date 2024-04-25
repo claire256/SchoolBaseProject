@@ -15,14 +15,17 @@ const Sidebar = ({ isOpen }) => {
   useEffect(() => {
     if (location.pathname === "/student/dashboard") setActiveButton(1);
     else if (location.pathname === "/student/student-life") setActiveButton(2);
-    else if (location.pathname === "/student/classes") setActiveButton(3);
+    else if (
+      location.pathname === "/student/classes" ||
+      location.pathname === "/student/subject"
+    )
+      setActiveButton(3);
     else if (
       location.pathname === "/student/payments" ||
-      location.pathname === "/student/payments/pay" ||
-      location.pathname === "/student/assessment"
+      location.pathname === "/student/payments/pay"
     )
       setActiveButton(4);
-    else if (location.pathname === "/student/mail") setActiveButton(5);
+    else if (location.pathname === "/student/assessment") setActiveButton(5);
     else if (location.pathname === "/student/settings") setActiveButton(6);
   }, [location.pathname]);
   return (
@@ -36,7 +39,7 @@ const Sidebar = ({ isOpen }) => {
         </div>
         <div className="mt-16 w-full flex flex-col gap-2 justify-start items-center font-manrope">
           <Link
-            to="/student"
+            to="/student/dashboard"
             className={
               activebutton === 1
                 ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
@@ -80,7 +83,7 @@ const Sidebar = ({ isOpen }) => {
             <h4 className="">Payments</h4>
           </Link>
           <Link
-            to="/student/mail"
+            to="/student/assessment"
             className={
               activebutton === 5
                 ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
@@ -89,7 +92,7 @@ const Sidebar = ({ isOpen }) => {
           >
             <BsFillCreditCardFill />
 
-            <h4 className="">Mail</h4>
+            <h4 className="">Assessment</h4>
           </Link>
           <Link
             to="/student/settings"
