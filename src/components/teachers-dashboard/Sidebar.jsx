@@ -32,7 +32,10 @@ const Sidebar = ({ isOpen }) => {
         "/teacher/dashboard/classes/myclasses/addsubject/uploadfile/subjectcontent/viewsyllabus/form"
     )
       setActiveButton(3);
-    else if (location.pathname === "/teacher/dashboard/attendance")
+    else if (
+      location.pathname === "/teacher/dashboard/attendance" ||
+      location.pathname === "/teacher/dashboard/attendance/classlist"
+    )
       setActiveButton(4);
     else if (
       location.pathname === "/teacher/dashboard/exams" ||

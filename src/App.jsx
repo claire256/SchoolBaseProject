@@ -121,6 +121,10 @@ function App() {
           path="/teacher/dashboard/attendance"
           element={<ClassRegister />}
         />
+        <Route
+          path="/teacher/dashboard/attendance/classlist"
+          element={<ClassList />}
+        />
         <Route path="/teacher/dashboard/exams" element={<Exams />} />
         <Route path="/teacher/dashboard/exams/add" element={<AddQuestions />} />
         <Route
@@ -130,10 +134,6 @@ function App() {
         <Route
           path="/teacher/dashboard/exams/complete-quiz"
           element={<QuestionGeneral />}
-        />
-        <Route
-          path="/teacher/dashboard/attendance/classlist"
-          element={<ClassList />}
         />
         <Route path="/teacher/dashboard/settings" element={<Settings />} />
         <Route
