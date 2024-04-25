@@ -8,12 +8,12 @@ import {
     Checkbox,
   } from "@mui/material";
 import Header from "../../../components/teachers-dashboard/Header";
-// import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router";
 
 
 const Quiz = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-row h-screen font-manrope">
@@ -21,8 +21,7 @@ const Quiz = () => {
       <div className=" w-full lgss:w-4/5 flex flex-col h-full overflow-auto pb-10">
         <div className="flex flex-col justify-between items-center text-primary w-full pt-[20px] px-[5%]">
           <div className="w-full flex justify-between">
-            <h1 className="text-[28px] px-[40px] font-semibold text-secondary">
-            </h1>
+            <h1 className="text-[28px] px-[40px] font-semibold text-secondary"></h1>
             <div className="lgss:hidden">
               {isOpen ? (
                 <FaTimes
@@ -38,7 +37,7 @@ const Quiz = () => {
             </div>
           </div>
         </div>
-<Header/>
+        <Header />
         <div className="mds:flex justify-between ml-2 mds:ml-6 lgss:ml-20">
           <div className="font-semibold text-xl pt-3 ">
             <p>Take a Test</p>
@@ -73,7 +72,7 @@ const Quiz = () => {
           </div>
         </div>
         <div className="ml-10 mt-3 mds:ml-20 lgss:ml-32">
-        <div className="">
+          <div className="">
             <FormGroup>
               <FormControlLabel
                 control={<Checkbox size="small" />}
@@ -119,7 +118,7 @@ const Quiz = () => {
           </div>
         </div>
         <div className="ml-10 mt-3 mds:ml-20 lgss:ml-32">
-        <div className="">
+          <div className="">
             <FormGroup>
               <FormControlLabel
                 control={<Checkbox size="small" />}
@@ -157,10 +156,15 @@ const Quiz = () => {
             <p>Answered 0 of 2</p>
           </div>
           <div className="flex w-64 mt-5 mr-7 mds:ml-10 lgss:mr-0 lgss:justify-between lgss:w-56">
-            <div className="bg-[#3D5EE1] rounded-lg w-24 h-11 text-center text-white text-xs pt-2 lgss:pt-3">
+            <div className="bg-[#3D5EE1] cursor-pointer rounded-lg w-24 h-11 text-center text-white text-xs pt-2 lgss:pt-3">
               <p>Save and Next</p>
             </div>
-            <div className="border border-[#007BFF] rounded-lg w-24 h-11 text-xs text-center text-[#007BFF] ml-8 pt-2 lgss:pt-3">
+            <div
+              onClick={() => {
+                navigate("/student/quiz/result");
+              }}
+              className="border cursor-pointer border-[#007BFF] rounded-lg w-24 h-11 text-xs text-center text-[#007BFF] ml-8 pt-2 lgss:pt-3"
+            >
               <p>End Test</p>
             </div>
           </div>

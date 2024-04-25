@@ -17,7 +17,9 @@ const Sidebar = ({ isOpen }) => {
     else if (location.pathname === "/student/student-life") setActiveButton(2);
     else if (
       location.pathname === "/student/classes" ||
-      location.pathname === "/student/subject"
+      location.pathname === "/student/subject" ||
+      location.pathname === "/student/quiz"||
+      location.pathname === "/student/quiz/result"
     )
       setActiveButton(3);
     else if (

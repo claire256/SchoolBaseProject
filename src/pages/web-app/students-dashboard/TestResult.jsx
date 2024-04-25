@@ -3,9 +3,11 @@ import Sidebar from "../../../components/students-dashboard/Sidebar";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { ThumbsUp } from "../../../assets";
 import Header from "../../../components/teachers-dashboard/Header";
+import { useNavigate } from "react-router";
 
 
 const TestResult = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -60,7 +62,11 @@ const TestResult = () => {
             </div>
           </div>
           <div className="mt-10 lgss:flex lgss:w-3/6 lgss:justify-between">
-            <div className="border bg-[#3D5EE1] rounded-xl text-center text-white text-sm pt-1 w-40 h-8 lgss:mt-4">
+            <div
+            onClick={()=>{
+              navigate("/student/dashboard")
+            }}
+             className="border bg-[#3D5EE1] rounded-xl text-center text-white text-sm pt-1 w-40 h-8 lgss:mt-4 cursor-pointer">
                 <p>Go to Dashboard</p>
             </div>
             <div className="border  rounded-xl text-center text-[#007BFF] text-sm pt-1 w-40 h-8 mt-4">

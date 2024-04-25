@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  BlkLine,
   SlideImgFour,
   SlideImgOne,
   SlideImgThree,
@@ -110,7 +111,15 @@ const Slider = () => {
   };
 
   return (
-    <div className="hidden lgss:flex items-center justify-center w-full mt-10">
+    <div className="hidden lgss:flex flex-col items-center justify-center w-full mt-10">
+      <div className="flex mt-40 flex-col mb-10 items-center justify-center w-full">
+        <div className="flex justify-center items-center">
+          <img src={BlkLine} alt="black line" />
+          <h1 className="mx-4 ">Read Our Student Comments</h1>
+          <img src={BlkLine} alt="black line" />
+        </div>
+        <p className="font-semibold text-3xl">Our Reviews</p>
+      </div>
       <div className="w-4/5">{slides[currentSlide]}</div>
     </div>
   );
