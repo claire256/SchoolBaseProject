@@ -69,6 +69,8 @@ import ArrowRight from "../assets/images/ArrowRight.png";
 import plus from "../assets/images/plus.png";
 import quizImg from "../assets/images/quizImg.png";
 import teacherdashboardImg from "../assets/images/Teacher and student.png";
+import Edit from "../assets/images/Edit.png";
+import closeVectorImage from "../assets/images/closeVectorImage.png";
 import rightArrowStroke from "../assets/images/Stroke.png";
 import facebkIcon from "../assets/images/facebk.png";
 import xhandleIcon from "../assets/images/xhandle.png";
@@ -155,6 +157,8 @@ export {
   plus,
   quizImg,
   teacherdashboardImg,
+  Edit,
+  closeVectorImage,
   rightArrowStroke,
   smallGirl,
   facebkIcon,
