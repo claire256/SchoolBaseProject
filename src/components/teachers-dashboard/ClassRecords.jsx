@@ -68,13 +68,13 @@ const ClassRecords = () => {
         {/* Student Record */}
         {
           page === "class" &&
-          <main className="mt-8 px-4">
-            <div className="flex justify-between mr-4 sm:mr-16">
+          <main className="mt-8 px-[5%]">
+            <div className="flex w-[95%] justify-between mr-4 sm:mr-16">
               <h1 className="text-xl font-bold mb-4">Class Records | Classes</h1>
               <button className="text-20 text-white font-manrope bg-buttonPrimary hover:bg-blue-500 py-2 px-4 rounded-lg"
                 onClick={() => { setShowmodal(true); }}>Add a New Class</button>
             </div>
-            <div className="w-[85%] mx-auto border-2 border-slate-300 rounded-lg mt-8 px-12 box-border pb-8">
+            <div className="w-[90%] mx-auto border-2 border-slate-300 rounded-lg mt-8 box-border pb-8">
               <div className="flex flex-row items-center justify-between font-bold py-2">
                 <div className="px-4 py-2 w-[25%] text-center">Classes</div>
                 <div className="px-4 py-2 w-[25%] text-center">No of Subject</div>

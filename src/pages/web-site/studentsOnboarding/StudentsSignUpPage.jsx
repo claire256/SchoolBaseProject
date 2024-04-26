@@ -1,4 +1,4 @@
-import { Arrowdown, colleaguesDiscussing, imageicon } from "../../../assets";
+import { colleaguesDiscussing, imageicon } from "../../../assets";
 import "../../../styles/studentsOnboarding/signup.css";
 import { Link } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
@@ -130,6 +130,7 @@ const StudentsSignUp = () => {
               {errors.email && (
                       <p className="error">{errors.email}</p>
                     )}
+              <input id="Date of Birth" placeholder="Date of Birth" className="input" />
             </div>
           </div>
           <br></br>

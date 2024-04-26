@@ -12,7 +12,7 @@ const AssessmentPage = () => {
       <Sidebar isOpen={isOpen} />
       <div className="w-full lgss:w-4/5 flex flex-col h-full overflow-auto bg-white items-center px-[5%]">
         <div className="flex justify-between items-center text-primary w-full pt-[20px]">
-          <h1 className="text-[28px] px-[40px] font-semibold text-primary">
+          <h1 className="text-[28px] font-semibold text-neutral">
             Assessment
           </h1>
           <div className="lgss:hidden">
@@ -24,7 +24,7 @@ const AssessmentPage = () => {
             ) : (
               <FaBars
                 onClick={() => setIsOpen(true)}
-                className=" cursor-pointer text-red text-xl"
+                className=" cursor-pointer text-neutral text-xl"
               />
             )}
           </div>

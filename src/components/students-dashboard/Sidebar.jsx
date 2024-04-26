@@ -15,32 +15,35 @@ const Sidebar = ({ isOpen }) => {
   useEffect(() => {
     if (location.pathname === "/student/dashboard") setActiveButton(1);
     else if (location.pathname === "/student/student-life") setActiveButton(2);
-    else if (location.pathname === "/student/classes") setActiveButton(3);
+    else if (
+      location.pathname === "/student/classes" ||
+      location.pathname === "/student/subject" ||
+      location.pathname === "/student/quiz"||
+      location.pathname === "/student/quiz/result"
+    )
+      setActiveButton(3);
     else if (
       location.pathname === "/student/payments" ||
-      location.pathname === "/student/payments/pay" ||
-      location.pathname === "/student/assessment"
+      location.pathname === "/student/payments/pay"
     )
       setActiveButton(4);
-    else if (location.pathname === "/student/mail") setActiveButton(5);
+    else if (location.pathname === "/student/assessment") setActiveButton(5);
     else if (location.pathname === "/student/settings") setActiveButton(6);
   }, [location.pathname]);
   return (
     <>
-      <div className="border w-[20%] hidden lgss:flex flex-col items-center pt-12 pb-10 font-bold overflow-y-hidden text-[#7D7676] text-sm sidebar">
-        <div className="w-full h-[60px] text-[26px] flex flex-col gap-4 font-extrabold">
+      <div className="border w-[20%] hidden lgss:flex flex-col items-center pt-6 pb-10 font-bold overflow-y-hidden text-[#7D7676] text-sm sidebar">
+        <div className="w-full h-[10%] text-[26px] flex flex-col gap-4 font-extrabold">
           <img src={schoolbaseLogo} alt="" className="w-full h-full bg-cover" />
-          <h1 className="text-center">
-            SCHOOL <span className="text-primary">BASE</span>
-          </h1>
+          <h1 className="text-center text-black pt-2">SCHOOLBASE</h1>
         </div>
-        <div className="mt-16 w-full flex flex-col gap-2 justify-start items-center font-manrope">
+        <div className="mt-16 w-full flex flex-col gap-2 items-center h-[80%] justify-center font-manrope">
           <Link
-            to="/student"
+            to="/student/dashboard"
             className={
               activebutton === 1
-                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
-                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[60px]"
+                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[50px]"
+                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[50px]"
             }
           >
             <FaHome />
@@ -50,8 +53,8 @@ const Sidebar = ({ isOpen }) => {
             to="/student/student-life"
             className={
               activebutton === 2
-                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
-                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[60px]"
+                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[50px]"
+                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[50px]"
             }
           >
             <FaGraduationCap />
@@ -61,8 +64,8 @@ const Sidebar = ({ isOpen }) => {
             to="/student/classes"
             className={
               activebutton === 3
-                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
-                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[60px]"
+                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[50px]"
+                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[50px]"
             }
           >
             <BsPeopleFill />
@@ -72,31 +75,31 @@ const Sidebar = ({ isOpen }) => {
             to="/student/payments"
             className={
               activebutton === 4
-                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
-                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[60px]"
+                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[50px]"
+                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[50px]"
             }
           >
             <FaUserPen />
             <h4 className="">Payments</h4>
           </Link>
           <Link
-            to="/student/mail"
+            to="/student/assessment"
             className={
               activebutton === 5
-                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
-                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[60px]"
+                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[50px]"
+                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[50px]"
             }
           >
             <BsFillCreditCardFill />
 
-            <h4 className="">Mail</h4>
+            <h4 className="">Assessment</h4>
           </Link>
           <Link
             to="/student/settings"
             className={
               activebutton === 6
-                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[60px]"
-                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[60px]"
+                ? "flex text-[18px] text-white items-center font-medium pl-16 bg-primary w-full gap-5 h-[50px]"
+                : "flex items-center text-[18px] text-[#6B7276] font-medium pl-16 w-full gap-5 h-[50px]"
             }
           >
             <RiBookOpenFill />
@@ -105,7 +108,7 @@ const Sidebar = ({ isOpen }) => {
         </div>
         <button
           onClick={() => navigate("/get-started")}
-          className="flex gap-5 text-[18px] mt-4 text-[#B82323] items-center  font-medium pl-16 h-[40%] w-full border-t-2 "
+          className="flex gap-5 text-[18px] mt-4 text-[#B82323] items-center font-medium pl-16  w-full h-[10%] border-t-2 "
         >
           Sign Out
           <HiOutlineLogout />
@@ -114,7 +117,7 @@ const Sidebar = ({ isOpen }) => {
 
       {isOpen && (
         <div
-          className={`absolute  top-0 left-0  h-screen bg-[#F0EDE7] w-[70%] mds:w-1/3 lgss:hidden flex  flex-col py-4 pt-10   transform transition-transform duration-300 ${
+          className={`absolute  top-0 left-0 bg-[#F0EDE7] w-[70%] mds:w-1/3 lgss:hidden flex  flex-col py-4 pt-10   transform transition-transform duration-300 ${
             isOpen ? "translate-x-0 " : "-translate-x-full"
           }`}
         >
@@ -175,7 +178,7 @@ const Sidebar = ({ isOpen }) => {
                 <h4 className="">Payments</h4>
               </Link>
               <Link
-                to="/student/mail"
+                to="/student/assessment"
                 className={
                   activebutton === 5
                     ? "flex text-[18px] text-white items-center font-medium pl-12 bg-primary w-full gap-5 h-[60px]"
@@ -184,7 +187,7 @@ const Sidebar = ({ isOpen }) => {
               >
                 <BsFillCreditCardFill />
 
-                <h4 className="">Mail</h4>
+                <h4 className="">Assessment</h4>
               </Link>
               <Link
                 to="/student/settings"
@@ -200,7 +203,7 @@ const Sidebar = ({ isOpen }) => {
 
               <button
                 onClick={() => navigate("/get-started")}
-                className="flex gap-5 text-[18px] text-[#B82323] items-center  font-medium pl-12 h-[40%] w-full border-t-2 "
+                className="flex gap-5 text-[18px] text-[#B82323] items-center font-medium pl-12 pt-10 h-[40%] w-full border-t-2 "
               >
                 Sign Out
                 <HiOutlineLogout />

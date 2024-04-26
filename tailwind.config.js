@@ -13,6 +13,7 @@ module.exports = {
         pink: "#FFF3F3",
         signUpBg: "#DEE3F9",
         buttonPrimary: "#3A00E5",
+        red: "#f80707",
         inputBg: "#F0EEED",
       },
 
