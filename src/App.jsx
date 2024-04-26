@@ -43,9 +43,11 @@ import UploadFile from './components/teachers-dashboard/Classes/UploadFile';
 import SubjectContent from './components/teachers-dashboard/Classes/SubjectContent';
 import ViewSyllabus from './components/teachers-dashboard/Classes/ViewSyllabus';
 import ClassesForm from './components/teachers-dashboard/Classes/ClassesForm';
+import AppContextProvider from './context/Context';
 
 function App() {
   return (
+    <AppContextProvider>
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -140,6 +142,7 @@ function App() {
         />
       </Routes>
     </Router>
+  </AppContextProvider>  
   );
 }
 
