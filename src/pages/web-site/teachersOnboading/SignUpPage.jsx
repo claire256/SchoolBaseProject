@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { signupImg } from "../../../assets";
-import { FormControl, MenuItem, Select } from "@mui/material";
+import { schoolbaseLogo, signupImg } from "../../../assets";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { CiImageOn } from "react-icons/ci";
 import { BiErrorCircle } from "react-icons/bi";
@@ -9,80 +8,58 @@ import axios from "axios";
 import { API_URL } from "../../../constants";
 import { ClipLoader } from "react-spinners";
 
+const classes = ["JSS1", "JSS2", "JSS3", "SS1", "SS2", "SS3"];
+
 const SignUpPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { role } = location.state || {};
-  const [email, setEmail] = useState("");
-  const [residence, setResidence] = useState("");
-  const [gender, setGender] = useState("");
-  const [surname, setSurname] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [middleName, setMiddleName] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [viewPassword, setViewPassword] = useState(false);
   const [viewConfirmPassword, setViewConfirmPassword] = useState(false);
-  const [avatar, setAvatar] = useState("");
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState("");
-  const validateEmail = (
-    surname,
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    surName: "",
+    middleName: "",
+    gender: "",
+    email: "",
+    password: "",
+    classTaught: [],
+    address: "",
+    passport: null,
+    role: "teacher",
+  });
+
+  const validateForm = (
+    surName,
     firstName,
     middleName,
     gender,
-    residence,
+    address,
     email,
     password,
     confirmPassword
   ) => {
-    if (!surname) {
-      setError("You need to tell us your surname to proceed");
+    if (
+      !surName ||
+      !firstName ||
+      !middleName ||
+      !gender ||
+      !address ||
+      !email ||
+      !password ||
+      !confirmPassword
+    ) {
+      setError("All fields are required");
       setTimeout(() => {
         setError("");
       }, 5000);
       return false;
     }
 
-    if (!firstName) {
-      setError("You need to tell us your first name to proceed");
-      setTimeout(() => {
-        setError("");
-      }, 5000);
-      return false;
-    }
-
-    if (!middleName) {
-      setError("You need to tell us your middle name to proceed");
-      setTimeout(() => {
-        setError("");
-      }, 5000);
-      return false;
-    }
-
-    if (!gender) {
-      setError("You need to tell us your gender to proceed");
-      setTimeout(() => {
-        setError("");
-      }, 5000);
-      return false;
-    }
-
-    if (!residence) {
-      setError("You need to tell us your residential address to proceed");
-      setTimeout(() => {
-        setError("");
-      }, 5000);
-      return false;
-    }
-
-    if (!email) {
-      setError("kindly add your email");
-      setTimeout(() => {
-        setError("");
-      }, 5000);
-      return false;
-    }
     const emailRegex =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     if (!emailRegex.test(email)) {
@@ -93,30 +70,16 @@ const SignUpPage = () => {
       return false;
     }
 
-    if (!password) {
-      setError("kindly add your desired password");
-      setTimeout(() => {
-        setError("");
-      }, 5000);
-      return false;
-    }
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!\"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~])[A-Za-z\d!\"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]{8,}$/;
 
     if (!passwordRegex.test(password.trim())) {
       setError(
-        "Password must contain atleast 8 characters, 1 uppercase, 1 digit, 1 lowercase and 1 special character"
+        "Password must contain at least 8 characters, 1 uppercase, 1 digit, 1 lowercase and 1 special character"
       );
       setTimeout(() => {
         setError("");
       }, 6000);
-      return false;
-    }
-    if (!confirmPassword) {
-      setError("Retype your password in the field above");
-      setTimeout(() => {
-        setError("");
-      }, 5000);
       return false;
     }
 
@@ -131,91 +94,112 @@ const SignUpPage = () => {
     setError("");
     return true;
   };
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file.size > 1000000) {
-      // Handle file size exceeded error
-      return;
+
+  const handleChange = (e) => {
+    const { name, value, type, checked, files } = e.target;
+
+    if (type === "checkbox") {
+      const updatedArray = checked
+        ? [...formData[name], value]
+        : formData[name].filter((item) => item !== value);
+
+      setFormData({
+        ...formData,
+        [name]: updatedArray,
+      });
+    } else if (type === "file") {
+      setFormData({
+        ...formData,
+        [name]: files[0],
+      });
     } else {
-      setAvatar(file);
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
+
+    if (name === "password") {
+      setPassword(value);
+    } else if (name === "confirmPassword") {
+      setConfirmPassword(value);
     }
   };
-  const handleSubmit = async (event) => {
-    event.preventDefault();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (
-      !validateEmail(
-        surname,
-        firstName,
-        middleName,
-        gender,
-        residence,
-        email,
-        password,
+      !validateForm(
+        formData.surName,
+        formData.firstName,
+        formData.middleName,
+        formData.gender,
+        formData.address,
+        formData.email,
+        formData.password,
         confirmPassword
       )
     ) {
       return;
     }
+    setLoader(true);
 
-    const classesTaught = [];
-    const checkboxes = document.querySelectorAll(
-      '.classes-taught input[type="checkbox"]'
+    const formDataToSend = new FormData();
+    formDataToSend.append("firstName", formData.firstName);
+    formDataToSend.append("surName", formData.surName);
+    formDataToSend.append("middleName", formData.middleName);
+    formDataToSend.append("gender", formData.gender);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("password", formData.password);
+    formData.classTaught.forEach((classItem) =>
+      formDataToSend.append("classTaught", classItem)
     );
-    checkboxes.forEach((checkbox) => {
-      if (checkbox.checked) {
-        classesTaught.push(checkbox.name);
+    formDataToSend.append("address", formData.address);
+    formDataToSend.append("passport", formData.passport);
+    formDataToSend.append("role", formData.role);
+
+    try {
+      const response = await axios.post(
+        `${API_URL}/user/signup`,
+        formDataToSend,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log(response.data);
+      navigate("/teacher/dashboard");
+    } catch (error) {
+      console.error("Signup failed:", error);
+      if (error.response) {
+        if (error.response.status === 400) {
+          setError(
+            "This email address is already in use. Please use a different email."
+          );
+        } else {
+          console.log("Error:", error.response.data);
+          setError("An error occurred");
+        }
+      } else {
+        console.log("Request setup error:", error.message);
+        setError("Account already exists, proceed to login");
       }
-    });
-
-    const formData = new FormData();
-    formData.append("surName", surname);
-    formData.append("firstName", firstName);
-    formData.append("middleName", middleName);
-    formData.append("gender", gender);
-    formData.append("address", residence);
-    formData.append("email", email);
-    formData.append("password", password);
-    formData.append("role", role);
-    classesTaught.forEach((classTaught) => {
-      formData.append("classTaught[]", classTaught);
-    });
-    formData.append("avatar", avatar);
-
-    if (!loader) {
-      setLoader(true);
-      axios
-        .post(`${API_URL}/user/signup`, formData)
-        .then((r) => {
-          setLoader(false);
-          navigate("/teacher/dashboard");
-          console.log(r);
-        })
-        .catch((error) => {
-          setLoader(false);
-          if (error.response) {
-            if (error.response.status === 400) {
-              setError(
-                "This email address is already in use. Please use a different email."
-              );
-            } else {
-              console.log("Error:", error.response.data);
-              setError("An error occured");
-            }
-          } else {
-            console.log("Request setup error:", error.message);
-            setError("Account already exists, proceed to login");
-          }
-        });
+    } finally {
+      setLoader(false);
     }
   };
+
   return (
     <div className="flex bg-gray-100">
       <div className="bg-signUpBg hidden lgss:flex lgss:w-1/2 flex-col justify-start items-start">
         <Link to={"/"} className="px-5 py-3">
-          <h1 className="text-3xl sm:text-4xl font-semibold text-primary font-itim">
-            SchoolBase
-          </h1>
+          <div className="flex items-center">
+            <img src={schoolbaseLogo} alt="" />
+            <p className="font-manrope sans px-2 font-extrabold text-[28px]">
+              SCHOOL<span className=" ">BASE</span>
+            </p>
+          </div>
         </Link>
         <div className="flex justify-center items-center flex-grow px-8 h-screen">
           <img
@@ -238,125 +222,111 @@ const SignUpPage = () => {
         <div className="flex flex-col w-full space-y-2">
           <div className="flex flex-col lgss:flex-row w-[90%] lgss:space-x-8">
             <div className="flex flex-col lgss:w-1/2">
-              <label htmlFor="surname" className="text-md font-semibold">
+              <label htmlFor="surName" className="text-md font-semibold">
                 Surname
               </label>
               <input
                 type="text"
-                name="surname"
-                value={surname}
-                id="surname"
+                name="surName"
+                value={formData.surName}
+                id="surName"
                 placeholder="Surname"
                 className="py-1 shadow-lg shadow-gray-400/70 text-sm outline-none px-2"
-                onChange={(e) => setSurname(e.target.value)}
+                onChange={handleChange}
               />
             </div>
             <div className="flex flex-col lgss:w-1/2">
-              <label htmlFor="surname" className="text-md font-semibold">
+              <label htmlFor="firstName" className="text-md font-semibold">
                 First Name
               </label>
               <input
                 type="text"
-                value={firstName}
+                value={formData.firstName}
                 name="firstName"
                 id="firstName"
                 placeholder="First Name"
                 className="py-1 text-sm outline-none shadow-lg shadow-gray-400/70 px-2"
-                onChange={(e) => setFirstName(e.target.value)}
+                onChange={handleChange}
               />
             </div>
           </div>
           <div className="flex flex-col lgss:flex-row w-[90%] lgss:space-x-8">
             <div className="flex flex-col lgss:w-1/2">
-              <label htmlFor="middle name" className="text-md font-semibold">
+              <label htmlFor="middleName" className="text-md font-semibold">
                 Middle Name
               </label>
               <input
                 type="text"
-                value={middleName}
+                value={formData.middleName}
                 name="middleName"
                 id="middleName"
                 placeholder="Middle Name"
                 className="py-1 text-sm shadow-lg shadow-gray-400/70 outline-none px-2"
-                onChange={(e) => setMiddleName(e.target.value)}
+                onChange={handleChange}
               />
             </div>
             <div className="flex flex-col lgss:w-1/2">
               <label htmlFor="gender" className="text-md font-semibold">
                 Gender
               </label>
-              <div className="">
-                <FormControl
-                  className="w-full h-[1.8rem] bg-white text-[#97999C] shadow-lg shadow-gray-400/70"
-                  size="small"
-                >
-                  <Select
-                    value={gender}
-                    id="gender"
-                    label="gender"
-                    sx={{
-                      "& fieldset": { border: "none" },
-                    }}
-                    onChange={(e) => setGender(e.target.value)}
-                  >
-                    <MenuItem value="Male">Male</MenuItem>
-                    <MenuItem value="Female">Female</MenuItem>
-                    <MenuItem value="Other">Other</MenuItem>
-                  </Select>
-                </FormControl>
-              </div>
+              <select
+                className="w-full h-[1.8rem] bg-white text-[#97999C] outline-none shadow-lg shadow-gray-400/70"
+                id="gender"
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
             </div>
           </div>
           <div className="flex flex-col lgss:flex-row w-[90%] lgss:space-x-8">
             <div className="flex flex-col lgss:w-1/2">
-              <label
-                htmlFor="residential address"
-                className="text-md font-semibold"
-              >
+              <label htmlFor="address" className="text-md font-semibold">
                 Residential Address
               </label>
               <input
                 type="text"
-                value={residence}
-                name="residence"
-                id="residence"
+                value={formData.address}
+                name="address"
+                id="address"
                 placeholder="Residential Address"
                 className="py-1 text-sm shadow-lg shadow-gray-400/70 outline-none px-2"
-                onChange={(e) => setResidence(e.target.value)}
+                onChange={handleChange}
               />
             </div>
             <div className="flex flex-col lgss:w-1/2">
-              <label htmlFor="Email Address" className="text-md font-semibold">
+              <label htmlFor="email" className="text-md font-semibold">
                 Email Address
               </label>
               <input
                 type="text"
-                value={email}
-                name="Email Address"
+                value={formData.email}
+                name="email"
                 id="email"
                 placeholder="Email Address"
                 className="py-1 text-sm outline-none shadow-lg shadow-gray-400/70 px-2"
-                onChange={(e) => setEmail(e.target.value.toLowerCase())}
+                onChange={handleChange}
               />
             </div>
           </div>
           <div className="flex flex-col lgss:flex-row w-[90%] lgss:space-x-8">
             <div className="flex flex-col lgss:w-1/2">
-              <label
-                htmlFor="residential address"
-                className="text-md font-semibold"
-              >
+              <label htmlFor="password" className="text-md font-semibold">
                 Password
               </label>
               <div className="  bg-white flex outline-none text-sm w-full justify-between items-center py-1 shadow-lg shadow-gray-400/70 px-2">
                 <input
                   type={viewPassword ? "text" : "password"}
-                  value={password}
+                  value={formData.password}
+                  name="password"
                   placeholder="Password"
                   className="outline-none w-full"
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
+                  onChange={handleChange}
                 />
 
                 {viewPassword ? (
@@ -374,7 +344,7 @@ const SignUpPage = () => {
             </div>
             <div className="flex flex-col lgss:w-1/2">
               <label
-                htmlFor="residential address"
+                htmlFor="confirmPassword"
                 className="text-md font-semibold"
               >
                 Confirm Password
@@ -382,10 +352,11 @@ const SignUpPage = () => {
               <div className="  bg-white flex outline-none text-sm w-full justify-between items-center py-1 shadow-lg shadow-gray-400/70 px-2">
                 <input
                   type={viewConfirmPassword ? "text" : "password"}
-                  placeholder="Confirm Password"
                   value={confirmPassword}
+                  name="confirmPassword"
+                  placeholder="Confirm password"
                   className="outline-none w-full"
-                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  onChange={handleChange}
                 />
 
                 {viewConfirmPassword ? (
@@ -404,40 +375,32 @@ const SignUpPage = () => {
           </div>
         </div>
         <div className="mt-3 space-y-1 w-full">
-          <label htmlFor="Class Taught" className="text-md font-semibold">
+          <label htmlFor="classTaught" className="text-md font-semibold">
             Class Taught
           </label>
           <div className="border-2 rounded-[16px] w-[90%] shadow-sm p-2 flex flex-wrap lgss:space-x-5">
-            <div className="classes-taught space-y-3">
-              <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[20px] gap-3 font-semibold py-1">
-                <p className="text-[14px]">JSS 1</p>
-                <input type="checkbox" className="w-4" name="jss1" id="jss1" />
+            {classes.map((classItem) => (
+              <div
+                key={classItem}
+                className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[16px] gap-3 font-light py-1"
+              >
+                <input
+                  className=""
+                  type="checkbox"
+                  id={`class${classItem}`}
+                  name="classTaught"
+                  value={classItem}
+                  checked={formData.classTaught.includes(classItem)}
+                  onChange={handleChange}
+                />
+                <label
+                  className="form-check-label"
+                  htmlFor={`class${classItem}`}
+                >
+                  {classItem}
+                </label>
               </div>
-              <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[20px] gap-3 font-semibold py-1">
-                <p className="text-[14px]">JSS 2</p>
-                <input type="checkbox" name="jss2" id="jss2" />
-              </div>
-            </div>
-            <div className="classes-taught space-y-3">
-              <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[14px] gap-3 font-semibold py-1">
-                <p className="text-[14px]">JSS 3</p>
-                <input type="checkbox" className="w-4" name="jss3" id="jss3" />
-              </div>
-              <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[14px] gap-3 font-semibold py-1">
-                <p className="text-[14px]">SS 1</p>
-                <input type="checkbox" className="w-4" name="ss1" id="ss1" />
-              </div>
-            </div>
-            <div className="classes-taught space-y-3">
-              <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[20px] gap-3 font-semibold py-1">
-                <p className="text-[14px]">SS 2</p>
-                <input type="checkbox" className="w-4" name="ss2" id="ss2" />
-              </div>
-              <div className="border-2 rounded-[8px] px-3 shadow-sm flex justify-center items-center text-[20px] gap-3 font-semibold py-1">
-                <p className="text-[14px]">SS 3</p>
-                <input type="checkbox" name="ss3" id="ss3" />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         <div className="flex space-x-6 w-[90%] items-end">
@@ -448,18 +411,19 @@ const SignUpPage = () => {
             <CiImageOn />
             <input
               type="file"
-              id="avatar"
-              accept="image/*"
-              onChange={handleImageChange}
+              id="passport"
+              name="passport"
+              onChange={handleChange}
+              required
             />
           </div>
         </div>
         <div className="flex space-x-3 pt-1 text-[14px] font-semibold">
-          <input type="checkbox" className="w-3" required />
+          <input type="radio" className="w-3" required />
           <p>I confirm that the information given on this form is correct</p>
         </div>
         {error && (
-          <div className="bg-red-600 w-[90%] text-white text-[14px] rounded-xl justify-start items-center gap-2 flex h-[48px] px-2 font-bold mt-4">
+          <div className="bg-red w-[90%] text-white text-[14px] rounded-xl justify-start items-center gap-2 flex h-[48px] px-2 font-bold mt-4">
             <BiErrorCircle className="text-xl" />
             {error}
           </div>
@@ -482,7 +446,6 @@ const SignUpPage = () => {
           </span>
         </p>
       </form>
-      ;
     </div>
   );
 };

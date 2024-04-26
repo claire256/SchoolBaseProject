@@ -26,7 +26,7 @@ const PaymentsPage = () => {
               ) : (
                 <FaBars
                   onClick={() => setIsOpen(true)}
-                  className=" cursor-pointer text-red text-xl"
+                  className=" cursor-pointer text-neutral text-xl"
                 />
               )}
             </div>

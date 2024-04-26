@@ -83,10 +83,10 @@ const HomePage = () => {
   return (
     <div className="flex h-screen font-manrope">
       <SideBar isOpen={isOpen} />
-      <div className=" w-full lgss:w-4/5 flex flex-col h-full overflow-auto">
-        <div className="flex flex-col justify-between items-center text-primary w-full pt-[20px] px-[5%]">
+      <div className=" w-full lgss:w-4/5 flex flex-col h-full overflow-auto pt-5">
+        <div className="flex flex-col justify-between text-primary w-[95%] px-[5%]">
           <div className="w-full flex justify-between items-center">
-            <h1 className="text-[28px] px-[40px] font-semibold text-primary md:hidden">
+            <h1 className="text-[28px] font-semibold text-neutral md:hidden">
               Home
             </h1>
             <div className="lgss:hidden pr-5">
@@ -98,12 +98,12 @@ const HomePage = () => {
               ) : (
                 <FaBars
                   onClick={() => setIsOpen(true)}
-                  className=" cursor-pointer text-red text-xl"
+                  className=" cursor-pointer text-neutral text-xl"
                 />
               )}
             </div>
           </div>
-          <div className="flex flex-col justify-start gap-6 text-neutral pt-10 pb-5">
+          <div className="flex flex-col justify-start gap-6 text-neutral pb-5">
             <SearchHead />
 
             <div className="dashboard flex justify-between items-cente md:px-10  h-[30%">

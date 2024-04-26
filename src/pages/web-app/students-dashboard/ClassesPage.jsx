@@ -22,7 +22,7 @@ const ClassesPage = () => {
       <div className=" w-full lgss:w-4/5 flex flex-col h-full overflow-auto">
         <div className="flex flex-col justify-between items-center text-primary w-full pt-[20px] px-[5%]">
           <div className="w-full flex justify-between">
-            <h1 className="text-[28px] px-[40px] font-semibold text-secondary">
+            <h1 className="text-[28px] font-semibold text-secondary">
               My Courses
             </h1>
             <div className="lgss:hidden">
@@ -34,7 +34,7 @@ const ClassesPage = () => {
               ) : (
                 <FaBars
                   onClick={() => setIsOpen(true)}
-                  className=" cursor-pointer text-red text-xl"
+                  className=" cursor-pointer text-neutral text-xl"
                 />
               )}
             </div>
