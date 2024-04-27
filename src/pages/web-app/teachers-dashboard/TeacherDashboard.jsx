@@ -59,11 +59,11 @@ const TeacherDashboard = () => {
       <Sidebar isOpen={isOpen} />
       <div className="lgss:w-4/5 w-full lgss:overflow-auto h-full">
         <div className="flex flex-col justify-end w-full">
-          <div className="lgss:hidden pt-5 px-[5%]">
+          <div className="lgss:hidden pt-5 px-[5%] flex justify-end w-full">
             {isOpen ? (
               <FaTimes
                 onClick={() => setIsOpen(false)}
-                className=" cursor-pointer text-secondary text-xl"
+                className=" cursor-pointer text-red text-xl"
               />
             ) : (
               <FaBars

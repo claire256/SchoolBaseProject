@@ -151,7 +151,7 @@ function App() {
           element={<QuizHistory />}
         />
         <Route
-          path="/get-started/applicantregistration"
+          path="/get-started/applicant/signup"
           element={<ApplicantReg />}
         />
         <Route

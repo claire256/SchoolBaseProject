@@ -26,7 +26,7 @@ const WelcomePage = () => {
           <div className="flex justify-center items-center">
             <img src={schoolbaseLogo} alt="" />
             <p className="font-manrope sans px-2 font-extrabold text-[28px]">
-              SCHOOL<span className=" text-[#3D5EE1]">BASE</span>
+              SCHOOL<span className=" ">BASE</span>
             </p>
           </div>
           {/* ++++++++ */}

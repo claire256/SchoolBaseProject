@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { schoolbaseLogo } from "../../assets";
 
 const GetStarted = () => {
   const [activeButton, setActiveButton] = useState(null);
@@ -32,9 +33,12 @@ const GetStarted = () => {
     <div className="bg-blueBg h-[100vh] flex flex-col ">
       <div className="px-4 py-2">
         <Link to={"/"}>
-          <h1 className="font-itim font-extrabold text-[36px] text-primary ">
-            SchoolBase
-          </h1>
+          <div className="flex items-center">
+            <img src={schoolbaseLogo} alt="" />
+            <p className="font-manrope sans px-2 font-extrabold text-[28px]">
+              SCHOOL<span className=" ">BASE</span>
+            </p>
+          </div>
         </Link>
       </div>
       <div className="flex w-full h-full justify-center items-center gap-10">
@@ -96,12 +100,6 @@ const GetStarted = () => {
                     </div>
                   </button>
                 </div>
-              </div>
-              <div className="">
-                <p>
-                  Don&apos;t have an account?{" "}
-                  <span className="text-[#FFA3BE] px-2">Register here</span>
-                </p>
               </div>
             </div>
 
