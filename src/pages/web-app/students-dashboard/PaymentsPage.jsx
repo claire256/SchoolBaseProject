@@ -6,6 +6,7 @@ import StudentProfile from "../../../components/students-dashboard/StudentProfil
 import { FiMessageSquare } from "react-icons/fi";
 import { GoTriangleDown } from "react-icons/go";
 import { Link } from "react-router-dom";
+import SearchHead from "./SearchHead";
 
 const mockData = [
   {
@@ -101,11 +102,9 @@ const StudentsPage = () => {
     <div className="flex flex-row h-screen">
       <Sidebar isOpen={isOpen} />
       <div className=" w-full lgss:w-4/5 flex flex-col h-full overflow-auto">
-        <div className="flex flex-col justify-between items-center text-primary w-full pt-[20px] px-[5%]">
+        <div className="flex flex-col justify-between w-full pt-[20px] px-[5%]">
+          <SearchHead/>
           <div className="w-full flex justify-between">
-            <h1 className="text-[28px] font-semibold text-secondary">
-              Payments
-            </h1>
             <div className="lgss:hidden">
               {isOpen ? (
                 <FaTimes
