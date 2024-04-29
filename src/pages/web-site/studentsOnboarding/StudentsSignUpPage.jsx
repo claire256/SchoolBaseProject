@@ -7,9 +7,14 @@ import { AppContext } from "../../../context/Context";
 import { STUDENTSIGNUP, STUDENTSIGNUP_ERRORS } from "../../../context/Type";
 import { AddStudent } from "../../../context/Actions/student";
 import validateStudent from "../../../Auth/validateStudent";
+import { ClipLoader } from "react-spinners";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 const StudentsSignUp = () => {
     const navigate = useNavigate();
+    const [buttonLoading, setButtonLoading] = useState(false);
+    const [viewPassword, setViewPassword] = useState(false);
+    const [viewConfirmPassword, setViewConfirmPassword] = useState(false);
     const [apierrors, setApierrors] = useState(null);
     const [errors, setErrors] = useState({});
     const{studentState, studentDispatch} = useContext(AppContext)
@@ -25,7 +30,7 @@ const StudentsSignUp = () => {
       class: "",
       address: "",
       passport: "",
-      role: "",
+      // role: "",
     })
     useEffect(()=>{
       if (studentState?.signup?.newRecord.user) {
@@ -50,11 +55,12 @@ const StudentsSignUp = () => {
     }
     const handleSubmit = async(event)=>{
       event.preventDefault()
-      const studentErrors = validateStudent(student);
-    if (studentErrors) {
-      setErrors(studentErrors);
-      return;
-    }
+    //   const studentErrors = validateStudent(student);
+    // if (studentErrors) {
+    //   setErrors(studentErrors);
+    //   return;
+    // }
+    setButtonLoading(true);
     const form = {
       firstName: student?.firstName,
       surName: student?.surName,
@@ -64,9 +70,12 @@ const StudentsSignUp = () => {
       password: student?.password,
       class: student?.class,
       passport: student?.passport,
-      address: student?.address
+      address: student?.address,
+      // gender: student?.gender
     };
     await AddStudent(form)(studentDispatch);
+
+    setButtonLoading(false);
     }
   
   return (
@@ -103,11 +112,21 @@ const StudentsSignUp = () => {
               <br></br>
               <input id="Middle Name" placeholder="Middle Name" className="input" name="middleName" onChange={handleOnChange}/>
             </div>
-            {/* <div>
+             <div>
               <label htmlFor="Gender" className="label">Gender</label>
               <br></br>
-              <input id="Gender" placeholder="Gender" className="input" name="gender" onChange={handleOnChange}/>
-            </div> */}
+              <select
+                className="input"
+                id="gender"
+                name="gender"
+                onChange={handleOnChange}
+              >
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div> 
           </div>
           <br></br>
           <div className="form-display">
@@ -126,11 +145,9 @@ const StudentsSignUp = () => {
               <label htmlFor="Email Address" className="label">Email Address</label>
               <br></br>
               <input id="Email Address" placeholder="Email Address" className="input" type="email" name="email" onChange={handleOnChange}/>
-              {/* <img src={Arrowdown} className="arrowdown" /> */}
               {errors.email && (
                       <p className="error">{errors.email}</p>
                     )}
-              <input id="Date of Birth" placeholder="Date of Birth" className="input" />
             </div>
           </div>
           <br></br>
@@ -138,21 +155,33 @@ const StudentsSignUp = () => {
             <div className="state">
               <label htmlFor="Class" className="label">Class</label>
               <br></br>
-              <input id="Class" placeholder="Class"  className="input" name="class" onChange={handleOnChange}/>
-              {/* <img src={Arrowdown} className="arrowdown" /> */}
+              <select
+                className="input"
+                id="class"
+                name="class"
+                onChange={handleOnChange}
+              >
+                <option value="">Select Class</option>
+                <option value="jss1">JSS1</option>
+                <option value="jss2">JSS2</option>
+                <option value="jss3">JSS3</option>
+                <option value="ss1">SS1</option>
+                <option value="ss2">SS2</option>
+                <option value="ss3">SS3</option>
+              </select>
+
             </div>
             <div className="state">
-              {/* <label htmlFor="Phone Number" className="label">Phone Number</label>
+              <label htmlFor="Phone Number" className="label">Phone Number</label>
               <br></br>
-              <input id="Phone Number" placeholder="Phone Number" className="input" type="" name="phoneNumber" onChange={handleOnChange}/> */}
-              {/* <img src={Arrowdown} className="arrowdown" /> */}
+              <input id="Phone Number" placeholder="Phone Number" className="input" type="" name="phoneNumber" onChange={handleOnChange}/> 
             </div>
           </div>
           {errors.class && (
                       <p className="error">{errors.class}</p>
                     )}
           <br></br>
-          <div className="form-display">
+          {/* <div className="form-display">
             <div>
               <label htmlFor="role" className="label">Role</label>
               <br></br>
@@ -161,13 +190,26 @@ const StudentsSignUp = () => {
                       <p className="error">{errors.role}</p>
                     )}
             </div>
-            </div>
+            </div> */}
           <br></br>
           <div className="form-display">
             <div>
               <label htmlFor="New Password" className="label">New Password</label>
               <br></br>
+              <div className="eye-display">
               <input id="New Password" placeholder="New Password" className="input" type="password" name="password" onChange={handleOnChange}/>
+              {viewPassword ? (
+                  <IoMdEye
+                    // onClick={() => setViewPassword((prev) => !prev)}
+                    className="eye"
+                  />
+                ) : (
+                  <IoMdEyeOff
+                    // onClick={() => setViewPassword((prev) => !prev)}
+                    className="eye"
+                  />
+                )}
+              </div>
               {errors.password && (
                       <p className="error">{errors.password}</p>
                     )}
@@ -175,28 +217,40 @@ const StudentsSignUp = () => {
             <div>
               <label htmlFor="Comfirm Password" className="label">Comfirm Password</label>
               <br></br>
+              <div className="eye-display">
               <input id="Confirm Password" placeholder="Comfirm Password" className="input" type="password" name="confirmPassword" onChange={handleOnChange}/>
+              {viewConfirmPassword ? (
+                  <IoMdEye
+                    onClick={() => setViewConfirmPassword((prev) => !prev)}
+                    className="eye"
+                  />
+                ) : (
+                  <IoMdEyeOff
+                    onClick={() => setViewConfirmPassword((prev) => !prev)}
+                    className="eye" 
+                  />
+                )}
+                </div>
               {errors.confirmPassword && (
                       <p className="error">{errors.confirmPassword}</p>
                     )} 
             </div>
           </div>
-          {errors.comfirmPassword && (
-                      <p className="error">{errors.confirmPassword}</p>
-                    )}
           <div className="last-sec">
             <p>Upload your recent passport photogragh, JPEG, PNG</p>
             <div className="state">
               <input className="file" type="file" id="myFile" name="passport" onChange={handleOnChange} />
-              {/* <img src={imageicon} className="image-icon" /> */}
             </div>
             {errors.passport && (
                       <p className="error">{errors.passport}</p>
                     )}
           </div>
-          {/* <Link to={"/student/dashboard"}>           */}
-          <button className="button" onClick={handleSubmit}>Sign Up</button>
-          {/* </Link> */}
+          <Link to={"/student/dashboard"}>           
+          <button className="button">
+           {/* {buttonLoading? <ClipLoader color="#ffffff" className="loader"/> :"Sign Up"} */}
+           Sign Up
+            </button>
+          </Link> 
           <p className="login">
             Already have an account?{" "}
             <Link to={"/get-started/student/signin"}  className="link">

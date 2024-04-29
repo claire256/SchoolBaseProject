@@ -17,12 +17,23 @@
   display: flex;
   gap: 5%;
 }
+.eye-display{
+    display: flex;
+    position: relative;
+}
+.eye{
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    font-size: 20px;
+}
 .form .input{
     width: 280px;
     height: 38px;
     border-radius: 6px;
-    border: solid 1px #DEE3F9;
     padding-left: 10px;
+    background: transparent;
+    box-shadow:2px 5px 5px #abb4b9;
 }
 .form .label{
     color: #4D4D4E;
@@ -80,9 +91,6 @@
     position: relative;
 }
 .file{
-    /* width:155px ; */
-    /* height:32px ; */
-    /* border-radius: 8px; */
     background: #DEE3F9;
     color: 12px;
     font-size: 14px;
@@ -96,6 +104,9 @@
 }
 .error{
     color: red;
+}
+.loader{
+    margin-top: -7px;
 }
 
 @media (max-width: 480px) {
