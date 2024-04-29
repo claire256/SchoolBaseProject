@@ -3,6 +3,7 @@ import Sidebar from "../../../components/students-dashboard/Sidebar";
 import { FaBars, FaTimes } from "react-icons/fa";
 import StudentProfile from "../../../components/students-dashboard/StudentProfile";
 import { Link } from "react-router-dom";
+import SearchHead from "./SearchHead";
 
 const AssessmentPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,11 +11,9 @@ const AssessmentPage = () => {
   return (
     <div className="flex flex-row h-screen">
       <Sidebar isOpen={isOpen} />
-      <div className="w-full lgss:w-4/5 flex flex-col h-full overflow-auto bg-white items-center px-[5%]">
+      <div className="w-full lgss:w-4/5 flex flex-col h-full overflow-auto bg-white px-[5%]">
+        <SearchHead/>
         <div className="flex justify-between items-center text-primary w-full pt-[20px]">
-          <h1 className="text-[28px] font-semibold text-neutral">
-            Assessment
-          </h1>
           <div className="lgss:hidden">
             {isOpen ? (
               <FaTimes
