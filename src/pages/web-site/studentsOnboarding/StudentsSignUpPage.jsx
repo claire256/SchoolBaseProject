@@ -55,13 +55,16 @@ const StudentsSignUp = () => {
     }
     const handleSubmit = async(event)=>{
       event.preventDefault()
-    //   const studentErrors = validateStudent(student);
-    // if (studentErrors) {
-    //   setErrors(studentErrors);
-    //   return;
-    // }
-    setButtonLoading(true);
-    const form = {
+      const studentErrors = validateStudent(student);
+     if (studentErrors) {
+      setErrors(studentErrors);
+       return;
+     }
+     navigate("/student/dashboard")
+    
+     setButtonLoading(true);
+    
+     const form = {
       firstName: student?.firstName,
       surName: student?.surName,
       middleName: student?.middleName,
@@ -245,12 +248,12 @@ const StudentsSignUp = () => {
                       <p className="error">{errors.passport}</p>
                     )}
           </div>
-          <Link to={"/student/dashboard"}>           
-          <button className="button">
+          {/* <Link to={"/student/dashboard"}>            */}
+          <button className="button" onClick={handleSubmit}>
            {/* {buttonLoading? <ClipLoader color="#ffffff" className="loader"/> :"Sign Up"} */}
            Sign Up
             </button>
-          </Link> 
+          {/* </Link>  */}
           <p className="login">
             Already have an account?{" "}
             <Link to={"/get-started/student/signin"}  className="link">
