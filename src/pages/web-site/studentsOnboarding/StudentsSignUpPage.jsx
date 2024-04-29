@@ -55,11 +55,11 @@ const StudentsSignUp = () => {
     }
     const handleSubmit = async(event)=>{
       event.preventDefault()
-    //   const studentErrors = validateStudent(student);
-    // if (studentErrors) {
-    //   setErrors(studentErrors);
-    //   return;
-    // }
+      const studentErrors = validateStudent(student);
+     if (studentErrors) {
+      setErrors(studentErrors);
+       return;
+     }
     setButtonLoading(true);
     const form = {
       firstName: student?.firstName,
