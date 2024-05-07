@@ -7,12 +7,15 @@ const validateStudent = (student)=>{
     if(!student.surName){
         errors.surName = "Last name required"
     }
+    if(!student.middleName){
+        errors.middleName = "Middle name required"
+    }
     if(!student.class){
         errors.class = "Class required"
     }
-    // if(!student.role){
-    //     errors.role = "Role required"
-    // }
+    if(!student.phoneNumber){
+         errors.phoneNumber = "phone number required"
+     }
     if(!student.passport){
         errors.passport = "Passport photo required"
     }

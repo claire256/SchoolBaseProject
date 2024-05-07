@@ -25,15 +25,15 @@ const StudentsSignUp = () => {
       surName: "",
       firstName: "",
       middleName: "",
-      // phoneNumber: "",
-      // gender: "",
+      phoneNumber: "",
+      gender: "",
       class: "",
       address: "",
       passport: "",
-      // role: "",
+      role: "student",
     })
     useEffect(()=>{
-      if (studentState?.signup?.newRecord.user) {
+      if (studentState?.signup?.id) {
         console.log('id', studentState?.signup?.newRecord.user)
         studentDispatch({ type: STUDENTSIGNUP, payload: null });
         return navigate("/student/dashboard");
@@ -60,7 +60,7 @@ const StudentsSignUp = () => {
       setErrors(studentErrors);
        return;
      }
-     navigate("/student/dashboard")
+    //  navigate("/student/dashboard")
     
      setButtonLoading(true);
     
@@ -74,7 +74,8 @@ const StudentsSignUp = () => {
       class: student?.class,
       passport: student?.passport,
       address: student?.address,
-      // gender: student?.gender
+      gender: student?.gender,
+      phoneNumber: student?.phoneNumber
     };
     await AddStudent(form)(studentDispatch);
 
@@ -114,6 +115,9 @@ const StudentsSignUp = () => {
               <label htmlFor="Middle Name" className="label">Middle Name</label>
               <br></br>
               <input id="Middle Name" placeholder="Middle Name" className="input" name="middleName" onChange={handleOnChange}/>
+              {errors.middleName && (
+                      <p className="error">{errors.middleName}</p>
+                    )}
             </div>
              <div>
               <label htmlFor="Gender" className="label">Gender</label>
@@ -172,17 +176,22 @@ const StudentsSignUp = () => {
                 <option value="ss2">SS2</option>
                 <option value="ss3">SS3</option>
               </select>
-
+              {errors.class && (
+                      <p className="error">{errors.class}</p>
+                    )}
             </div>
             <div className="state">
               <label htmlFor="Phone Number" className="label">Phone Number</label>
               <br></br>
               <input id="Phone Number" placeholder="Phone Number" className="input" type="" name="phoneNumber" onChange={handleOnChange}/> 
+              {errors.phoneNumber && (
+                      <p className="error">{errors.phoneNumber}</p>
+                    )}
             </div>
           </div>
-          {errors.class && (
+          {/* {errors.class && (
                       <p className="error">{errors.class}</p>
-                    )}
+                    )} */}
           <br></br>
           {/* <div className="form-display">
             <div>
@@ -250,8 +259,7 @@ const StudentsSignUp = () => {
           </div>
           {/* <Link to={"/student/dashboard"}>            */}
           <button className="button" onClick={handleSubmit}>
-           {/* {buttonLoading? <ClipLoader color="#ffffff" className="loader"/> :"Sign Up"} */}
-           Sign Up
+           {buttonLoading? <ClipLoader color="#ffffff" className="loader"/> :"Sign Up"}
             </button>
           {/* </Link>  */}
           <p className="login">
