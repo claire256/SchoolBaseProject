@@ -13,6 +13,9 @@
     height: 840px;
     width: 709px;
 }
+.manlearning{
+
+}
 .wrapper-display{
     display: flex;
     gap: 25px;
@@ -22,6 +25,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 400px;
 }
 .form-sec .label{
     color: #4D4D4E;
@@ -31,8 +35,9 @@
     width: 100%;
     height: 38px;
     border-radius: 6px;
-    border: solid 1px #DEE3F9;
     padding-left: 10px;
+    background: transparent;
+    box-shadow:2px 5px 5px #abb4b9;
 }
 .butn{
     background: #3D5EE1;
