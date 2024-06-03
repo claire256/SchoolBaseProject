@@ -16,15 +16,17 @@ const StudentsSignin = () => {
       <label for="School E-mail Address" className="label">School E-mail Address</label><br></br>
       <input id="School E-mail Address" placeholder="School E-mail Address" className="input" /><br></br><br></br>
       <label for="Password" className="label" >Password</label><br></br>
-      <input id="Password" placeholder="Password" className="input" />
-      <div className="section">
+      <input id="Password" placeholder="Password" className="input" type="password"/>
+      <div className="section"> 
           <div className="checkbox-display">
           <input type="checkbox" className="check"/>
           <label>Remember me</label>
          </div>
         <Link to={"/forgot-password"}>Forgot Password?</Link>
       </div>
+      <Link to="/student/dashboard">
       <button className="butn" >Sign In</button>
+      </Link>
       <p className="signup">
                Not registered yet?
           <Link

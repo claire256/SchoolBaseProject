@@ -186,9 +186,11 @@ const handleSubmit = async (event) => {
                 {error}
               </div>
             )}
+            <Link to="/teacher/dashboard">
             <button className="bg-primary w-full py-3 mt-8 text-white font-semibold text-md rounded-[4px]">
               {loader ? <ClipLoader color="#ffffff" /> : "Log In"}
             </button>
+            </Link>
             <p className="text-center w-full text-sm font-semibold mt-3">
               Not registered yet?
               <Link
