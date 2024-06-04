@@ -5,7 +5,7 @@ import { circle2 } from "../../assets";
 import { envelope } from "../../assets";
 import { Link } from "react-router-dom";
 
-const EmailVerification = () => {
+const EmailVerification = ({ isOpen, onClose }) => {
   return (
     <div className="bg-blueBg h-screen relative">
       <div className="px-7 py-10 w-1/3">
@@ -13,6 +13,7 @@ const EmailVerification = () => {
           SchoolBase
         </h1>
       </div>
+      <h1 className="text-red-600 cursor-pointer" onClick={() => { onClose(); }}>Close</h1>
       <div className="">
         <img className="absolute top-40" src={semicircle} alt="" />
       </div>

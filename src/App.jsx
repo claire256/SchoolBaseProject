@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 import GetStarted from './pages/web-site/GetStarted';
 import TeacherDashboard from './pages/web-app/teachers-dashboard/TeacherDashboard';
 import ClassRecords from './components/teachers-dashboard/ClassRecords';
