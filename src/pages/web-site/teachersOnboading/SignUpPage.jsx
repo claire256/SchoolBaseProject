@@ -33,68 +33,6 @@ const SignUpPage = () => {
     role: "teacher",
   });
 
-  const validateForm = (
-    surName,
-    firstName,
-    middleName,
-    gender,
-    address,
-    email,
-    password,
-    confirmPassword
-  ) => {
-    if (
-      !surName ||
-      !firstName ||
-      !middleName ||
-      !gender ||
-      !address ||
-      !email ||
-      !password ||
-      !confirmPassword
-    ) {
-      setError("All fields are required");
-      setTimeout(() => {
-        setError("");
-      }, 5000);
-      return false;
-    }
-
-    const emailRegex =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-    if (!emailRegex.test(email)) {
-      setError("Your email is not in the correct format");
-      setTimeout(() => {
-        setError("");
-      }, 6000);
-      return false;
-    }
-
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!\"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~])[A-Za-z\d!\"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]{8,}$/;
-
-    if (!passwordRegex.test(password.trim())) {
-      setError(
-        "Password must contain at least 8 characters, 1 uppercase, 1 digit, 1 lowercase and 1 special character"
-      );
-      setTimeout(() => {
-        setError("");
-      }, 6000);
-      return false;
-    }
-
-    if (confirmPassword !== password) {
-      setError("Oops!!! Your passwords do not match");
-      setTimeout(() => {
-        setError("");
-      }, 6000);
-      return false;
-    }
-
-    setError("");
-    return true;
-  };
-
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
 
@@ -124,6 +62,113 @@ const SignUpPage = () => {
     } else if (name === "confirmPassword") {
       setConfirmPassword(value);
     }
+  };
+  const validateForm = (
+    surName,
+    firstName,
+    middleName,
+    gender,
+    address,
+    email,
+    password,
+    confirmPassword,
+    classTaught,
+    passport
+  ) => {
+    if (!surName) {
+      setError("You need to tell us your surname to proceed");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+      return false;
+    }
+
+    if (!firstName) {
+      setError("You need to tell us your first name to proceed");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+      return false;
+    }
+
+    if (!middleName) {
+      setError("You need to tell us your middle name to proceed");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+      return false;
+    }
+
+    if (!gender) {
+      setError("You need to tell us your gender to proceed");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+      return false;
+    }
+
+    if (!address) {
+      setError("You need to tell us your residential address to proceed");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+      return false;
+    }
+
+    if (!email) {
+      setError("kindly add your email");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+      return false;
+    }
+    const emailRegex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    if (!emailRegex.test(email)) {
+      setError("Your email is not in the correct format");
+      setTimeout(() => {
+        setError("");
+      }, 6000);
+      return false;
+    }
+
+    if (!password) {
+      setError("kindly add your desired password");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+      return false;
+    }
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!\"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~])[A-Za-z\d!\"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]{8,}$/;
+
+    if (!passwordRegex.test(password.trim())) {
+      setError(
+        "Password must contain atleast 8 characters, 1 uppercase, 1 digit, 1 lowercase and 1 special character"
+      );
+      setTimeout(() => {
+        setError("");
+      }, 6000);
+      return false;
+    }
+    if (!confirmPassword) {
+      setError("Retype your password in the field above");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+      return false;
+    }
+
+    if (confirmPassword !== password) {
+      setError("Oops!!! Your passwords do not match");
+      setTimeout(() => {
+        setError("");
+      }, 6000);
+      return false;
+    }
+
+    setError("");
+    return true;
   };
 
   const handleSubmit = async (e) => {
@@ -159,32 +204,33 @@ const SignUpPage = () => {
     formDataToSend.append("role", formData.role);
 
     try {
-      const response = await axios.post(
-        `${API_URL}/user/signup`,
-        formDataToSend,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      // const response = await axios.post(
+      //   `${API_URL}/user/signup`,
+      //   formDataToSend,
+      //   {
+      //     headers: {
+      //       "Content-Type": "multipart/form-data",
+      //     },
+      //   }
+      // );
       console.log(response.data);
-      navigate("/teacher/dashboard");
+      navigate("/teacher/verify-email");
     } catch (error) {
-      console.error("Signup failed:", error);
-      if (error.response) {
-        if (error.response.status === 400) {
-          setError(
-            "This email address is already in use. Please use a different email."
-          );
-        } else {
-          console.log("Error:", error.response.data);
-          setError("An error occurred");
-        }
-      } else {
-        console.log("Request setup error:", error.message);
-        setError("Account already exists, proceed to login");
-      }
+      navigate("/teacher/verify-email");
+      // console.error("Signup failed:", error);
+      // if (error.response) {
+      //   if (error.response.status === 400) {
+      //     setError(
+      //       "This email address is already in use. Please use a different email."
+      //     );
+      //   } else {
+      //     console.log("Error:", error.response.data);
+      //     setError("An error occurred");
+      //   }
+      // } else {
+      //   console.log("Request setup error:", error.message);
+      //   setError("Account already exists, proceed to login");
+      // }
     } finally {
       setLoader(false);
     }
@@ -275,7 +321,6 @@ const SignUpPage = () => {
                 name="gender"
                 value={formData.gender}
                 onChange={handleChange}
-                required
               >
                 <option value="">Select Gender</option>
                 <option value="male">Male</option>

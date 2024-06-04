@@ -1,5 +1,5 @@
 import React from "react";
-import { Notification, search, userpix } from "../../../assets";
+import { Notification, search, studentImg } from "../../../assets";
 
 const SearchHead = () => {
   return (
@@ -16,7 +16,7 @@ const SearchHead = () => {
             <p>Hi</p>
             <p>Ada Smith</p>
           </div>
-          <img src={userpix} alt="" />
+          <img src={studentImg} alt="" />
           <img src={Notification} alt="" />
         </div>
       </div>
