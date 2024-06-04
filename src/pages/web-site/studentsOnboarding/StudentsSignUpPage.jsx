@@ -257,11 +257,12 @@ const StudentsSignUp = () => {
                       <p className="error">{errors.passport}</p>
                     )}
           </div>
-          {/* <Link to={"/student/dashboard"}>            */}
-          <button className="button" onClick={handleSubmit}>
+          <Link to={"/student/dashboard"}>            
+          {/* <button className="button" onClick={handleSubmit}> */}
+          <button className="button">
            {buttonLoading? <ClipLoader color="#ffffff" className="loader"/> :"Sign Up"}
             </button>
-          {/* </Link>  */}
+           </Link>  
           <p className="login">
             Already have an account?{" "}
             <Link to={"/get-started/student/signin"}  className="link">

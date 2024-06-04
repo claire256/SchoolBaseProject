@@ -473,12 +473,14 @@ const SignUpPage = () => {
             {error}
           </div>
         )}
+        <Link to="/teacher/dashboard" className="w-[90%]">  
         <button
           type="submit"
-          className="bg-primary py-2 mt-3 w-[90%] text-white font-semibold text-md rounded-[4px]"
+          className="bg-primary py-2 mt-3 w-[100%] text-white font-semibold text-md rounded-[4px]"
         >
           {loader ? <ClipLoader color="#ffffff" /> : "Sign Up"}
         </button>
+        </Link> 
         <p className="text-center w-full font-semibold mt-2 text-[14px]">
           Already have an account?{" "}
           <span
