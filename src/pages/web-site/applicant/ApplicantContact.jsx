@@ -14,10 +14,10 @@ const ApplicantContact = () => {
     surName: '',
     middleName: '',
     gender: '',
-    password: '',
+    password: null,
     address: '',
     phoneNumber: '',
-    dateOfBirth: '',
+    dateOfBirth: null,
     religion: '',
     stateOfOrigin: '',
     nationality: '',
@@ -29,9 +29,9 @@ const ApplicantContact = () => {
     skills: [],
     previousSchools: [],
     registeredCourses: [],
-    additionalDocuments: [],
-    signature: [],
-    recommendationLetter: [],
+    additionalDocuments: null,
+    signature: null,
+    recommendationLetter: null,
 
   });
 

@@ -21,10 +21,10 @@ const ApplicantAcademiaInfo = () => {
     surName: '',
     middleName: '',
     gender: '',
-    password: '',
+    password: null,
     address: '',
     phoneNumber: '',
-    dateOfBirth: '',
+    dateOfBirth: null,
     religion: '',
     stateOfOrigin: '',
     nationality: '',
@@ -64,6 +64,38 @@ const ApplicantAcademiaInfo = () => {
     setFormData(data);
   };
 
+  const handleChange = (e) => {
+    const { name, value, type, checked, files } = e.target;
+    console.log(name);
+    if (type === 'checkbox') {
+      const updatedArray = checked
+        ? [...(formData[name] || []), value]
+        : (formData[name] || []).filter(item => item !== value);
+
+      setFormData({
+        ...formData,
+        [name]: updatedArray
+      });
+    } else if (type === 'file') {
+      // Check if multiple files are selected
+      const updatedFiles = Array.from(files); // Convert FileList to Array
+      setFormData({
+        ...formData,
+        [name]: updatedFiles // Store all selected files
+      });
+    } else if (name === 'skills' || name === 'registeredCourses' || name === 'previousSchools' || name === 'extracurricular' || name === 'interests') {
+      setFormData({
+        ...formData,
+        [name]: value.split(',').map(item => item.trim())
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+    }
+  }
+
 
   //function to handle submit
   const handleSubmit = async (e) => {
@@ -71,7 +103,30 @@ const ApplicantAcademiaInfo = () => {
     setLoading(true);
     try {
       // Submit form data to backend
-      const response = await axios.post('https://tech4dev-project.onrender.com/students/upload', formData, {
+      const formDataToSend = new FormData();
+
+      formDataToSend.append('firstName', formData.firstName);
+      formDataToSend.append('surName', formData.surName);
+      formDataToSend.append('middleName', formData.middleName);
+      formDataToSend.append('gender', formData.gender);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('password', formData.password);
+      formDataToSend.append('address', formData.address);
+      formDataToSend.append('role', formData.role);
+
+
+      formData.passport.forEach(item => formDataToSend.append("passport", item));
+      formData.extracurricular.forEach(item => formDataToSend.append('extracurricular', item));
+      formData.interests.forEach(item => formDataToSend.append('interests', item));
+      formData.skills.forEach(item => formDataToSend.append('skills', item));
+      formData.registeredCourses.forEach(item => formDataToSend.append('registeredCourses', item));
+      formData.previousSchools.forEach(item => formDataToSend.append('previousSchools', item));
+      formData.additionalDocuments.forEach(item => formDataToSend.append('additionalDocuments', item));
+      formData.signature.forEach(item => formDataToSend.append('signature', item));
+      formData.recommendationLetter.forEach(item => formDataToSend.append("recommedationLetter", item));
+      console.log(formData);
+
+      const response = await axios.post('https://tech4dev-project.onrender.com/students/upload', formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -126,7 +181,7 @@ const ApplicantAcademiaInfo = () => {
               size="small"
               name="extracurricular"
               value={formData.extracurricular}
-              onChange={(e) => { handleInputChange('extracurricular', e.target.value); }}
+              onChange={handleChange}
               sx={{
                 "& fieldset": { border: "none" },
               }}
@@ -145,7 +200,7 @@ const ApplicantAcademiaInfo = () => {
               size="small"
               name="interests"
               value={formData.interests}
-              onChange={(e) => { handleInputChange('interests', e.target.value); }}
+              onChange={handleChange}
               sx={{
                 "& fieldset": { border: "none" },
               }}
@@ -165,7 +220,7 @@ const ApplicantAcademiaInfo = () => {
               size="small"
               name="skills"
               value={formData.skills}
-              onChange={(e) => { handleInputChange('skills', e.target.value); }}
+              onChange={handleChange}
               sx={{
                 "& fieldset": { border: "none" },
               }}
@@ -184,7 +239,7 @@ const ApplicantAcademiaInfo = () => {
               size="small"
               name="previousSchools"
               value={formData.previousSchools}
-              onChange={(e) => { handleInputChange('previousSchools', e.target.value); }}
+              onChange={handleChange}
               sx={{
                 "& fieldset": { border: "none" },
               }}
@@ -195,6 +250,11 @@ const ApplicantAcademiaInfo = () => {
 
           {/* Error message display */}
           {error && <div className="text-red-500">{error}</div>}
+
+          <div className="">
+            <p>upload recent passport photograph</p>
+            <input name="passport" type="file" onChange={handleChange} />
+          </div>
 
 
           <div className="mt-4">
@@ -210,7 +270,7 @@ const ApplicantAcademiaInfo = () => {
               name="additionalDocuments"
               value={null}
               //value={formData.additionalDocuments}
-              onChange={(e) => { handleInputChange('additionalDocuments', e.target.value); }}
+              onChange={handleChange}
               sx={{
                 "& fieldset": { border: "none" },
               }}
@@ -231,7 +291,7 @@ const ApplicantAcademiaInfo = () => {
               name="recommendationLetter"
               value={null}
               //value={formData.recommendationLetter}
-              onChange={(e) => { handleInputChange('recommendationLetter', e.target.value); }}
+              onChange={handleChange}
               sx={{
                 "& fieldset": { border: "none" },
               }}
@@ -252,7 +312,7 @@ const ApplicantAcademiaInfo = () => {
               name="signature"
               value={null}
               //value={formData.signature}
-              onChange={(e) => { handleInputChange('signature', e.target.value); }}
+              onChange={handleChange}
               sx={{
                 "& fieldset": { border: "none" },
               }}
@@ -281,7 +341,7 @@ const ApplicantAcademiaInfo = () => {
             </Link>
 
             <div className="">
-              <button onClick={() => { localStorage.setItem('schoolbaseapplicantdata', JSON.stringify(formData)); /*setEmailVerificationModalOpen(true);*/ handleSubmit(); }} style={{ backgroundColor: enabled ? '#1d4ed8' : 'lightgrey', color: enabled ? 'white' : 'darkgrey' }} className="flex items-center justify-center border hover:bg-blue-300 hover:text-[#3D5EE1] bg-[#3D5EE1] text-white rounded-md h-10 w-36 cursor-pointer my-2">
+              <button onClick={(e) => { localStorage.setItem('schoolbaseapplicantdata', JSON.stringify(formData)); /*setEmailVerificationModalOpen(true);*/ handleSubmit(); }} style={{ backgroundColor: enabled ? '#1d4ed8' : 'lightgrey', color: enabled ? 'white' : 'darkgrey' }} className="flex items-center justify-center border hover:bg-blue-300 hover:text-[#3D5EE1] bg-[#3D5EE1] text-white rounded-md h-10 w-36 cursor-pointer my-2">
                 {
                   !loading ?
                     'Submit'
@@ -299,16 +359,6 @@ const ApplicantAcademiaInfo = () => {
 
       </div >
 
-      {/* Display backend response */}
-      {
-        backendResponse && (
-          console.log('Backend Response:', backendResponse),
-          <div className="mt-4">
-            <h2>Backend Response:</h2>
-            <pre>{JSON.stringify(backendResponse, null, 2)}</pre>
-          </div>
-        )
-      }
     </div >
   );
 };
