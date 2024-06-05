@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { createBrowserHistory } from "history";
 import { ApplicantImg } from "../../../assets";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import dayjs from 'dayjs';
+
 import {
   TextField,
   InputLabel,
@@ -15,7 +18,9 @@ import {
 
 
 const ApplicantReg = () => {
+  const [value, setValue] = React.useState(dayjs());
   const [gender, setGender] = useState("");
+  const history = createBrowserHistory();
 
 
   const [formData, setFormData] = useState({
@@ -26,7 +31,7 @@ const ApplicantReg = () => {
     surName: '',
     gender: '',
     middleName: '',
-    password: '',
+    password: null,
     address: '',
     phoneNumber: '',
     dateOfBirth: null,
@@ -41,9 +46,9 @@ const ApplicantReg = () => {
     skills: [],
     previousSchools: [],
     registeredCourses: [],
-    additionalDocuments: [],
-    signature: [],
-    recommendationLetter: [],
+    additionalDocuments: null,
+    signature: null,
+    recommendationLetter: null,
 
   });
 
@@ -57,10 +62,43 @@ const ApplicantReg = () => {
 
 
   const handleInputChange = (key, value) => {
+    console.log(value);
     let data = { ...formData };
     data[key] = value;
     setFormData(data);
   };
+
+  const handleChange = (e) => {
+    const { name, value, type, checked, files } = e.target;
+
+    if (type === 'checkbox') {
+      const updatedArray = checked
+        ? [...(formData[name] || []), value]
+        : (formData[name] || []).filter(item => item !== value);
+
+      setFormData({
+        ...formData,
+        [name]: updatedArray
+      });
+    } else if (type === 'file') {
+      // Check if multiple files are selected
+      const updatedFiles = Array.from(files); // Convert FileList to Array
+      setFormData({
+        ...formData,
+        [name]: updatedFiles // Store all selected files
+      });
+    } else if (name === 'skills' || name === 'registeredCourses' || name === 'previousSchools' || name === 'extracurricular' || name === 'interests') {
+      setFormData({
+        ...formData,
+        [name]: value.split(',').map(item => item.trim())
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+    }
+  }
 
   const handleContinue = () => {
     localStorage.setItem("schoolbaseapplicantdata", JSON.stringify(formData));
@@ -155,13 +193,24 @@ const ApplicantReg = () => {
                 label="Date of Birth"
                 name="dateOfBirth"
                 value={formData.dateOfBirth}
-                onChange={(value) => { handleInputChange('dateOfBirth', value['$d']); }}
+                onChange={(newValue) => {
+                  if (dayjs.isDayjs(newValue) && newValue.isValid()) {
+                    handleInputChange('dateOfBirth', newValue.toDate());
+                    setValue(newValue);
+                  } else {
+                    console.error("Invalid date value");
+                  }
+                }}
                 sx={{
                   "& fieldset": { border: "none" },
+
                 }}
+
+
               />
             </LocalizationProvider>
           </div>
+
           <div className="mt-0.5">
             <p className="text-sm mb-0.5 font-semibold text-[#4D4D4E]">
               Gender
@@ -188,6 +237,7 @@ const ApplicantReg = () => {
               </Select>
             </FormControl>
           </div>
+
           <div className="mt-0.5">
             <p className="text-sm mb-0.5 font-semibold text-[#4D4D4E]">
               Residential Address
